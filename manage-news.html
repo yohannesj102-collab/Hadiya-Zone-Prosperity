@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage News - Hadiya Zone Prosperity Office</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="admin-nav">
+        <div class="nav-brand">
+            <h2><i class="fas fa-newspaper"></i> Manage News</h2>
+        </div>
+        <div class="nav-user">
+            <span id="currentUser"></span>
+            <button onclick="AdminAuth.logout()" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+    
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="manage-announcements.html"><i class="fas fa-bullhorn"></i> Announcements</a></li>
+                <li class="active"><a href="manage-news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="manage-vacancy.html"><i class="fas fa-briefcase"></i> Vacancies</a></li>
+                <li><a href="manage-events.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                <li><a href="manage-press.html"><i class="fas fa-file-alt"></i> Press Releases</a></li>
+            </ul>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1>News Management</h1>
+                <p>Add, edit, or delete news articles for the website</p>
+                <button class="btn-primary" onclick="openNewsForm()">
+                    <i class="fas fa-plus"></i> Add New News Article
+                </button>
+            </div>
+            
+            <!-- News Form (Initially Hidden) -->
+            <div id="newsFormContainer" class="form-container" style="display: none;">
+                <div class="form-header">
+                    <h3><span id="formTitle">Add New</span> News Article</h3>
+                    <button class="btn-close" onclick="closeNewsForm()">&times;</button>
+                </div>
+                <form id="newsForm">
+                    <input type="hidden" id="newsId">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="newsTitle"><i class="fas fa-heading"></i> Title *</label>
+                            <input type="text" id="newsTitle" required placeholder="Enter news title">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newsCategory"><i class="fas fa-tag"></i> Category *</label>
+                            <select id="newsCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="Local">Local News</option>
+                                <option value="Regional">Regional News</option>
+                                <option value="National">National News</option>
+                                <option value="Development">Development</option>
+                                <option value="Education">Education</option>
+                                <option value="Health">Health</option>
+                                <option value="Agriculture">Agriculture</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="newsDate"><i class="fas fa-calendar"></i> Date *</label>
+                            <input type="text" id="newsDate" required placeholder="Select date" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newsAuthor"><i class="fas fa-user-edit"></i> Author</label>
+                            <input type="text" id="newsAuthor" placeholder="Enter author name (optional)">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="newsImage"><i class="fas fa-image"></i> Image URL</label>
+                        <input type="text" id="newsImage" placeholder="Enter image URL (optional)">
+                        <small class="form-help">Example: https://example.com/image.jpg or images/news1.jpg</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="newsContent"><i class="fas fa-file-alt"></i> Content *</label>
+                        <textarea id="newsContent" rows="8" required placeholder="Enter news content"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="newsSummary"><i class="fas fa-file-alt"></i> Short Summary</label>
+                        <textarea id="newsSummary" rows="3" placeholder="Enter short summary (optional)"></textarea>
+                        <small class="form-help">This will be displayed in news lists</small>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeNewsForm()">Cancel</button>
+                        <button type="submit" class="btn-primary" id="submitBtn">Add News Article</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- News List -->
+            <div class="data-table-container">
+                <h3>All News Articles</h3>
+                <div class="table-actions">
+                    <input type="text" id="searchInput" placeholder="Search news..." onkeyup="searchNews()">
+                    <span id="totalCount" class="count-badge">0 news articles</span>
+                </div>
+                
+                <div class="table-responsive">
+                    <table id="newsTable" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Author</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="newsTableBody">
+                            <!-- Data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="noDataMessage" class="no-data">
+                    <i class="fas fa-newspaper"></i>
+                    <p>No news articles found. Click "Add New News Article" to create one.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Delete</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this news article? This action cannot be undone.</p>
+                <p id="deleteItemTitle" class="delete-item-title"></p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn-danger" onclick="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/admin-auth.js"></script>
+    <script>
+        // Initialize date picker
+        flatpickr("#newsDate", {
+            dateFormat: "Y-m-d",
+            defaultDate: new Date()
+        });
+        
+        // Display current user
+        document.getElementById('currentUser').textContent = 
+            'Welcome, ' + sessionStorage.getItem('hadiya_admin_user');
+        
+        // CRUD functions for News
+        let currentEditId = null;
+        let deleteItemId = null;
+        
+        // Open news form
+        function openNewsForm(news = null) {
+            const formContainer = document.getElementById('newsFormContainer');
+            const formTitle = document.getElementById('formTitle');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (news) {
+                // Edit mode
+                formTitle.textContent = 'Edit';
+                submitBtn.textContent = 'Update News Article';
+                
+                document.getElementById('newsId').value = news.id;
+                document.getElementById('newsTitle').value = news.title;
+                document.getElementById('newsCategory').value = news.category;
+                document.getElementById('newsDate').value = news.date;
+                document.getElementById('newsAuthor').value = news.author || '';
+                document.getElementById('newsImage').value = news.image || '';
+                document.getElementById('newsContent').value = news.content;
+                document.getElementById('newsSummary').value = news.summary || '';
+                
+                currentEditId = news.id;
+            } else {
+                // Add mode
+                formTitle.textContent = 'Add New';
+                submitBtn.textContent = 'Add News Article';
+                
+                document.getElementById('newsForm').reset();
+                document.getElementById('newsId').value = '';
+                document.getElementById('newsDate').value = new Date().toISOString().split('T')[0];
+                
+                currentEditId = null;
+            }
+            
+            formContainer.style.display = 'block';
+            formContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Close news form
+        function closeNewsForm() {
+            document.getElementById('newsFormContainer').style.display = 'none';
+            document.getElementById('newsForm').reset();
+            currentEditId = null;
+        }
+        
+        // Handle form submission
+        document.getElementById('newsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newsData = {
+                title: document.getElementById('newsTitle').value,
+                category: document.getElementById('newsCategory').value,
+                date: document.getElementById('newsDate').value,
+                author: document.getElementById('newsAuthor').value || '',
+                image: document.getElementById('newsImage').value || '',
+                content: document.getElementById('newsContent').value,
+                summary: document.getElementById('newsSummary').value || ''
+            };
+            
+            if (currentEditId) {
+                // Update existing news
+                Storage.update(STORAGE_KEYS.NEWS, currentEditId, newsData);
+                showNotification('News article updated successfully!', 'success');
+            } else {
+                // Add new news
+                Storage.add(STORAGE_KEYS.NEWS, newsData);
+                showNotification('News article added successfully!', 'success');
+            }
+            
+            closeNewsForm();
+            loadNews();
+        });
+        
+        // Load all news
+        function loadNews() {
+            const news = Storage.getAll(STORAGE_KEYS.NEWS);
+            const tableBody = document.getElementById('newsTableBody');
+            const noDataMessage = document.getElementById('noDataMessage');
+            const totalCount = document.getElementById('totalCount');
+            
+            // Sort by date (newest first)
+            news.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            if (news.length === 0) {
+                tableBody.innerHTML = '';
+                noDataMessage.style.display = 'block';
+                totalCount.textContent = '0 news articles';
+                return;
+            }
+            
+            noDataMessage.style.display = 'none';
+            totalCount.textContent = `${news.length} news article${news.length !== 1 ? 's' : ''}`;
+            
+            let tableHTML = '';
+            
+            news.forEach(item => {
+                const date = new Date(item.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                
+                tableHTML += `
+                    <tr>
+                        <td>
+                            <strong>${item.title}</strong>
+                            <div class="preview-content">${item.summary || item.content.substring(0, 100)}...</div>
+                        </td>
+                        <td><span class="category-badge news">${item.category}</span></td>
+                        <td>${date}</td>
+                        <td>${item.author || 'N/A'}</td>
+                        <td>
+                            <button class="btn-action edit" onclick="editNews(${item.id})">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn-action delete" onclick="openDeleteModal(${item.id}, '${item.title.replace(/'/g, "\\'")}')">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tableBody.innerHTML = tableHTML;
+        }
+        
+        // Edit news
+        function editNews(id) {
+            const news = Storage.getById(STORAGE_KEYS.NEWS, id);
+            if (news) {
+                openNewsForm(news);
+            }
+        }
+        
+        // Open delete confirmation modal
+        function openDeleteModal(id, title) {
+            deleteItemId = id;
+            document.getElementById('deleteItemTitle').textContent = title;
+            document.getElementById('deleteModal').style.display = 'flex';
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('deleteModal').style.display = 'none';
+            deleteItemId = null;
+        }
+        
+        // Confirm deletion
+        function confirmDelete() {
+            if (deleteItemId) {
+                Storage.delete(STORAGE_KEYS.NEWS, deleteItemId);
+                showNotification('News article deleted successfully!', 'success');
+                loadNews();
+                closeModal();
+            }
+        }
+        
+        // Search news
+        function searchNews() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#newsTableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const title = row.querySelector('td:first-child strong').textContent.toLowerCase();
+                const content = row.querySelector('.preview-content').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Show no results message
+            if (visibleCount === 0 && searchTerm) {
+                document.getElementById('noDataMessage').innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <p>No news articles found for "${searchTerm}"</p>
+                `;
+                document.getElementById('noDataMessage').style.display = 'block';
+            }
+        }
+        
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Remove existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+        
+        // Load news on page load
+        document.addEventListener('DOMContentLoaded', loadNews);
+    </script>
+</body>
+</html>

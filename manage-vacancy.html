@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Vacancies - Hadiya Zone Prosperity Office</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="admin-nav">
+        <div class="nav-brand">
+            <h2><i class="fas fa-briefcase"></i> Manage Vacancies</h2>
+        </div>
+        <div class="nav-user">
+            <span id="currentUser"></span>
+            <button onclick="AdminAuth.logout()" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+    
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="manage-announcements.html"><i class="fas fa-bullhorn"></i> Announcements</a></li>
+                <li><a href="manage-news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li class="active"><a href="manage-vacancy.html"><i class="fas fa-briefcase"></i> Vacancies</a></li>
+                <li><a href="manage-events.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                <li><a href="manage-press.html"><i class="fas fa-file-alt"></i> Press Releases</a></li>
+            </ul>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Vacancies Management</h1>
+                <p>Add, edit, or delete job vacancies for the website</p>
+                <button class="btn-primary" onclick="openVacancyForm()">
+                    <i class="fas fa-plus"></i> Add New Vacancy
+                </button>
+            </div>
+            
+            <!-- Vacancy Form (Initially Hidden) -->
+            <div id="vacancyFormContainer" class="form-container" style="display: none;">
+                <div class="form-header">
+                    <h3><span id="formTitle">Add New</span> Vacancy</h3>
+                    <button class="btn-close" onclick="closeVacancyForm()">&times;</button>
+                </div>
+                <form id="vacancyForm">
+                    <input type="hidden" id="vacancyId">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vacancyTitle"><i class="fas fa-heading"></i> Job Title *</label>
+                            <input type="text" id="vacancyTitle" required placeholder="Enter job title">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vacancyType"><i class="fas fa-briefcase"></i> Job Type *</label>
+                            <select id="vacancyType" required>
+                                <option value="">Select Job Type</option>
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
+                                <option value="Contract">Contract</option>
+                                <option value="Temporary">Temporary</option>
+                                <option value="Internship">Internship</option>
+                                <option value="Volunteer">Volunteer</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vacancyDepartment"><i class="fas fa-building"></i> Department</label>
+                            <input type="text" id="vacancyDepartment" placeholder="Enter department (optional)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vacancyLocation"><i class="fas fa-map-marker-alt"></i> Location</label>
+                            <input type="text" id="vacancyLocation" placeholder="Enter job location (optional)">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vacancyPostDate"><i class="fas fa-calendar-plus"></i> Post Date *</label>
+                            <input type="text" id="vacancyPostDate" required placeholder="Select post date" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vacancyDeadline"><i class="fas fa-calendar-times"></i> Application Deadline *</label>
+                            <input type="text" id="vacancyDeadline" required placeholder="Select deadline" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vacancySalary"><i class="fas fa-money-bill-wave"></i> Salary Range</label>
+                            <input type="text" id="vacancySalary" placeholder="e.g., $20,000 - $25,000 (optional)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vacancyPositions"><i class="fas fa-users"></i> Number of Positions</label>
+                            <input type="number" id="vacancyPositions" placeholder="e.g., 2 (optional)" min="1">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vacancyDescription"><i class="fas fa-file-alt"></i> Job Description *</label>
+                        <textarea id="vacancyDescription" rows="6" required placeholder="Enter detailed job description"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vacancyRequirements"><i class="fas fa-tasks"></i> Requirements *</label>
+                        <textarea id="vacancyRequirements" rows="6" required placeholder="Enter job requirements (one per line)"></textarea>
+                        <small class="form-help">Enter each requirement on a new line</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vacancyResponsibilities"><i class="fas fa-list-check"></i> Key Responsibilities</label>
+                        <textarea id="vacancyResponsibilities" rows="4" placeholder="Enter key responsibilities (one per line)"></textarea>
+                        <small class="form-help">Enter each responsibility on a new line</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vacancyHowToApply"><i class="fas fa-clipboard-check"></i> How to Apply</label>
+                        <textarea id="vacancyHowToApply" rows="4" placeholder="Enter application instructions"></textarea>
+                        <small class="form-help">Include email, address, or application portal details</small>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeVacancyForm()">Cancel</button>
+                        <button type="submit" class="btn-primary" id="submitBtn">Add Vacancy</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Vacancies List -->
+            <div class="data-table-container">
+                <h3>All Job Vacancies</h3>
+                <div class="table-actions">
+                    <div>
+                        <input type="text" id="searchInput" placeholder="Search vacancies..." onkeyup="searchVacancies()">
+                        <select id="typeFilter" onchange="filterVacancies()" style="margin-left: 10px; padding: 10px;">
+                            <option value="">All Types</option>
+                            <option value="Full-time">Full-time</option>
+                            <option value="Part-time">Part-time</option>
+                            <option value="Contract">Contract</option>
+                            <option value="Temporary">Temporary</option>
+                            <option value="Internship">Internship</option>
+                            <option value="Volunteer">Volunteer</option>
+                        </select>
+                    </div>
+                    <span id="totalCount" class="count-badge">0 vacancies</span>
+                </div>
+                
+                <div class="table-responsive">
+                    <table id="vacanciesTable" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Job Title</th>
+                                <th>Type</th>
+                                <th>Department</th>
+                                <th>Deadline</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vacanciesTableBody">
+                            <!-- Data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="noDataMessage" class="no-data">
+                    <i class="fas fa-briefcase"></i>
+                    <p>No vacancies found. Click "Add New Vacancy" to create one.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Delete</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this vacancy? This action cannot be undone.</p>
+                <p id="deleteItemTitle" class="delete-item-title"></p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn-danger" onclick="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/admin-auth.js"></script>
+    <script>
+        // Initialize date pickers
+        flatpickr("#vacancyPostDate", {
+            dateFormat: "Y-m-d",
+            defaultDate: new Date()
+        });
+        
+        flatpickr("#vacancyDeadline", {
+            dateFormat: "Y-m-d",
+            minDate: new Date()
+        });
+        
+        // Display current user
+        document.getElementById('currentUser').textContent = 
+            'Welcome, ' + sessionStorage.getItem('hadiya_admin_user');
+        
+        // CRUD functions for Vacancies
+        let currentEditId = null;
+        let deleteItemId = null;
+        
+        // Open vacancy form
+        function openVacancyForm(vacancy = null) {
+            const formContainer = document.getElementById('vacancyFormContainer');
+            const formTitle = document.getElementById('formTitle');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (vacancy) {
+                // Edit mode
+                formTitle.textContent = 'Edit';
+                submitBtn.textContent = 'Update Vacancy';
+                
+                document.getElementById('vacancyId').value = vacancy.id;
+                document.getElementById('vacancyTitle').value = vacancy.title;
+                document.getElementById('vacancyType').value = vacancy.type;
+                document.getElementById('vacancyDepartment').value = vacancy.department || '';
+                document.getElementById('vacancyLocation').value = vacancy.location || '';
+                document.getElementById('vacancyPostDate').value = vacancy.postDate;
+                document.getElementById('vacancyDeadline').value = vacancy.deadline;
+                document.getElementById('vacancySalary').value = vacancy.salary || '';
+                document.getElementById('vacancyPositions').value = vacancy.positions || '';
+                document.getElementById('vacancyDescription').value = vacancy.description;
+                document.getElementById('vacancyRequirements').value = Array.isArray(vacancy.requirements) ? 
+                    vacancy.requirements.join('\n') : vacancy.requirements || '';
+                document.getElementById('vacancyResponsibilities').value = Array.isArray(vacancy.responsibilities) ? 
+                    vacancy.responsibilities.join('\n') : vacancy.responsibilities || '';
+                document.getElementById('vacancyHowToApply').value = vacancy.howToApply || '';
+                
+                currentEditId = vacancy.id;
+            } else {
+                // Add mode
+                formTitle.textContent = 'Add New';
+                submitBtn.textContent = 'Add Vacancy';
+                
+                document.getElementById('vacancyForm').reset();
+                document.getElementById('vacancyId').value = '';
+                document.getElementById('vacancyPostDate').value = new Date().toISOString().split('T')[0];
+                
+                // Set deadline to 30 days from now
+                const futureDate = new Date();
+                futureDate.setDate(futureDate.getDate() + 30);
+                document.getElementById('vacancyDeadline').value = futureDate.toISOString().split('T')[0];
+                
+                currentEditId = null;
+            }
+            
+            formContainer.style.display = 'block';
+            formContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Close vacancy form
+        function closeVacancyForm() {
+            document.getElementById('vacancyFormContainer').style.display = 'none';
+            document.getElementById('vacancyForm').reset();
+            currentEditId = null;
+        }
+        
+        // Handle form submission
+        document.getElementById('vacancyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const vacancyData = {
+                title: document.getElementById('vacancyTitle').value,
+                type: document.getElementById('vacancyType').value,
+                department: document.getElementById('vacancyDepartment').value || '',
+                location: document.getElementById('vacancyLocation').value || '',
+                postDate: document.getElementById('vacancyPostDate').value,
+                deadline: document.getElementById('vacancyDeadline').value,
+                salary: document.getElementById('vacancySalary').value || '',
+                positions: document.getElementById('vacancyPositions').value || '',
+                description: document.getElementById('vacancyDescription').value,
+                requirements: document.getElementById('vacancyRequirements').value.split('\n').filter(line => line.trim() !== ''),
+                responsibilities: document.getElementById('vacancyResponsibilities').value.split('\n').filter(line => line.trim() !== ''),
+                howToApply: document.getElementById('vacancyHowToApply').value || ''
+            };
+            
+            if (currentEditId) {
+                // Update existing vacancy
+                Storage.update(STORAGE_KEYS.VACANCIES, currentEditId, vacancyData);
+                showNotification('Vacancy updated successfully!', 'success');
+            } else {
+                // Add new vacancy
+                Storage.add(STORAGE_KEYS.VACANCIES, vacancyData);
+                showNotification('Vacancy added successfully!', 'success');
+            }
+            
+            closeVacancyForm();
+            loadVacancies();
+        });
+        
+        // Load all vacancies
+        function loadVacancies() {
+            const vacancies = Storage.getAll(STORAGE_KEYS.VACANCIES);
+            const tableBody = document.getElementById('vacanciesTableBody');
+            const noDataMessage = document.getElementById('noDataMessage');
+            const totalCount = document.getElementById('totalCount');
+            
+            // Sort by deadline (closest first)
+            vacancies.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+            
+            if (vacancies.length === 0) {
+                tableBody.innerHTML = '';
+                noDataMessage.style.display = 'block';
+                totalCount.textContent = '0 vacancies';
+                return;
+            }
+            
+            noDataMessage.style.display = 'none';
+            totalCount.textContent = `${vacancies.length} vacanc${vacancies.length !== 1 ? 'ies' : 'y'}`;
+            
+            let tableHTML = '';
+            
+            vacancies.forEach(vacancy => {
+                const deadline = new Date(vacancy.deadline);
+                const today = new Date();
+                const isExpired = deadline < today;
+                const daysLeft = Math.ceil((deadline - today) / (1000 * 60 * 60 * 24));
+                
+                const status = isExpired ? 
+                    '<span class="status-badge expired">Expired</span>' : 
+                    `<span class="status-badge active">${daysLeft} day${daysLeft !== 1 ? 's' : ''} left</span>`;
+                
+                const deadlineFormatted = deadline.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                
+                tableHTML += `
+                    <tr>
+                        <td>
+                            <strong>${vacancy.title}</strong>
+                            <div class="preview-content">${vacancy.description.substring(0, 100)}...</div>
+                        </td>
+                        <td><span class="type-badge ${vacancy.type.toLowerCase().replace('-', '')}">${vacancy.type}</span></td>
+                        <td>${vacancy.department || 'N/A'}</td>
+                        <td>
+                            ${deadlineFormatted}
+                            <div class="deadline-info">${isExpired ? 'Deadline passed' : `Due in ${daysLeft} day${daysLeft !== 1 ? 's' : ''}`}</div>
+                        </td>
+                        <td>${status}</td>
+                        <td>
+                            <button class="btn-action edit" onclick="editVacancy(${vacancy.id})">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn-action delete" onclick="openDeleteModal(${vacancy.id}, '${vacancy.title.replace(/'/g, "\\'")}')">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tableBody.innerHTML = tableHTML;
+        }
+        
+        // Edit vacancy
+        function editVacancy(id) {
+            const vacancy = Storage.getById(STORAGE_KEYS.VACANCIES, id);
+            if (vacancy) {
+                openVacancyForm(vacancy);
+            }
+        }
+        
+        // Open delete confirmation modal
+        function openDeleteModal(id, title) {
+            deleteItemId = id;
+            document.getElementById('deleteItemTitle').textContent = title;
+            document.getElementById('deleteModal').style.display = 'flex';
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('deleteModal').style.display = 'none';
+            deleteItemId = null;
+        }
+        
+        // Confirm deletion
+        function confirmDelete() {
+            if (deleteItemId) {
+                Storage.delete(STORAGE_KEYS.VACANCIES, deleteItemId);
+                showNotification('Vacancy deleted successfully!', 'success');
+                loadVacancies();
+                closeModal();
+            }
+        }
+        
+        // Search vacancies
+        function searchVacancies() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const typeFilter = document.getElementById('typeFilter').value;
+            const rows = document.querySelectorAll('#vacanciesTableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const title = row.querySelector('td:first-child strong').textContent.toLowerCase();
+                const content = row.querySelector('.preview-content').textContent.toLowerCase();
+                const type = row.querySelector('.type-badge').textContent;
+                
+                const matchesSearch = title.includes(searchTerm) || content.includes(searchTerm);
+                const matchesType = !typeFilter || type === typeFilter;
+                
+                if (matchesSearch && matchesType) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Show no results message
+            if (visibleCount === 0 && (searchTerm || typeFilter)) {
+                document.getElementById('noDataMessage').innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <p>No vacancies found matching your criteria</p>
+                `;
+                document.getElementById('noDataMessage').style.display = 'block';
+            } else if (visibleCount > 0) {
+                document.getElementById('noDataMessage').style.display = 'none';
+            }
+        }
+        
+        // Filter vacancies by type
+        function filterVacancies() {
+            searchVacancies();
+        }
+        
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Remove existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+        
+        // Load vacancies on page load
+        document.addEventListener('DOMContentLoaded', loadVacancies);
+    </script>
+</body>
+</html>

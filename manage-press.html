@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Press Releases - Hadiya Zone Prosperity Office</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="admin-nav">
+        <div class="nav-brand">
+            <h2><i class="fas fa-file-alt"></i> Manage Press Releases</h2>
+        </div>
+        <div class="nav-user">
+            <span id="currentUser"></span>
+            <button onclick="AdminAuth.logout()" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+    
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="manage-announcements.html"><i class="fas fa-bullhorn"></i> Announcements</a></li>
+                <li><a href="manage-news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="manage-vacancy.html"><i class="fas fa-briefcase"></i> Vacancies</a></li>
+                <li><a href="manage-events.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                <li class="active"><a href="manage-press.html"><i class="fas fa-file-alt"></i> Press Releases</a></li>
+            </ul>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Press Releases Management</h1>
+                <p>Add, edit, or delete official press releases for the website</p>
+                <button class="btn-primary" onclick="openPressForm()">
+                    <i class="fas fa-plus"></i> Add New Press Release
+                </button>
+            </div>
+            
+            <!-- Press Release Form (Initially Hidden) -->
+            <div id="pressFormContainer" class="form-container" style="display: none;">
+                <div class="form-header">
+                    <h3><span id="formTitle">Add New</span> Press Release</h3>
+                    <button class="btn-close" onclick="closePressForm()">&times;</button>
+                </div>
+                <form id="pressForm">
+                    <input type="hidden" id="pressId">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pressTitle"><i class="fas fa-heading"></i> Title *</label>
+                            <input type="text" id="pressTitle" required placeholder="Enter press release title">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pressReference"><i class="fas fa-hashtag"></i> Reference Number</label>
+                            <input type="text" id="pressReference" placeholder="e.g., PR/2024/001 (optional)">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pressDate"><i class="fas fa-calendar"></i> Release Date *</label>
+                            <input type="text" id="pressDate" required placeholder="Select date" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pressIssuedBy"><i class="fas fa-user-tie"></i> Issued By *</label>
+                            <input type="text" id="pressIssuedBy" required placeholder="e.g., Office of the Zone Administrator">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pressContactPerson"><i class="fas fa-user"></i> Contact Person</label>
+                            <input type="text" id="pressContactPerson" placeholder="e.g., Communications Officer">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pressContactInfo"><i class="fas fa-phone"></i> Contact Information</label>
+                            <input type="text" id="pressContactInfo" placeholder="e.g., Phone: +251-XXX-XXX-XXX, Email: info@example.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pressSummary"><i class="fas fa-file-alt"></i> Executive Summary *</label>
+                        <textarea id="pressSummary" rows="4" required placeholder="Enter brief summary of the press release"></textarea>
+                        <small class="form-help">This will be displayed in lists and previews</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pressContent"><i class="fas fa-file-alt"></i> Full Content *</label>
+                        <textarea id="pressContent" rows="10" required placeholder="Enter the full press release content"></textarea>
+                        <small class="form-help">Use paragraphs, bullet points, and clear sections</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pressAttachments"><i class="fas fa-paperclip"></i> Attachments (URLs)</label>
+                        <textarea id="pressAttachments" rows="3" placeholder="Enter attachment URLs, one per line (optional)"></textarea>
+                        <small class="form-help">Add URLs to PDFs, documents, or related files</small>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pressStatus"><i class="fas fa-flag"></i> Status</label>
+                            <select id="pressStatus">
+                                <option value="Published">Published</option>
+                                <option value="Draft">Draft</option>
+                                <option value="Archived">Archived</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pressTags"><i class="fas fa-tags"></i> Tags</label>
+                            <input type="text" id="pressTags" placeholder="e.g., development, agriculture, education (comma separated)">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closePressForm()">Cancel</button>
+                        <button type="submit" class="btn-primary" id="submitBtn">Add Press Release</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Press Releases List -->
+            <div class="data-table-container">
+                <h3>All Press Releases</h3>
+                <div class="table-actions">
+                    <div>
+                        <input type="text" id="searchInput" placeholder="Search press releases..." onkeyup="searchPressReleases()">
+                        <select id="statusFilter" onchange="filterPressReleases()" style="margin-left: 10px; padding: 10px;">
+                            <option value="">All Status</option>
+                            <option value="Published">Published</option>
+                            <option value="Draft">Draft</option>
+                            <option value="Archived">Archived</option>
+                        </select>
+                    </div>
+                    <span id="totalCount" class="count-badge">0 press releases</span>
+                </div>
+                
+                <div class="table-responsive">
+                    <table id="pressTable" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Reference</th>
+                                <th>Issued By</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pressTableBody">
+                            <!-- Data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="noDataMessage" class="no-data">
+                    <i class="fas fa-file-alt"></i>
+                    <p>No press releases found. Click "Add New Press Release" to create one.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Delete</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this press release? This action cannot be undone.</p>
+                <p id="deleteItemTitle" class="delete-item-title"></p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn-danger" onclick="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/admin-auth.js"></script>
+    <script>
+        // Initialize date picker
+        flatpickr("#pressDate", {
+            dateFormat: "Y-m-d",
+            defaultDate: new Date()
+        });
+        
+        // Display current user
+        document.getElementById('currentUser').textContent = 
+            'Welcome, ' + sessionStorage.getItem('hadiya_admin_user');
+        
+        // CRUD functions for Press Releases
+        let currentEditId = null;
+        let deleteItemId = null;
+        
+        // Open press release form
+        function openPressForm(press = null) {
+            const formContainer = document.getElementById('pressFormContainer');
+            const formTitle = document.getElementById('formTitle');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (press) {
+                // Edit mode
+                formTitle.textContent = 'Edit';
+                submitBtn.textContent = 'Update Press Release';
+                
+                document.getElementById('pressId').value = press.id;
+                document.getElementById('pressTitle').value = press.title;
+                document.getElementById('pressReference').value = press.reference || '';
+                document.getElementById('pressDate').value = press.date;
+                document.getElementById('pressIssuedBy').value = press.issuedBy;
+                document.getElementById('pressContactPerson').value = press.contactPerson || '';
+                document.getElementById('pressContactInfo').value = press.contactInfo || '';
+                document.getElementById('pressSummary').value = press.summary;
+                document.getElementById('pressContent').value = press.content;
+                document.getElementById('pressAttachments').value = Array.isArray(press.attachments) ? 
+                    press.attachments.join('\n') : press.attachments || '';
+                document.getElementById('pressStatus').value = press.status || 'Published';
+                document.getElementById('pressTags').value = Array.isArray(press.tags) ? 
+                    press.tags.join(', ') : press.tags || '';
+                
+                currentEditId = press.id;
+            } else {
+                // Add mode
+                formTitle.textContent = 'Add New';
+                submitBtn.textContent = 'Add Press Release';
+                
+                document.getElementById('pressForm').reset();
+                document.getElementById('pressId').value = '';
+                document.getElementById('pressDate').value = new Date().toISOString().split('T')[0];
+                document.getElementById('pressStatus').value = 'Published';
+                
+                // Generate suggested reference number
+                const today = new Date();
+                const year = today.getFullYear();
+                const pressReleases = Storage.getAll(STORAGE_KEYS.PRESS);
+                const count = pressReleases.length + 1;
+                document.getElementById('pressReference').value = `PR/${year}/${count.toString().padStart(3, '0')}`;
+                
+                currentEditId = null;
+            }
+            
+            formContainer.style.display = 'block';
+            formContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Close press release form
+        function closePressForm() {
+            document.getElementById('pressFormContainer').style.display = 'none';
+            document.getElementById('pressForm').reset();
+            currentEditId = null;
+        }
+        
+        // Handle form submission
+        document.getElementById('pressForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const pressData = {
+                title: document.getElementById('pressTitle').value,
+                reference: document.getElementById('pressReference').value || '',
+                date: document.getElementById('pressDate').value,
+                issuedBy: document.getElementById('pressIssuedBy').value,
+                contactPerson: document.getElementById('pressContactPerson').value || '',
+                contactInfo: document.getElementById('pressContactInfo').value || '',
+                summary: document.getElementById('pressSummary').value,
+                content: document.getElementById('pressContent').value,
+                attachments: document.getElementById('pressAttachments').value.split('\n').filter(line => line.trim() !== ''),
+                status: document.getElementById('pressStatus').value,
+                tags: document.getElementById('pressTags').value.split(',').map(tag => tag.trim()).filter(tag => tag !== '')
+            };
+            
+            if (currentEditId) {
+                // Update existing press release
+                Storage.update(STORAGE_KEYS.PRESS, currentEditId, pressData);
+                showNotification('Press release updated successfully!', 'success');
+            } else {
+                // Add new press release
+                Storage.add(STORAGE_KEYS.PRESS, pressData);
+                showNotification('Press release added successfully!', 'success');
+            }
+            
+            closePressForm();
+            loadPressReleases();
+        });
+        
+        // Load all press releases
+        function loadPressReleases() {
+            const pressReleases = Storage.getAll(STORAGE_KEYS.PRESS);
+            const tableBody = document.getElementById('pressTableBody');
+            const noDataMessage = document.getElementById('noDataMessage');
+            const totalCount = document.getElementById('totalCount');
+            
+            // Sort by date (newest first)
+            pressReleases.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            if (pressReleases.length === 0) {
+                tableBody.innerHTML = '';
+                noDataMessage.style.display = 'block';
+                totalCount.textContent = '0 press releases';
+                return;
+            }
+            
+            noDataMessage.style.display = 'none';
+            totalCount.textContent = `${pressReleases.length} press release${pressReleases.length !== 1 ? 's' : ''}`;
+            
+            let tableHTML = '';
+            
+            pressReleases.forEach(press => {
+                const date = new Date(press.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                
+                tableHTML += `
+                    <tr>
+                        <td>
+                            <strong>${press.title}</strong>
+                            <div class="preview-content">${press.summary.substring(0, 100)}...</div>
+                        </td>
+                        <td>${press.reference || 'N/A'}</td>
+                        <td>${press.issuedBy}</td>
+                        <td>${date}</td>
+                        <td>
+                            <span class="status-badge ${press.status.toLowerCase()}">
+                                ${press.status}
+                            </span>
+                        </td>
+                        <td>
+                            <button class="btn-action edit" onclick="editPressRelease(${press.id})">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn-action delete" onclick="openDeleteModal(${press.id}, '${press.title.replace(/'/g, "\\'")}')">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                            <button class="btn-action view" onclick="viewPressRelease(${press.id})" title="View">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            tableBody.innerHTML = tableHTML;
+        }
+        
+        // Edit press release
+        function editPressRelease(id) {
+            const press = Storage.getById(STORAGE_KEYS.PRESS, id);
+            if (press) {
+                openPressForm(press);
+            }
+        }
+        
+        // View press release (preview)
+        function viewPressRelease(id) {
+            const press = Storage.getById(STORAGE_KEYS.PRESS, id);
+            if (press) {
+                // Open in new tab or show modal
+                const previewWindow = window.open('', '_blank');
+                previewWindow.document.write(`
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>${press.title} - Press Release</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+                            .header { text-align: center; border-bottom: 2px solid #1e5799; padding-bottom: 20px; margin-bottom: 30px; }
+                            .title { color: #1e5799; font-size: 24px; }
+                            .reference { color: #666; font-size: 14px; }
+                            .meta { margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; }
+                            .content { line-height: 1.6; }
+                            .attachments { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; }
+                            .tag { display: inline-block; background: #e9ecef; padding: 4px 8px; margin: 2px; border-radius: 3px; font-size: 12px; }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="header">
+                            <h1 class="title">${press.title}</h1>
+                            ${press.reference ? `<div class="reference">Reference: ${press.reference}</div>` : ''}
+                            <div>Issued: ${new Date(press.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                        </div>
+                        
+                        <div class="meta">
+                            <strong>Issued By:</strong> ${press.issuedBy}<br>
+                            ${press.contactPerson ? `<strong>Contact Person:</strong> ${press.contactPerson}<br>` : ''}
+                            ${press.contactInfo ? `<strong>Contact:</strong> ${press.contactInfo}<br>` : ''}
+                            ${press.tags && press.tags.length > 0 ? `<strong>Tags:</strong> ${press.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}` : ''}
+                        </div>
+                        
+                        <div class="content">
+                            <h3>Summary</h3>
+                            <p>${press.summary.replace(/\n/g, '<br>')}</p>
+                            
+                            <h3>Full Release</h3>
+                            <div>${press.content.replace(/\n/g, '<br>')}</div>
+                        </div>
+                        
+                        ${press.attachments && press.attachments.length > 0 ? `
+                        <div class="attachments">
+                            <h3>Attachments</h3>
+                            <ul>
+                                ${press.attachments.map(attachment => `<li><a href="${attachment}" target="_blank">${attachment.substring(attachment.lastIndexOf('/') + 1)}</a></li>`).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
+                    </body>
+                    </html>
+                `);
+                previewWindow.document.close();
+            }
+        }
+        
+        // Open delete confirmation modal
+        function openDeleteModal(id, title) {
+            deleteItemId = id;
+            document.getElementById('deleteItemTitle').textContent = title;
+            document.getElementById('deleteModal').style.display = 'flex';
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('deleteModal').style.display = 'none';
+            deleteItemId = null;
+        }
+        
+        // Confirm deletion
+        function confirmDelete() {
+            if (deleteItemId) {
+                Storage.delete(STORAGE_KEYS.PRESS, deleteItemId);
+                showNotification('Press release deleted successfully!', 'success');
+                loadPressReleases();
+                closeModal();
+            }
+        }
+        
+        // Search press releases
+        function searchPressReleases() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value;
+            const rows = document.querySelectorAll('#pressTableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const title = row.querySelector('td:first-child strong').textContent.toLowerCase();
+                const content = row.querySelector('.preview-content').textContent.toLowerCase();
+                const status = row.querySelector('.status-badge').textContent;
+                
+                const matchesSearch = title.includes(searchTerm) || content.includes(searchTerm);
+                const matchesStatus = !statusFilter || status === statusFilter;
+                
+                if (matchesSearch && matchesStatus) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Show no results message
+            if (visibleCount === 0 && (searchTerm || statusFilter)) {
+                document.getElementById('noDataMessage').innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <p>No press releases found matching your criteria</p>
+                `;
+                document.getElementById('noDataMessage').style.display = 'block';
+            } else if (visibleCount > 0) {
+                document.getElementById('noDataMessage').style.display = 'none';
+            }
+        }
+        
+        // Filter press releases by status
+        function filterPressReleases() {
+            searchPressReleases();
+        }
+        
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Remove existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+        
+        // Load press releases on page load
+        document.addEventListener('DOMContentLoaded', loadPressReleases);
+    </script>
+</body>
+</html>
