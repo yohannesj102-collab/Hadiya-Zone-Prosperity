@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Hadiya Zone Prosperity Office</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE STYLES (EXACT SAME AS HOME PAGE) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f23;
+            --primary-dark: #0f4d1a;
+            --secondary-color: #f9a825;
+            --secondary-dark: #e69100;
+            --accent-color: #d32f2f;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --gray-light: #e9ecef;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Ethiopic', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .amharic {
+            font-family: 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+            /* REMOVED: direction: rtl; - This was causing the navigation order to reverse */
+        }
+
+        /* ===== LANGUAGE CONTENT HANDLING (SAME AS HOME PAGE) ===== */
+        .english-content {
+            display: block;
+        }
+
+        .amharic-content {
+            display: none;
+        }
+
+        body.amharic .english-content {
+            display: none;
+        }
+
+        body.amharic .amharic-content {
+            display: block;
+        }
+
+        .language-content {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ===== TOP BAR (SAME AS HOME PAGE) ===== */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1003;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .contact-info span:hover {
+            color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .contact-info i {
+            font-size: 0.9em;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(249, 168, 37, 0.2);
+        }
+
+        /* ===== MAIN HEADER (SAME AS HOME PAGE) ===== */
+        .main-header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1002;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            gap: 30px;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 0 0 auto;
+            min-width: 300px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--white);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            flex: 1;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            color: var(--primary-color);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* Navigation Menu - FIXED FOR LANGUAGE SWITCHING */
+        .nav-container {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+            gap: 2px;
+            direction: ltr; /* Force left-to-right direction for navigation */
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border-radius: var(--border-radius);
+            white-space: nowrap;
+            direction: ltr; /* Force left-to-right for nav links */
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-link i {
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* ===== PAGE HEADER (ABOUT US SPECIFIC) ===== */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+                        url('https://www.cerprosperity.org.et/sites/default/files/inline-images/Header-Image-2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 160px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.9) 100%);
+            z-index: 1;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 1s ease;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .page-header-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        /* ===== ABOUT US SECTIONS ===== */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== ABOUT INTRODUCTION ===== */
+        .about-intro {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .about-intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-intro-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .about-intro-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* ===== ORGANIZATION STRUCTURE ===== */
+        .structure-section {
+            background: var(--white);
+        }
+
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .structure-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--gray-light);
+            text-align: center;
+        }
+
+        .structure-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .structure-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--white);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .structure-card:hover .structure-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .structure-title {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .structure-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .structure-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .structure-list {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .structure-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .structure-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* ===== MISSION & VISION CARDS ===== */
+        .mv-section {
+            background: linear-gradient(135deg, #f0f7f0 0%, #e3f2e3 100%);
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .mv-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--gray-light);
+        }
+
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+
+        .mv-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .mv-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mv-content {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        /* ===== LEADERS GRID (FOR ABOUT US) ===== */
+        .leaders-section {
+            background: var(--white);
+        }
+
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .leader-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .leader-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leader-image:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.3));
+            z-index: 2;
+        }
+
+        .leader-card:hover .leader-image img {
+            transform: scale(1.05);
+        }
+
+        .leader-info {
+            padding: 30px;
+        }
+
+        .leader-name {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .leader-position {
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-style: italic;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .leader-department {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray-light);
+            line-height: 1.7;
+        }
+
+        /* ===== CORE VALUES ===== */
+        .values-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .value-title {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .value-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .value-card:hover .value-title::after {
+            width: 80px;
+        }
+
+        .value-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ===== FOOTER (SAME AS HOME PAGE) ===== */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1c2833 100%);
+            color: var(--white);
+            padding-top: 60px;
+        }
+
+        .footer-main {
+            padding-bottom: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .contact-info-footer p {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-info-footer i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .developer-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .developer-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(26, 95, 35, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 95, 35, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-dark);
+            box-shadow: 0 8px 20px rgba(249, 168, 37, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-menu {
+                gap: 1px;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .page-header {
+                padding: 140px 0 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-header p {
+                font-size: 1.1rem;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                flex: 1;
+                min-width: auto;
+            }
+            
+            .nav-container {
+                flex: 1 0 100%;
+                order: 3;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--white);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                box-shadow: var(--shadow-lg);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid var(--gray-light);
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .structure-grid,
+            .mv-grid,
+            .leaders-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .language-switcher {
+                justify-content: center;
+            }
+            
+            .page-header {
+                padding: 120px 0 40px;
+                background-attachment: scroll;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .page-header-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            .structure-card,
+            .mv-card,
+            .value-card {
+                padding: 25px 20px;
+            }
+            
+            .leader-image {
+                height: 250px;
+            }
+            
+            .leader-info {
+                padding: 20px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header {
+                padding: 100px 0 30px;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .structure-icon,
+            .mv-icon,
+            .value-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar (Same as Home Page) -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Hossana, Ethiopia</span>
+                <span><i class="fas fa-phone"></i> +251939060376</span>
+                <span><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</span>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+                <button class="lang-btn" data-lang="am">
+                    <i class="fas fa-globe"></i> አማርኛ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header (Same as Home Page) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Section -->
+                <div class="logo-section">
+                    <a href="hadiya_prosperity.html" class="logo-container">
+                        <div class="logo-img">
+                            <img src="c:\Users\yohannes\Pictures\Hadiya_Zone.jpg" alt="Hadiya Zone Logo">
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="english-content language-content">HADIYA ZONE PROSPERITY PARTY BRANCH OFFICE</h1>
+                            <h1 class="amharic-content language-content">ሃዲያ ዞን  የብልጽግና ፓርት ብሮ</h1>
+                            <p class="english-content language-content">Official Government Website</p>
+                            <p class="amharic-content language-content">የመንግስት ኦፊሴላዊ ድረ-ገጽ</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="nav-container">
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item">
+                            <a href="hadiya_prosperity.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span class="english-content language-content">Home</span>
+                                <span class="amharic-content language-content">መግቢያ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link active">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="english-content language-content">About</span>
+                                <span class="amharic-content language-content">ስለ እኛ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">
+                                <i class="fas fa-newspaper"></i>
+                                <span class="english-content language-content">News</span>
+                                <span class="amharic-content language-content">ዜና</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sub-branches.html" class="nav-link">
+                                <i class="fas fa-sitemap"></i>
+                                <span class="english-content language-content">Branches</span>
+                                <span class="amharic-content language-content">ቅርንጫፎች</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="resources.html" class="nav-link">
+                                <i class="fas fa-book"></i>
+                                <span class="english-content language-content">Resources</span>
+                                <span class="amharic-content language-content">ሀብቶች</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">
+                                <i class="fas fa-envelope"></i>
+                                <span class="english-content language-content">Contact</span>
+                                <span class="amharic-content language-content">ያግኙን</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="language-content">
+                <h1 class="english-content fade-in">About Hadiya Zone Prosperity Office</h1>
+                <h1 class="amharic-content fade-in">ስለ ሀዲያ ዞን ብልፅግና ቢሮ</h1>
+            </div>
+            <div class="language-content">
+                <p class="english-content fade-in">Discover our mission, vision, leadership, and commitment to serving the people of Hadiya Zone</p>
+                <p class="amharic-content fade-in">የሀዲያ ዞን ህዝብ አገልግሎት መስጠት፣ ራዕይ፣ አመራር እና ቁርጠኝነታችንን ያግኙ</p>
+            </div>
+            <div class="page-header-buttons">
+                <a href="#mission" class="btn btn-secondary">
+                    <i class="fas fa-bullseye"></i>
+                    <span class="english-content language-content">Our Mission</span>
+                    <span class="amharic-content language-content">ተልዕኮች</span>
+                </a>
+                <a href="#structure" class="btn btn-outline">
+                    <i class="fas fa-sitemap"></i>
+                    <span class="english-content language-content">Our Structure</span>
+                    <span class="amharic-content language-content">የእኛ መዋቅር</span>
+                </a>
+                <a href="#leaders" class="btn btn-outline">
+                    <i class="fas fa-users"></i>
+                    <span class="english-content language-content">Leadership</span>
+                    <span class="amharic-content language-content">አመራር</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Introduction -->
+    <section class="about-intro">
+        <div class="container">
+            <div class="about-intro-content fade-in">
+                <div class="language-content">
+                    <h2 class="english-content">Welcome to Hadiya Zone Prosperity Office</h2>
+                    <h2 class="amharic-content">ወደ ሀዲያ ዞን ብልፅግና ቢሮ እንኳን በደህና መጡ</h2>
+                </div>
+                <div class="language-content">
+                    <p class="english-content">
+                        The Hadiya Zone Prosperity Party Branch Office serves as the administrative and political hub for implementing the Prosperity Party's agenda in the Hadiya Zone. We are committed to fostering sustainable development, promoting good governance, and empowering communities through inclusive policies and people-centered initiatives.
+                    </p>
+                    <p class="amharic-content">
+                        ሀዲያ ዞን ብልፅግና ፓርቲ ቅርንጫፍ ጽ/ቤት በሀዲያ ዞን ውስጥ የብልፅግና ፓርቲ አጀንዳ ለመተግበር እንደ አስተዳደራዊ እና ፖለቲካዊ ማዕከል ያገለግላል። ዘላቂ ልማትን ለማጎልበት፣ በጎ አስተዳደርን ለማስተዋወቅ እና ማህበረሰቦችን በአጠቃላይ ፖሊሲዎች እና ህዝብ ማዕከላዊ ተነሳሽነቶች ለማብቃት ቁርጠኞች ነን።
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section id="mission" class="section mv-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="language-content">
+                    <h2 class="section-title english-content">Our Mission & Vision</h2>
+                    <h2 class="section-title amharic-content">የእኛ ተልዕኮ እና ራዕይ</h2>
+                </div>
+                <div class="language-content">
+                    <p class="section-subtitle english-content">Guiding principles for sustainable development and community empowerment</p>
+                    <p class="section-subtitle amharic-content">ዘላቂ ልማት እና የማህበረሰብ አቅም ግንባታ መመሪያ መርሆዎች</p>
+                </div>
+            </div>
+            
+            <div class="mv-grid">
+                <!-- Mission Card -->
+                <div class="mv-card fade-in">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="language-content">
+                        <h3 class="mv-title english-content">
+                            <i class="fas fa-flag"></i> Our Mission
+                        </h3>
+                        <h3 class="mv-title amharic-content">
+                            <i class="fas fa-flag"></i> የእኛ ተልዕኮ
+                        </h3>
+                    </div>
+                    <div class="mv-content language-content">
+                        <p class="english-content">
+                            To promote sustainable development, good governance, and community empowerment through participatory democracy, transparent administration, and people-centered policies that ensure inclusive growth and social justice for all citizens of Hadiya Zone.
+                        </p>
+                        <p class="amharic-content">
+                            በተሳታፊ ዴሞክራሲ፣ ግልጽ አስተዳደር እና ህዝብ ማዕከላዊ ፖሊሲዎች በኩል ዘላቂ ልማት፣ በጎ አስተዳደር እና የማህበረሰብ አቅም ግንባታ ማስተዋወቅ፣ ለሀዲያ ዞን ሁሉም ዜጎች አጠቃላይ እድገት እና ማህበራዊ ፍትህ እንዲኖራቸው ማረጋገጥ።
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Vision Card -->
+                <div class="mv-card fade-in">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="language-content">
+                        <h3 class="mv-title english-content">
+                            <i class="fas fa-mountain"></i> Our Vision
+                        </h3>
+                        <h3 class="mv-title amharic-content">
+                            <i class="fas fa-mountain"></i> የእኛ ራዕይ
+                        </h3>
+                    </div>
+                    <div class="mv-content language-content">
+                        <p class="english-content">
+                            To see Hadiya Zone as a model of prosperity, democracy, and sustainable development in Ethiopia—where every citizen enjoys dignity, justice, and equal opportunity for growth and fulfillment in a peaceful, inclusive, and technologically advanced society.
+                        </p>
+                        <p class="amharic-content">
+                            ሀዲያ ዞን በኢትዮጵያ ውስጥ የብልፅግና፣ ዴሞክራሲ እና ዘላቂ ልማት ሞዴል እንዲሆን ማየት፣ ሁሉም ዜጋ በሰላም፣ በአጠቃላይነት እና በቴክኖሎጂ የተሻሻለ ማህበረሰብ ውስጥ ክብር፣ ፍትህ እና ለእድገት እና ለማሟላት እኩል እድል የሚያገኝበት።
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organization Structure -->
+    <section id="structure" class="section structure-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="language-content">
+                    <h2 class="section-title english-content">Our Organization Structure</h2>
+                    <h2 class="section-title amharic-content">የእኛ ድርጅታዊ መዋቅር</h2>
+                </div>
+                <div class="language-content">
+                    <p class="section-subtitle english-content">Structured for effective governance and service delivery</p>
+                    <p class="section-subtitle amharic-content">ውጤታማ አስተዳደር እና አገልግሎት አቅርቦት ለማድረግ የተዋቀረ</p>
+                </div>
+            </div>
+            
+            <div class="structure-grid">
+                <!-- Structure Card 1 -->
+                <div class="structure-card fade-in">
+                    <div class="structure-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="language-content">
+                        <h3 class="structure-title english-content">Executive Leadership</h3>
+                        <h3 class="structure-title amharic-content">አፈጻጸም አመራር</h3>
+                    </div>
+                    <div class="language-content">
+                        <p class="structure-description english-content">
+                            Strategic direction and overall administration of Hadiya Zone, responsible for policy implementation and regional development planning.
+                        </p>
+                        <p class="structure-description amharic-content">
+                            የሀዲያ ዞን ስትራቴጂካዊ አቅጣጫ እና አጠቃላይ አስተዳደር፣ ፖሊሲ አፈጻጸም እና የክልል ልማት እቅድ ተጠያቂ የሆነ።
+                        </p>
+                    </div>
+                    <ul class="structure-list language-content">
+                        <li class="english-content">Zone Administrator & Deputy Administrators</li>
+                        <li class="amharic-content">የዞን አስተዳዳሪ እና ም/አስተዳዳሪዎች</li>
+                        <li class="english-content">Sector Bureau Heads</li>
+                        <li class="amharic-content">የዘርፍ ቢሮ ኃላፊዎች</li>
+                        <li class="english-content">Advisory Committee</li>
+                        <li class="amharic-content">ምክር ኮሚቴ</li>
+                    </ul>
+                </div>
+                
+                <!-- Structure Card 2 -->
+                <div class="structure-card fade-in">
+                    <div class="structure-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <div class="language-content">
+                        <h3 class="structure-title english-content">Sector Bureaus</h3>
+                        <h3 class="structure-title amharic-content">የዘርፍ ቢሮዎች</h3>
+                    </div>
+                    <div class="language-content">
+                        <p class="structure-description english-content">
+                            Specialized departments implementing development programs across key sectors to ensure comprehensive regional growth.
+                        </p>
+                        <p class="structure-description amharic-content">
+                            የተለያዩ ዘርፎች ላይ የልማት ፕሮግራሞችን በመተግበር ሙሉ የክልል እድገትን ለማረጋገጥ የተሰpecializedል ክፍሎች።
+                        </p>
+                    </div>
+                    <ul class="structure-list language-content">
+                        <li class="english-content">Education Bureau</li>
+                        <li class="amharic-content">የትምህርት ቢሮ</li>
+                        <li class="english-content">Agriculture Bureau</li>
+                        <li class="amharic-content">የግብርና ቢሮ</li>
+                        <li class="english-content">Health Bureau</li>
+                        <li class="amharic-content">የጤና ቢሮ</li>
+                        <li class="english-content">Urban Development Bureau</li>
+                        <li class="amharic-content">የከተማ ልማት ቢሮ</li>
+                    </ul>
+                </div>
+                
+                <!-- Structure Card 3 -->
+                <div class="structure-card fade-in">
+                    <div class="structure-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="language-content">
+                        <h3 class="structure-title english-content">Woreda & Kebele Administration</h3>
+                        <h3 class="structure-title amharic-content">ወረዳ እና ቀበሌ አስተዳደር</h3>
+                    </div>
+                    <div class="language-content">
+                        <p class="structure-description english-content">
+                            Grassroots governance structure ensuring service delivery and community participation at the local level across all 13 woredas.
+                        </p>
+                        <p class="structure-description amharic-content">
+                            መሠረታዊ የአስተዳደር መዋቅር በሁሉም 13 ወረዳዎች ውስጥ የአገልግሎት አቅርቦት እና የማህበረሰብ ተሳትፎ እንዲኖር ያረጋግጣል።
+                        </p>
+                    </div>
+                    <ul class="structure-list language-content">
+                        <li class="english-content">13 Woreda Administrations</li>
+                        <li class="amharic-content">13 ወረዳ አስተዳደሮች</li>
+                        <li class="english-content">35+ Kebele Administrations</li>
+                        <li class="amharic-content">35+ ቀበሌ አስተዳደሮች</li>
+                        <li class="english-content">Community Development Teams</li>
+                        <li class="amharic-content">የማህበረሰብ ልማት ቡድኖች</li>
+                        <li class="english-content">Local Councils</li>
+                        <li class="amharic-content">አካባቢያዊ ምክር ቤቶች</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="section values-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="language-content">
+                    <h2 class="section-title english-content">Our Core Values</h2>
+                    <h2 class="section-title amharic-content">የእኛ መሰረታዊ እሴቶች</h2>
+                </div>
+                <div class="language-content">
+                    <p class="section-subtitle english-content">The fundamental principles that guide our actions and decisions</p>
+                    <p class="section-subtitle amharic-content">ድርጊቶቻችንን እና ውሳኔዎቻችንን የሚመሩ መሰረታዊ መርሆዎች</p>
+                </div>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="language-content">
+                        <h3 class="value-title english-content">Integrity</h3>
+                        <h3 class="value-title amharic-content">ንጽህና</h3>
+                    </div>
+                    <div class="language-content">
+                        <p class="value-description english-content">
+                            Honesty, transparency, and ethical conduct in all our actions and decisions.
+                        </p>
+                        <p class="value-description amharic-content">
+                            በሁሉም ድርጊቶቻችን እና ውሳኔዎቻችን ውስጥ ቅንነት፣ ግልጽነት እና ሥነ ምግባር።
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="language-content">
+                        <h3 class="value-title english-content">Inclusivity</h3>
+                        <h3 class="value-title amharic-content">አጠቃላይነት</h3>
+                    </div>
+                    <div class="language-content">
+                        <p class="value-description english-content">
+                            Ensuring equal participation and representation of all community members.
+                        </p>
+                        <p class="value-description amharic-content">
+                            የሁሉም የማህበረሰብ አባላት እኩል ተሳትፎ እና ወኪልነት ማረጋገጥ።
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="language-content">
+                        <h3 class="value-title english-content">Justice</h3>
+                        <h3 class="value-title amharic-content">ፍትህ</h3>
+                    </div>
+                    <div class="language-content">
+                        <p class="value-description english-content">
+                            Fair treatment, equal opportunities, and protection of rights for all citizens.
+                        </p>
+                        <p class="value-description amharic-content">
+                            ለሁሉም ዜጎች ፍትሃዊ እንክብካቤ፣ እኩል እድሎች እና የመብቶች ጥበቃ።
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="language-content">
+                        <h3 class="value-title english-content">Service</h3>
+                        <h3 class="value-title amharic-content">አገልግሎት</h3>
+                    </div>
+                    <div class="language-content">
+                        <p class="value-description english-content">
+                            Dedicated, compassionate, and efficient service to the people of Hadiya Zone.
+                        </p>
+                        <p class="value-description amharic-content">
+                            ለሀዲያ ዞን ህዝብ ቁርጠኛ፣ ርኅራኄ ያለው እና ውጤታማ አገልግሎት።
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Leaders (From About Page) -->
+    <section id="leaders" class="section leaders-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="language-content">
+                    <h2 class="section-title english-content">Key Leadership</h2>
+                    <h2 class="section-title amharic-content">ዋና አመራር</h2>
+                </div>
+                <div class="language-content">
+                    <p class="section-subtitle english-content">Meet the dedicated individuals leading Hadiya Zone towards prosperity</p>
+                    <p class="section-subtitle amharic-content">ሀዲያ ዞንን ወደ ብልፅግና የሚመሩ ተሰጥኦ ያላቸው ሰዎችን ያግኙ</p>
+                </div>
+            </div>
+            
+            <div class="leaders-grid">
+                <!-- Leader 1 -->
+                <div class="leader-card fade-in">
+                    <div class="leader-image">
+                        <img src="https://www.cerprosperity.org.et/sites/default/files/inline-images/Dr%20Dilamo%20Ottore.png" 
+                             alt="Dr. Dilamo Ottoro">
+                    </div>
+                    <div class="leader-info">
+                        <div class="language-content">
+                            <h3 class="leader-name english-content">DR. DILAMO OTTORO</h3>
+                            <h3 class="leader-name amharic-content">ዶ/ር ዲላሞ ኦቶሬ</h3>
+                        </div>
+                        <div class="language-content">
+                            <p class="leader-position english-content">Executive Member of Prosperity Party & Head of Central Ethiopia Prosperity Party Branch Office</p>
+                            <p class="leader-position amharic-content">የብልፅግና ፓርቲ አፈጻጸም አባል እና የማዕከላዊ ኢትዮጵያ ብልፅግና ፓርቲ ቅርንጫፍ ጽ/ቤት ኃላፊ</p>
+                        </div>
+                        <div class="language-content">
+                            <p class="leader-department english-content">
+                                Leads the Prosperity Party operations in Central Ethiopia and serves as the principal liaison between the party and government institutions.
+                            </p>
+                            <p class="leader-department amharic-content">
+                                በማዕከላዊ ኢትዮጵያ የብልፅግና ፓርቲ ስራዎችን ያስተዳድራሉ እና በፓርቲው እና በመንግስት ተቋማት መካከል ዋና የግንኙነት ሚና ይጫወታሉ።
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 2 -->
+                <div class="leader-card fade-in">
+                    <div class="leader-image">
+                        <img src="c:\Users\yohannes\Pictures\photooo.jpg" 
+                             alt="Zone Administrator">
+                    </div>
+                    <div class="leader-info">
+                        <div class="language-content">
+                            <h3 class="leader-name english-content">Zone Administrator</h3>
+                            <h3 class="leader-name amharic-content">የዞን አስተዳዳሪ</h3>
+                        </div>
+                        <div class="language-content">
+                            <p class="leader-position english-content">Chief Administrator of Hadiya Zone</p>
+                            <p class="leader-position amharic-content">የሀዲያ ዞን ርዕሰ መስተዳድር</p>
+                        </div>
+                        <div class="language-content">
+                            <p class="leader-department english-content">
+                                Provides strategic leadership and oversees the overall development agenda and administrative functions of Hadiya Zone.
+                            </p>
+                            <p class="leader-department amharic-content">
+                                ስትራቴጂካዊ አመራር ይሰጣሉ እና የሀዲያ ዞንን አጠቃላይ የልማት አጀንዳ እና የአስተዳደር ተግባራት ይቆጣጠራሉ።
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 3 -->
+                <div class="leader-card fade-in">
+                    <div class="leader-image">
+                        <img src="c:\Users\yohannes\Pictures\photooooo.jpg" 
+                             alt="Deputy Administrator">
+                    </div>
+                    <div class="leader-info">
+                        <div class="language-content">
+                            <h3 class="leader-name english-content">Deputy Administrator</h3>
+                            <h3 class="leader-name amharic-content">ምክትል አስተዳዳሪ</h3>
+                        </div>
+                        <div class="language-content">
+                            <p class="leader-position english-content">Deputy Chief Administrator of Hadiya Zone</p>
+                            <p class="leader-position amharic-content">የሀዲያ ዞን ምክትል ርዕሰ መስተዳድር</p>
+                        </div>
+                        <div class="language-content">
+                            <p class="leader-department english-content">
+                                Assists in administrative functions and coordinates sector-specific development initiatives across the zone.
+                            </p>
+                            <p class="leader-department amharic-content">
+                                በአስተዳደር ተግባራት ይረዳል እና በዞኑ ውስጥ የተለየ ዘርፍ የልማት ተነሳሽነቶችን ያስተባብራል።
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- Contact Info -->
+                    <div class="footer-section">
+                        <div class="language-content">
+                            <h3 class="english-content">Contact Us</h3>
+                            <h3 class="amharic-content">ያግኙን</h3>
+                        </div>
+                        <div class="contact-info-footer">
+                            <p><i class="fas fa-map-marker-alt"></i> 
+                                <span class="english-content">Hossana, Ethiopia</span>
+                                <span class="amharic-content">ሆሳዕና, ኢትዮጵያ</span>
+                            </p>
+                            <p><i class="fas fa-phone"></i> +251939060376</p>
+                            <p><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</p>
+                            <p><i class="fas fa-box"></i> 
+                                <span class="english-content">P.O. Box: 332</span>
+                                <span class="amharic-content">ፖ.ሳ.ቁ: 332</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <div class="language-content">
+                            <h3 class="english-content">Quick Links</h3>
+                            <h3 class="amharic-content">ፈጣን አገናኞች</h3>
+                        </div>
+                        <ul class="footer-links">
+                            <li><a href="hadiya_prosperity.html"><i class="fas fa-chevron-right"></i> 
+                                <span class="english-content">Home</span>
+                                <span class="amharic-content">መግቢያ</span>
+                            </a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> 
+                                <span class="english-content">About Us</span>
+                                <span class="amharic-content">ስለ እኛ</span>
+                            </a></li>
+                            <li><a href="news.html"><i class="fas fa-chevron-right"></i> 
+                                <span class="english-content">News & Events</span>
+                                <span class="amharic-content">ዜና እና ክስተቶች</span>
+                            </a></li>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> 
+                                <span class="english-content">Contact Us</span>
+                                <span class="amharic-content">ያግኙን</span>
+                            </a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Social & Hours -->
+                    <div class="footer-section">
+                         <div class="footer-section">
+                        <h3 class="english-content">Connect With Us</h3>
+                        <h3 class="amharic-content">ከእኛ ጋር ይገናኙ</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://www.facebook.com/CentralEthiopiaRegionprosperitypartyBranchoffice"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a></li>
+                            <li><a href="https://t.me/CentralERProsperity"><i class="fab fa-telegram"></i> <span>Telegram</span></a></li>
+                            <li><a href="https://x.com/central94872?t=PyH4QvYNmJyPb4xLPJhGzQ&s=08"><i class="fab fa-twitter"></i> <span>Twitter</span></a></li>
+                            <li><a href=""><i class="fab fa-youtube"></i> <span>YouTube</span></a></li>
+                            <!-- <li><a href="#"><i class="fas fa-rss"></i> <span class="english-content">RSS Feed</span><span class="amharic-content">አር ኤስ ኤስ ምግብ</span></a></li> -->
+                        </ul>
+                    </div>
+                            
+                           
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <!-- Developer Info -->
+                <div class="developer-info">
+                    <div class="language-content">
+                        <p class="english-content"><i class="fas fa-code"></i> <strong>Developed BY:</strong> Wachemo University Computer Science Students</p>
+                        <p class="amharic-content"><i class="fas fa-code"></i> <strong>የተዘጋጀው በ:</strong> ዋቸሞ ዩኒቨርሲቲ ኮምፒዩተር ሳይንስ ተማሪዎች</p>
+                    </div>
+                    <div class="language-content">
+                        <p class="english-content"><i class="fas fa-users"></i> <strong>Names:</strong> Simachew Getnet, Yohannes Ashango, Mulugeta Emiru</p>
+                        <p class="amharic-content"><i class="fas fa-users"></i> <strong>ስሞች:</strong> ስማቸው ጌትነት, ዮሐንስ አሻንጎ, ሙሉጌታ እምሩ</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="language-content">
+                    <p class="english-content">&copy; <span id="currentYear">2026</span> Central Ethiopia Region Prosperity Party Branch Office. All rights reserved.</p>
+                    <p class="amharic-content">&copy; <span id="currentYearAm">2026</span> የማዕከላዊ ኢትዮጵያ ክልል ብልፅግና ፓርቲ ቅርጫፍ ጽ/ቤት. ሁሉም መብቶች የተጠበቁ ናቸው.</p>
+                </div>
+                <div class="language-content">
+                    <p class="english-content" style="margin-top: 10px;">
+                        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== LANGUAGE SWITCHING =====
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const body = document.body;
+            
+            function switchLanguage(lang) {
+                // Update active button
+                langButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Switch language
+                if (lang === 'am') {
+                    body.classList.add('amharic');
+                    localStorage.setItem('preferredLanguage', 'am');
+                } else {
+                    body.classList.remove('amharic');
+                    localStorage.setItem('preferredLanguage', 'en');
+                }
+            }
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+            
+            // Load saved language preference
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang === 'am') {
+                switchLanguage('am');
+            } else {
+                switchLanguage('en');
+            }
+            
+            // ===== MOBILE NAVIGATION =====
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    this.querySelector('i').classList.toggle('fa-bars');
+                    this.querySelector('i').classList.toggle('fa-times');
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-container') && window.innerWidth <= 992) {
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (mobileToggle) {
+                        mobileToggle.querySelector('i').classList.add('fa-bars');
+                        mobileToggle.querySelector('i').classList.remove('fa-times');
+                    }
+                }
+            });
+            
+            // ===== SMOOTH SCROLLING =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 992 && navMenu) {
+                            navMenu.classList.remove('active');
+                            if (mobileToggle) {
+                                mobileToggle.querySelector('i').classList.add('fa-bars');
+                                mobileToggle.querySelector('i').classList.remove('fa-times');
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // ===== FADE IN ANIMATIONS =====
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => observer.observe(el));
+            
+            // ===== CURRENT YEAR =====
+            const currentYear = new Date().getFullYear();
+            document.getElementById('currentYear').textContent = currentYear;
+            document.getElementById('currentYearAm').textContent = currentYear;
+            
+            // ===== ACTIVE NAV LINK =====
+            const currentPage = window.location.pathname.split('/').pop() || 'about.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // ===== WINDOW RESIZE HANDLER =====
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992 && navMenu) {
+                    navMenu.classList.remove('active');
+                    if (mobileToggle) {
+                        mobileToggle.querySelector('i').classList.add('fa-bars');
+                        mobileToggle.querySelector('i').classList.remove('fa-times');
+                    }
+                }
+            });
+            
+            // ===== IMAGE ERROR HANDLING =====
+            document.querySelectorAll('.leader-image img').forEach(img => {
+                img.addEventListener('error', function() {
+                    const name = this.alt || 'Leader Image';
+                    this.src = `https://via.placeholder.com/400x300/1a5f23/ffffff?text=${encodeURIComponent(name)}`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

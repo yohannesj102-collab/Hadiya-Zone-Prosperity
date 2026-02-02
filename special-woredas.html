@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Woredas - Central Ethiopia Region Prosperity Party</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f23;
+            --primary-dark: #0f4d1a;
+            --secondary-color: #f9a825;
+            --secondary-dark: #e69100;
+            --accent-color: #d32f2f;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --gray-light: #e9ecef;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Ethiopic', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+
+        .amharic {
+            font-family: 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+            /* direction: rtl; */
+        }
+
+        /* ===== LANGUAGE HANDLING ===== */
+        .english-content {
+            display: block;
+        }
+
+        .amharic-content {
+            display: none;
+        }
+
+        body.amharic .english-content {
+            display: none;
+        }
+
+        body.amharic .amharic-content {
+            display: block;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1003;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .contact-info span:hover {
+            color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(249, 168, 37, 0.2);
+        }
+
+        /* ===== MAIN HEADER ===== */
+        .main-header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1002;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            gap: 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 0 0 auto;
+            min-width: 300px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--white);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            flex: 1;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            color: var(--primary-color);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .nav-container {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+            gap: 2px;
+            direction: ltr;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border-radius: var(--border-radius);
+            white-space: nowrap;
+            direction: ltr;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 220px;
+            box-shadow: var(--shadow-lg);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            display: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gray-light);
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover,
+        .dropdown-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            padding-left: 25px;
+        }
+
+        .dropdown-link:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* ===== WOREDAS HERO ===== */
+        .woredas-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+                        linear-gradient(135deg, #8b4513, #d2691e);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .woredas-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.9) 100%);
+            z-index: 1;
+        }
+
+        .woredas-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .woredas-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 1s ease;
+        }
+
+        .woredas-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .section {
+            padding: 100px 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== WOREDAS GRID ===== */
+        .woredas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .woreda-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .woreda-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .woreda-header {
+            background: linear-gradient(135deg, var(--dark-color), #5d6d7e);
+            color: var(--white);
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .woreda-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .woreda-card:hover .woreda-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .woreda-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        .woreda-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .woreda-content {
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .woreda-description {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.8;
+            text-align: justify;
+            transition: var(--transition);
+        }
+
+        .woreda-card:hover .woreda-description {
+            color: var(--text-dark);
+        }
+
+        .woreda-highlights {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            transition: var(--transition);
+        }
+
+        .woreda-card:hover .woreda-highlights {
+            background: linear-gradient(135deg, #f0f7f0 0%, #e3f2e3 100%);
+            transform: translateY(-5px);
+        }
+
+        .woreda-highlights h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .highlight-item {
+            background: var(--white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #e0e0e0;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .highlight-item:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 8px rgba(26, 95, 35, 0.3);
+        }
+
+        .woreda-stats {
+            display: flex;
+            justify-content: space-between;
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 25px 0;
+            transition: var(--transition);
+        }
+
+        .woreda-card:hover .woreda-stats {
+            background: linear-gradient(135deg, #e8f4e8 0%, #d4e8d4 100%);
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover .stat-number {
+            color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .woreda-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .woreda-card:hover .woreda-footer {
+            border-top-color: var(--primary-color);
+        }
+
+        .woreda-capital {
+            color: var(--accent-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .woreda-card:hover .woreda-capital {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        /* ===== STATISTICS OVERVIEW ===== */
+        .statistics-overview {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: var(--white);
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: var(--border-radius-lg);
+        }
+
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .statistic-item {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .statistic-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .statistic-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .statistic-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .statistic-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== REGIONAL MAP SECTION ===== */
+        .regional-map {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin: 80px 0;
+            border: 2px solid rgba(26, 95, 35, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .regional-map::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #e9ecef;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            color: var(--text-light);
+            padding: 40px;
+        }
+
+        .map-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1c2833 100%);
+            color: var(--white);
+            padding-top: 60px;
+            margin-top: 100px;
+        }
+
+        .footer-main {
+            padding-bottom: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .developer-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .developer-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(26, 95, 35, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 95, 35, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-dark);
+            box-shadow: 0 8px 20px rgba(249, 168, 37, 0.4);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .woredas-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-menu {
+                gap: 1px;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .woredas-hero {
+                padding: 140px 0 80px;
+                background-attachment: scroll;
+            }
+            
+            .woredas-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .woredas-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                flex: 1;
+                min-width: auto;
+            }
+            
+            .nav-container {
+                flex: 1 0 100%;
+                order: 3;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--white);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                box-shadow: var(--shadow-lg);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid var(--gray-light);
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background: var(--light-color);
+                box-shadow: none;
+            }
+            
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .woredas-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .regional-map {
+                padding: 40px 30px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .language-switcher {
+                justify-content: center;
+            }
+            
+            .woredas-hero {
+                padding: 120px 0 60px;
+            }
+            
+            .woredas-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .woredas-hero p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .woredas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .woreda-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stat-item {
+                margin-bottom: 15px;
+            }
+            
+            .statistics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .regional-map {
+                padding: 30px 20px;
+            }
+            
+            .map-container {
+                height: 250px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .woredas-hero {
+                padding: 100px 0 40px;
+            }
+            
+            .woredas-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .woreda-header {
+                padding: 20px;
+            }
+            
+            .woreda-content {
+                padding: 20px;
+            }
+            
+            .statistics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .scroll-animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar (SAME AS ZONES) -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Hossana, Ethiopia</span>
+                <span><i class="fas fa-phone"></i> +251939060376</span>
+                <span><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</span>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+                <button class="lang-btn" data-lang="am">
+                    <i class="fas fa-globe"></i> አማርኛ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header (SAME AS ZONES) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Section -->
+                <div class="logo-section">
+                    <a href="hadiya_prosperity.html" class="logo-container">
+                        <div class="logo-img">
+                            <img src="c:\Users\yohannes\Pictures\Hadiya_Zone.jpg" alt="Hadiya Zone Logo">
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="english-content">HADIYA ZONE PROSPERITY PARTY BRANCH OFFICE</h1>
+                            <h1 class="amharic-content">ሃዲያ ዞን  የብልጽግና ፓርቲ ብሮ</h1>
+                            <p class="english-content">Official Government Website</p>
+                            <p class="amharic-content">የመንግስት ኦፊሴላዊ ድረ-ገጽ</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu (SAME STRUCTURE AS ZONES) -->
+                <nav class="nav-container">
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item">
+                            <a href="hadiya_prosperity.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span class="english-content">Home</span>
+                                <span class="amharic-content">መግቢያ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="english-content">About</span>
+                                <span class="amharic-content">ስለ እኛ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">
+                                <i class="fas fa-newspaper"></i>
+                                <span class="english-content">News</span>
+                                <span class="amharic-content">ዜና</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sub-branches.html" class="nav-link">
+                                <i class="fas fa-sitemap"></i>
+                                <span class="english-content">Sub-Branches</span>
+                                <span class="amharic-content">ንዑስ ቅርንጫፎች</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="zones.html" class="dropdown-link">
+                                    <i class="fas fa-map"></i>
+                                    <span class="english-content">Zones</span>
+                                    <span class="amharic-content">ዞኖች</span>
+                                </a>
+                                <a href="special-woredas.html" class="dropdown-link active">
+                                    <i class="fas fa-landmark"></i>
+                                    <span class="english-content">Special Woredas</span>
+                                    <span class="amharic-content">ልዩ ወረዳዎች</span>
+                                </a>
+                                <a href="wings.html" class="dropdown-link">
+                                    <i class="fas fa-users"></i>
+                                    <span class="english-content">Wings</span>
+                                    <span class="amharic-content">ክንፎች</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="resources.html" class="nav-link">
+                                <i class="fas fa-book"></i>
+                                <span class="english-content">Resources</span>
+                                <span class="amharic-content">ሀብቶች</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">
+                                <i class="fas fa-envelope"></i>
+                                <span class="english-content">Contact</span>
+                                <span class="amharic-content">አግኙን</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Woredas Hero Section -->
+    <section class="woredas-hero">
+        <div class="container">
+            <h1 class="english-content">Special Woredas of Central Ethiopia Region</h1>
+            <h1 class="amharic-content">የማዕከላዊ ኢትዮጵያ ክልል ልዩ ወረዳዎች</h1>
+            <p class="english-content">
+                Discover the unique administrative districts that contribute to the rich tapestry of Central Ethiopia Region. 
+                Each special woreda brings distinct cultural heritage, economic activities, and developmental achievements 
+                to our regional prosperity and unity.
+            </p>
+            <p class="amharic-content">
+                የማዕከላዊ ኢትዮጵያ ክልልን ሀብታም የሚያደርጉትን ልዩ የአስተዳደር ወረዳዎች ያስሱ። 
+                እያንዳንዱ ልዩ ወረዳ ልዩ የባህል ቅርስ፣ የኢኮኖሚ እንቅስቃሴዎች እና የልማት ስኬቶችን 
+                ለክልላዊ ብልፅግናችን እና አንድነታችን ያበረክታል።
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title english-content">Our Special Woredas</h2>
+                <h2 class="section-title amharic-content">የእኛ ልዩ ወረዳዎች</h2>
+                <p class="section-subtitle english-content">
+                    Explore the diverse special woredas that make up the Central Ethiopia Region. Each woreda has unique 
+                    characteristics, cultural practices, and economic activities that contribute to the region's overall 
+                    development and prosperity.
+                </p>
+                <p class="section-subtitle amharic-content">
+                    የማዕከላዊ ኢትዮጵያ ክልልን የሚፈጥሩትን የተለያዩ ልዩ ወረዳዎች ያስሱ። እያንዳንዱ ወረዳ ልዩ ባህሪያት፣ 
+                    የባህል ልማዶች እና የኢኮኖሚ እንቅስቃሴዎች አሉት እነዚህም ለክልሉ አጠቃላይ ልማት እና ብልፅግና አስተዋፅዖ ያበረክታሉ።
+                </p>
+            </div>
+
+            <!-- Woredas Grid -->
+            <div class="woredas-grid">
+                <!-- Tembaro Woreda -->
+                <div class="woreda-card fade-in scroll-animate">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Tembaro Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ተምባሮ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Highland Agricultural Hub</div>
+                        <div class="woreda-subtitle amharic-content">የሰፊ ልሳት ግብርና ማዕከል</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Tembaro Woreda is renowned for its highland agricultural practices, particularly in 
+                            potato and barley cultivation. The woreda's unique microclimate and fertile volcanic 
+                            soils support diverse crop production. Tembaro farmers are experts in terrace farming 
+                            and soil conservation techniques that have been passed down through generations.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ተምባሮ ወረዳ በሰፊ ልሳት የግብርና ልምምዶች፣ በተለይም በድንች እና በገብስ እርባታ ይታወቃል። 
+                            የወረዳው ልዩ የአየር ንብረት እና ፍርያም የድንጋይ አፈር የተለያዩ የአትክልት ምርቶችን ይደግፋል። 
+                            የተምባሮ ገበሬዎች በዘር አቀማመጥ የሚያልፉት በግቢ እርሻ እና በምድር ጥበቃ ቴክኒኮች ባለሙያዎች ናቸው።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Potato Farming</span>
+                                <span class="highlight-item">Terrace Agriculture</span>
+                                <span class="highlight-item">Soil Conservation</span>
+                                <span class="highlight-item">Traditional Festivals</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Gimbichu</span>
+                                <span class="amharic-content">ዋና ከተማ: ጊምቢቹ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mareko Woreda -->
+                <div class="woreda-card fade-in scroll-animate delay-1">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Mareko Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ማሬኮ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">River Valley Agriculture</div>
+                        <div class="woreda-subtitle amharic-content">የወንዝ ሸለቆ ግብርና</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Mareko Woreda thrives on river valley agriculture along the Gidabo River basin. 
+                            Known for its extensive irrigation systems and fruit orchards, the woreda produces 
+                            citrus fruits, mangoes, and vegetables. Mareko's agricultural innovation includes 
+                            modern irrigation techniques combined with traditional water management practices.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ማሬኮ ወረዳ በጊዳቦ ወንዝ ሸለቆ ላይ በወንዝ ሸለቆ ግብርና ይበልጣል። 
+                            በሰፊ የማጠራቀሚያ ስርዓቶቹ እና የፍራፍሬ አትክልቶቹ የሚታወቀው ወረዳው እንጁም፣ ማንጎ እና 
+                            አትክልቶችን ያመርታል። የማሬኮ የግብርና ፈጠራ ዘመናዊ የማጠራቀሚያ ቴክኒኮችን ከባህላዊ የውሃ አስተዳደር ልምምዶች ጋር ያጣምራል።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Fruit Orchards</span>
+                                <span class="highlight-item">Irrigation Systems</span>
+                                <span class="highlight-item">Citrus Production</span>
+                                <span class="highlight-item">River Farming</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Mareko Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ማሬኮ ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kebena Woreda -->
+                <div class="woreda-card fade-in scroll-animate delay-2">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Kebena Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ቀበና ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Forest Conservation Area</div>
+                        <div class="woreda-subtitle amharic-content">የደን ጥበቃ አካባቢ</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Kebena Woreda is a vital forest conservation area with rich biodiversity and 
+                            traditional honey production. The woreda's indigenous forests are home to 
+                            numerous plant and animal species. Local communities practice sustainable 
+                            forest management and beekeeping traditions that date back centuries.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ቀበና ወረዳ ሀብታም የባዮዳይቨርሲቲ እና ባህላዊ ማር ምርት ያለው አስፈላጊ የደን ጥበቃ አካባቢ ነው። 
+                            የወረዳው አረንጓዴ ደኖች ለብዙ የአትክልት እና የእንስሳት ዝርያዎች መኖሪያ ናቸው። 
+                            የአካባቢው ማህበረሰቦች ለመቶ ዘመናት የተሸሸጉ ዘላቂ የደን አስተዳደር እና የንቦች እርባታ ልማዶችን ይጠቀማሉ።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Forest Conservation</span>
+                                <span class="highlight-item">Honey Production</span>
+                                <span class="highlight-item">Biodiversity</span>
+                                <span class="highlight-item">Eco-tourism</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Kebena Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ቀበና ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gombora Woreda -->
+                <div class="woreda-card fade-in scroll-animate delay-3">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Gombora Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ጎምቦራ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Coffee Production Center</div>
+                        <div class="woreda-subtitle amharic-content">የቡና ምርት ማዕከል</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Gombora is the premier coffee-producing woreda in the region, known for its 
+                            high-quality Arabica beans. The woreda's high altitude and ideal climate 
+                            create perfect conditions for coffee cultivation. Traditional processing 
+                            methods combined with modern techniques produce some of Ethiopia's finest coffee.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ጎምቦራ በክልሉ ውስጥ ሊቀመጥ የሚችለው የቡና ማምረቻ ወረዳ ሲሆን ከፍተኛ ጥራት ያለው 
+                            አራቢካ አትክልት ይታወቃል። የወረዳው ከፍተኛ ከፍታ እና ተስማሚ የአየር ንብረት 
+                            ለቡና እርባታ ፍጹም ሁኔታዎችን ይፈጥራሉ። ባህላዊ የማቀነባበሪያ ዘዴዎች ከዘመናዊ ቴክኖሎጂዎች ጋር በማጣመር 
+                            የኢትዮጵያን ከፍተኛ ጥራት ያለው ቡና ያመርታል።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Coffee Production</span>
+                                <span class="highlight-item">Arabica Beans</span>
+                                <span class="highlight-item">Quality Processing</span>
+                                <span class="highlight-item">Export Crops</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Gombora Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ጎምቦራ ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soro Woreda -->
+                <div class="woreda-card fade-in scroll-animate">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Soro Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ሶሮ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Educational Hub</div>
+                        <div class="woreda-subtitle amharic-content">የትምህርት ማዕከል</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Soro Woreda is recognized as an educational center with numerous schools and 
+                            training institutions. The woreda emphasizes both formal education and 
+                            vocational training. Community participation in education development 
+                            makes Soro a model for educational advancement in rural areas.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ሶሮ ወረዳ በብዛት ያሉ ትምህርት ቤቶች እና ስልጠና ተቋማት ያሉት የትምህርት ማዕከል በመሆን ይታወቃል። 
+                            ወረዳው ሁለቱንም መደበኛ ትምህርት እና ሙያዊ ስልጠና ያጎላል። በትምህርት ልማት ውስጥ 
+                            የማህበረሰብ ተሳትፎ ሶሮን በገጠር አካባቢዎች የትምህርት እድገት ሞዴል አድርጓል።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Education Center</span>
+                                <span class="highlight-item">Vocational Training</span>
+                                <span class="highlight-item">School Network</span>
+                                <span class="highlight-item">Community Education</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Soro Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ሶሮ ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Misha Woreda -->
+                <div class="woreda-card fade-in scroll-animate delay-1">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Misha Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ምሻ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Enset Cultivation Zone</div>
+                        <div class="woreda-subtitle amharic-content">የእንሰት እርባታ ዞን</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Misha Woreda specializes in enset (false banana) cultivation and processing. 
+                            The woreda has developed unique enset-based food products and traditional 
+                            processing techniques. Enset serves as both a food security crop and cultural 
+                            identity marker for the local community.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ምሻ ወረዳ በእንሰት (የሐሰት ሙዝ) እርባታ እና ማቀነባበሪያ ይለያል። 
+                            ወረዳው ልዩ በእንሰት ላይ የተመሰረቱ የምግብ ምርቶች እና ባህላዊ የማቀነባበሪያ 
+                            ቴክኒኮችን አዘጋጅቷል። እንሰት ሁለቱንም የምግብ ዋስትና አትክልት እና ለአካባቢው ማህበረሰብ 
+                            የባህል መለያ ሆኖ ያገለግላል።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Enset Production</span>
+                                <span class="highlight-item">Food Processing</span>
+                                <span class="highlight-item">Food Security</span>
+                                <span class="highlight-item">Traditional Foods</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Misha Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ምሻ ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Limo Woreda -->
+                <div class="woreda-card fade-in scroll-animate delay-2">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Limo Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ሊሞ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Water Resources Area</div>
+                        <div class="woreda-subtitle amharic-content">የውሃ ሀብቶች አካባቢ</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Limo Woreda is rich in water resources with numerous springs and rivers. 
+                            The woreda focuses on water conservation, irrigation development, and 
+                            hydro-power potential. Community-based water management ensures sustainable 
+                            use of this vital resource for agriculture and domestic needs.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ሊሞ ወረዳ ብዙ የውሃ ምንጮች እና ወንዞች ያሉት የውሃ ሀብቶች ሀብታም ነው። 
+                            ወረዳው በውሃ ጥበቃ፣ በማጠራቀሚያ ልማት እና በሃይድሮ-ፓውር እምቅ ሀይል ላይ ያተኮረ ነው። 
+                            በማህበረሰብ ላይ የተመሰረተ የውሃ አስተዳደር ይህንን አስፈላጊ ሀብት ለግብርና እና ለቤት አዋጭ 
+                            ፍላጎቶች ቆረጣ አጠቃቀም እንዲኖር ያረጋግጣል።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Water Resources</span>
+                                <span class="highlight-item">Irrigation</span>
+                                <span class="highlight-item">Hydro-power</span>
+                                <span class="highlight-item">Water Management</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Limo Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ሊሞ ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue with the rest of the woreda cards (8-13) maintaining the same pattern -->
+                <!-- Woreda 8: Gibe -->
+                <div class="woreda-card fade-in scroll-animate delay-3">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Gibe Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ጊቤ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Industrial Development</div>
+                        <div class="woreda-subtitle amharic-content">የኢንዱስትሪ ልማት</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Gibe Woreda is emerging as an industrial center with agro-processing 
+                            facilities and small-scale manufacturing. The woreda's strategic location 
+                            and investment in infrastructure support industrial growth while 
+                            maintaining agricultural productivity.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ጊቤ ወረዳ ከግብርና ማቀነባበሪያ በተጨማሪ ትናንሽ የምርት አሃዶች ያሉት እንደ ኢንዱስትሪያል ማዕከል እየታየ ነው። 
+                            የወረዳው ስትራተጂካዊ ቦታ እና በመሠረተ ልማት ላይ የሚደረገው ኢንቨስትመንት ኢንዱስትሪያል እድገትን የሚደግፍ ሲሆን 
+                            በተመሳሳይ ጊዜ የግብርና ምርታማነትን ይይዛል።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Agro-processing</span>
+                                <span class="highlight-item">Manufacturing</span>
+                                <span class="highlight-item">Industrial Growth</span>
+                                <span class="highlight-item">Infrastructure</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Gibe Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ጊቤ ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Woreda 9: Kacha Bira -->
+                <div class="woreda-card fade-in scroll-animate">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-archway"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Kacha Bira Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ካቻ ቢራ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Cultural Heritage Site</div>
+                        <div class="woreda-subtitle amharic-content">የባህል ቅርስ ቦታ</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Kacha Bira Woreda preserves important cultural heritage sites and traditional 
+                            practices. The woreda is known for its historical landmarks, traditional 
+                            architecture, and cultural festivals. Efforts to preserve cultural heritage 
+                            while promoting sustainable tourism are key priorities.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ካቻ ቢራ ወረዳ አስፈላጊ የባህል ቅርስ ቦታዎችን እና ባህላዊ ልማዶችን ይጠብቃል። 
+                            ወረዳው በታሪካዊ ምልክቶቹ፣ በባህላዊ አርክቴክቸሩ እና በባህላዊ በዓላት ይታወቃል። 
+                            ባህላዊ ቅርስን ለመጠበቅ በተመሳሳይ ጊዜ ቆረጣ ቱሪዝምን ለማስተዋወቅ የሚደረጉ ሙከራዎች ዋና ቅድሚያዎች ናቸው።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Cultural Heritage</span>
+                                <span class="highlight-item">Historical Sites</span>
+                                <span class="highlight-item">Traditional Architecture</span>
+                                <span class="highlight-item">Cultural Tourism</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Kacha Bira Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ካቻ ቢራ ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Woreda 10: Duna -->
+                <div class="woreda-card fade-in scroll-animate delay-1">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Duna Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ዱና ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Trade & Commerce Center</div>
+                        <div class="woreda-subtitle amharic-content">የንግድ እና ኮሜርስ ማዕከል</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Duna Woreda serves as a major trade and commerce center with vibrant 
+                            market activities. The woreda's strategic location along trade routes 
+                            facilitates economic exchange between different zones. Weekly markets 
+                            and commercial enterprises drive local economic development.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ዱና ወረዳ ሕያው የገበያ እንቅስቃሴዎች ያሉት ዋና የንግድ እና ኮሜርስ ማዕከል ሆኖ ያገለግላል። 
+                            የወረዳው ስትራተጂካዊ ቦታ በንግድ መስመሮች ላይ በተለያዩ ዞኖች መካከል የኢኮኖሚ ልውውጥን ያመቻቻል። 
+                            ሳምንታዊ ገበያዎች እና የንግድ ድርጅቶች የአካባቢውን ኢኮኖሚ ልማት ያነሳሳሉ።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Trade Center</span>
+                                <span class="highlight-item">Market Activities</span>
+                                <span class="highlight-item">Commerce</span>
+                                <span class="highlight-item">Economic Exchange</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Duna Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ዱና ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Woreda 11: Shashogo -->
+                <div class="woreda-card fade-in scroll-animate delay-2">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Shashogo Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ሻሾጎ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Community Development Model</div>
+                        <div class="woreda-subtitle amharic-content">የማህበረሰብ ልማት ሞዴል</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Shashogo Woreda is recognized for its community-led development initiatives 
+                            and social cohesion. The woreda emphasizes participatory decision-making, 
+                            community ownership of projects, and inclusive development that benefits 
+                            all segments of society.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ሻሾጎ ወረዳ በማህበረሰብ የተመራ የልማት ተቋማት እና ማህበራዊ አንድነት በመሆኑ ይታወቃል። 
+                            ወረዳው በተሳትፎ ውሳኔ ማሰባሰብ፣ በፕሮጀክቶች ላይ የማህበረሰብ ባለቤትነት እና ሁሉንም የህብረተሰቡን 
+                            ክፍሎች የሚጠቅም ሁሉንም ያካተተ ልማት ላይ አፅንኦት ይሰጣል።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Community Development</span>
+                                <span class="highlight-item">Participatory Planning</span>
+                                <span class="highlight-item">Social Cohesion</span>
+                                <span class="highlight-item">Inclusive Growth</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Shashogo Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ሻሾጎ ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Woreda 12: Ana Lemo -->
+                <div class="woreda-card fade-in scroll-animate delay-3">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Ana Lemo Woreda</h3>
+                        <h3 class="woreda-title amharic-content">አና ለሞ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Natural Healing Center</div>
+                        <div class="woreda-subtitle amharic-content">የተፈጥሮ መድሀኒት ማዕከል</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Ana Lemo Woreda is known for its traditional healing practices and medicinal 
+                            plants. The woreda's rich biodiversity includes numerous medicinal herbs 
+                            used in traditional medicine. Efforts to document and preserve traditional 
+                            healing knowledge are ongoing.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            አና ለሞ ወረዳ በባህላዊ የህክምና ልምዶቹ እና በመድሃኒታዊ አትክልቶቹ ይታወቃል። 
+                            የወረዳው ሀብታም የባዮዳይቨርሲቲ ብዙ በባህላዊ መድሃኒት የሚጠቀሙ የመድሃኒታዊ ተክሎችን ያካትታል። 
+                            ባህላዊ የህክምና እውቀትን ለመመዝገብ እና ለመጠበቅ የሚደረጉ ሙከራዎች እየተካሄዱ ናቸው።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Traditional Medicine</span>
+                                <span class="highlight-item">Medicinal Plants</span>
+                                <span class="highlight-item">Healing Practices</span>
+                                <span class="highlight-item">Natural Remedies</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Ana Lemo Town</span>
+                                <span class="amharic-content">ዋና ከተማ: አና ለሞ ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Woreda 13: Badawacho -->
+                <div class="woreda-card fade-in scroll-animate">
+                    <div class="woreda-header">
+                        <div class="woreda-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="woreda-title english-content">Badawacho Woreda</h3>
+                        <h3 class="woreda-title amharic-content">ባዳዋቾ ወረዳ</h3>
+                        <div class="woreda-subtitle english-content">Sports & Cultural Hub</div>
+                        <div class="woreda-subtitle amharic-content">የስፖርት እና ባህል ማዕከል</div>
+                    </div>
+                    
+                    <div class="woreda-content">
+                        <p class="woreda-description english-content">
+                            Badawacho Woreda is celebrated for its sports achievements and vibrant 
+                            cultural activities. The woreda produces talented athletes and hosts 
+                            major cultural festivals. Investment in sports facilities and cultural 
+                            programs promotes youth development and community pride.
+                        </p>
+                        <p class="woreda-description amharic-content">
+                            ባዳዋቾ ወረዳ በስፖርታዊ ስኬቶቹ እና ሕያው የባህል እንቅስቃሴዎቹ ይከበራል። 
+                            ወረዳው ብቃት ያላቸው አትሌቶችን ያፈራል እና ዋና የባህል በዓላትን ያስተናግዳል። 
+                            በስፖርት መስሪያ ቤቶች እና በባህላዊ ፕሮግራሞች ላይ የሚደረገው ኢንቨስትመንት የወጣቶች ልማት 
+                            እና የማህበረሰብ ኩራት ያሳድጋል።
+                        </p>
+                        
+                        <div class="woreda-highlights">
+                            <h4><i class="fas fa-star"></i> <span class="english-content">Key Features</span><span class="amharic-content">ዋና ባህሪያት</span></h4>
+                            <div class="highlight-list">
+                                <span class="highlight-item">Sports Development</span>
+                                <span class="highlight-item">Cultural Festivals</span>
+                                <span class="highlight-item">Youth Programs</span>
+                                <span class="highlight-item">Athletic Talent</span>
+                            </div>
+                        </div>
+                        
+                        <div class="woreda-footer">
+                            <div class="woreda-capital">
+                                <i class="fas fa-city"></i>
+                                <span class="english-content">Capital: Badawacho Town</span>
+                                <span class="amharic-content">ዋና ከተማ: ባዳዋቾ ከተማ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (SAME AS ZONES) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- Contact Information -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Contact Information</h3>
+                        <h3 class="amharic-content">የአግኙን መረጃ</h3>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="english-content">Hossana, Hadiya Zone, Central Ethiopia Region</span>
+                                    <span class="amharic-content">ሆሳና፣ ሃዲያ ዞን፣ መሃከላዊ ኢትዮጵያ ክልል</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+251939060376">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+251 939 060376</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:info@cerprosperity.gov.et">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@cerprosperity.gov.et</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-clock"></i>
+                                    <span class="english-content">Mon-Fri: 8:30 AM - 5:30 PM</span>
+                                    <span class="amharic-content">ሰኞ-አርብ: 8:30 ጥዋት - 5:30 ከሰዓት</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Quick Links</h3>
+                        <h3 class="amharic-content">ፈጣን አገናኞች</h3>
+                        <ul class="footer-links">
+                            <li><a href="hadiya_prosperity.html"><i class="fas fa-home"></i> <span class="english-content">Home</span><span class="amharic-content">መግቢያ</span></a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> <span class="english-content">About Us</span><span class="amharic-content">ስለ እኛ</span></a></li>
+                            <li><a href="sub-branches.html"><i class="fas fa-sitemap"></i> <span class="english-content">Sub-Branches</span><span class="amharic-content">ንዑስ ቅርንጫፎች</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span class="english-content">Contact Us</span><span class="amharic-content">አግኙን</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sub-Branches -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Sub-Branches</h3>
+                        <h3 class="amharic-content">ንዑስ ቅርንጫፎች</h3>
+                        <ul class="footer-links">
+                            <li><a href="zones.html"><i class="fas fa-map"></i> <span class="english-content">Administrative Zones</span><span class="amharic-content">አስተዳደራዊ ዞኖች</span></a></li>
+                            <li><a href="special-woredas.html"><i class="fas fa-landmark"></i> <span class="english-content">Special Woredas</span><span class="amharic-content">ልዩ ወረዳዎች</span></a></li>
+                            <li><a href="wings.html"><i class="fas fa-users"></i> <span class="english-content">Party Wings</span><span class="amharic-content">የፓርቲ ክንፎች</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Connect With Us</h3>
+                        <h3 class="amharic-content">ከእኛ ጋር ይገናኙ</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://www.facebook.com/CentralEthiopiaRegionprosperitypartyBranchoffice"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a></li>
+                            <li><a href="https://t.me/CentralERProsperity"><i class="fab fa-telegram"></i> <span>Telegram</span></a></li>
+                            <li><a href="https://x.com/central94872?t=PyH4QvYNmJyPb4xLPJhGzQ&s=08"><i class="fab fa-twitter"></i> <span>Twitter</span></a></li>
+                            <li><a href="file:///C:/Users/yohannes/Desktop/prosperity-hadiya-zone/hadiya_prosperity.html"><i class="fab fa-youtube"></i> <span>YouTube</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+  <div class="developer-info">
+                    <p class="english-content language-content"><i class="fas fa-code"></i> <strong>Developed BY:</strong> Wachemo University Computer Science Students</p>
+                    <p class="amharic-content language-content"><i class="fas fa-code"></i> <strong>የተዘጋጀው በ:</strong> ዋቸሞ ዩኒቨርሲቲ ኮምፒዩተር ሳይንስ ተማሪዎች</p>
+                    <p class="english-content language-content"><i class="fas fa-users"></i> <strong>Names:</strong> Simachew Getnet, Yohannes Ashango, Mulugeta Emiru</p>
+                    <p class="amharic-content language-content"><i class="fas fa-users"></i> <strong>ስሞች:</strong> ስማቸው ጌትነት, ዮሐንስ አሻንጎ, ሙሉጌታ እምሩ</p>
+                    
+                </div>
+               
+            </div>
+
+            <div class="footer-bottom">
+                <p class="english-content">© <span id="currentYear"></span> Central Ethiopia Region Prosperity Party - Hadiya Zone Branch Office. All rights reserved.</p>
+                <p class="amharic-content">© <span id="currentYearAm"></span> መሃከላዊ ኢትዮጵያ ክልል የብልጽግና ፓርቲ - ሃዲያ ዞን ቅርንጫፍ ቢሮ. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+                <p>
+                    <a href="#" class="english-content">Privacy Policy</a> | 
+                    <a href="#" class="english-content">Terms of Service</a> |
+                    <a href="#" class="amharic-content">የግላዊነት ፖሊሲ</a> | 
+                    <a href="#" class="amharic-content">የአገልግሎት ውሎች</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript (SAME AS ZONES) -->
+    <script>
+        // Language Switching
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Switch language
+                if (lang === 'am') {
+                    document.body.classList.add('amharic');
+                } else {
+                    document.body.classList.remove('amharic');
+                }
+                
+                // Save preference
+                localStorage.setItem('preferredLang', lang);
+            });
+        });
+
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
+
+        // Fade-in Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const scrollElements = document.querySelectorAll('.scroll-animate');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('scroll-animate')) {
+                        entry.target.classList.add('animated');
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => fadeInObserver.observe(element));
+        scrollElements.forEach(element => fadeInObserver.observe(element));
+
+        // Load preferred language
+        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        if (savedLang === 'am') {
+            document.body.classList.add('amharic');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === 'am') {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Woreda card hover effects
+        document.querySelectorAll('.woreda-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Feature tag interaction
+        document.querySelectorAll('.highlight-item').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Initialize animations on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 100);
+                });
+            }, 300);
+            
+            // Set current year in footer
+            const currentYear = new Date().getFullYear();
+            document.getElementById('currentYear').textContent = currentYear;
+            document.getElementById('currentYearAm').textContent = currentYear;
+        });
+    </script>
+</body>
+</html>

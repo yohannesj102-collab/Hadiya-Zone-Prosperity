@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub-Branches - Central Ethiopia Region Prosperity Party</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f23;
+            --primary-dark: #0f4d1a;
+            --secondary-color: #f9a825;
+            --secondary-dark: #e69100;
+            --accent-color: #d32f2f;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --gray-light: #e9ecef;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Ethiopic', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+
+        .amharic {
+            font-family: 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+            /* direction: rtl; */
+        }
+
+        /* ===== LANGUAGE HANDLING ===== */
+        .english-content {
+            display: block;
+        }
+
+        .amharic-content {
+            display: none;
+        }
+
+        body.amharic .english-content {
+            display: none;
+        }
+
+        body.amharic .amharic-content {
+            display: block;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1003;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .contact-info span:hover {
+            color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(249, 168, 37, 0.2);
+        }
+
+        /* ===== MAIN HEADER ===== */
+        .main-header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1002;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            gap: 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 0 0 auto;
+            min-width: 300px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--white);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            flex: 1;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            color: var(--primary-color);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .nav-container {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+            gap: 2px;
+            direction: ltr;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border-radius: var(--border-radius);
+            white-space: nowrap;
+              direction: ltr;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 220px;
+            box-shadow: var(--shadow-lg);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            display: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gray-light);
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover,
+        .dropdown-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            padding-left: 25px;
+        }
+
+        .dropdown-link:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* ===== SUB-BRANCHES HERO ===== */
+        .branches-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
+                        url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .branches-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.9) 100%);
+            z-index: 1;
+        }
+
+        .branches-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .branches-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 1s ease;
+        }
+
+        .branches-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .section {
+            padding: 100px 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== BRANCHES OVERVIEW ===== */
+        .overview-section {
+            background: var(--white);
+            padding: 60px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .overview-card {
+            background: var(--light-color);
+            padding: 40px 30px;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .overview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .overview-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--white);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .overview-card:hover .overview-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .overview-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .overview-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .branch-count {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* ===== BRANCHES GRID ===== */
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .branch-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .branch-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .branch-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .branch-card:hover .branch-image img {
+            transform: scale(1.1);
+        }
+
+        .branch-type {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .branch-content {
+            padding: 25px;
+        }
+
+        .branch-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            transition: var(--transition);
+        }
+
+        .branch-card:hover .branch-title {
+            color: var(--secondary-color);
+        }
+
+        .branch-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .branch-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .feature-tag {
+            background: var(--light-color);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .feature-tag:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .branch-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .branch-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .branch-link:hover {
+            color: var(--secondary-color);
+            gap: 12px;
+        }
+
+        /* ===== STATISTICS SECTION ===== */
+        .stats-section {
+            background: linear-gradient(135deg, #f0f7f0 0%, #e3f2e3 100%);
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: var(--border-radius-lg);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1c2833 100%);
+            color: var(--white);
+            padding-top: 60px;
+            margin-top: 100px;
+        }
+
+        .footer-main {
+            padding-bottom: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .developer-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .developer-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(26, 95, 35, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 95, 35, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-dark);
+            box-shadow: 0 8px 20px rgba(249, 168, 37, 0.4);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .branches-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-menu {
+                gap: 1px;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .branches-hero {
+                padding: 140px 0 80px;
+            }
+            
+            .branches-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .branches-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                flex: 1;
+                min-width: auto;
+            }
+            
+            .nav-container {
+                flex: 1 0 100%;
+                order: 3;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--white);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                box-shadow: var(--shadow-lg);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid var(--gray-light);
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background: var(--light-color);
+                box-shadow: none;
+            }
+            
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .branches-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .overview-section {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .language-switcher {
+                justify-content: center;
+            }
+            
+            .branches-hero {
+                padding: 120px 0 60px;
+                background-attachment: scroll;
+            }
+            
+            .branches-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .branches-hero p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .branches-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .branches-hero {
+                padding: 100px 0 40px;
+            }
+            
+            .branches-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .overview-section {
+                padding: 30px 20px;
+            }
+            
+            .overview-card {
+                padding: 30px 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .branch-features {
+                flex-direction: column;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Hossana, Ethiopia</span>
+                <span><i class="fas fa-phone"></i> +251939060376</span>
+                <span><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</span>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+                <button class="lang-btn" data-lang="am">
+                    <i class="fas fa-globe"></i> አማርኛ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Section -->
+                <div class="logo-section">
+                    <a href="hadiya_prosperity.html" class="logo-container">
+                        <div class="logo-img">
+                            <img src="c:\Users\yohannes\Pictures\Hadiya_Zone.jpg" alt="Hadiya Zone Logo">
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="english-content">HADIYA ZONE PROSPERITY PARTY BRANCH OFFICE</h1>
+                            <h1 class="amharic-content">ሃዲያ ዞን  የብልጽግና ፓርቲ ብሮ</h1>
+                            <p class="english-content">Official Government Website</p>
+                            <p class="amharic-content">የመንግስት ኦፊሴላዊ ድረ-ገጽ</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="nav-container">
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item">
+                            <a href="hadiya_prosperity.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span class="english-content">Home</span>
+                                <span class="amharic-content">መግቢያ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="english-content">About</span>
+                                <span class="amharic-content">ስለ እኛ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">
+                                <i class="fas fa-newspaper"></i>
+                                <span class="english-content">News</span>
+                                <span class="amharic-content">ዜና</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sub-branches.html" class="nav-link active">
+                                <i class="fas fa-sitemap"></i>
+                                <span class="english-content">Sub-Branches</span>
+                                <span class="amharic-content">ንዑስ ቅርንጫፎች</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="zones.html" class="dropdown-link">
+                                    <i class="fas fa-map"></i>
+                                    <span class="english-content">Zones</span>
+                                    <span class="amharic-content">ዞኖች</span>
+                                </a>
+                                <a href="special-woredas.html" class="dropdown-link">
+                                    <i class="fas fa-landmark"></i>
+                                    <span class="english-content">Special Woredas</span>
+                                    <span class="amharic-content">ልዩ ወረዳዎች</span>
+                                </a>
+                                <a href="wings.html" class="dropdown-link">
+                                    <i class="fas fa-users"></i>
+                                    <span class="english-content">Wings</span>
+                                    <span class="amharic-content">ክንፎች</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="resources.html" class="nav-link">
+                                <i class="fas fa-book"></i>
+                                <span class="english-content">Resources</span>
+                                <span class="amharic-content">ሀብቶች</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">
+                                <i class="fas fa-envelope"></i>
+                                <span class="english-content">Contact</span>
+                                <span class="amharic-content">አግኙን</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sub-Branches Hero Section -->
+    <section class="branches-hero">
+        <div class="container">
+            <h1 class="english-content">Sub-Branches & Structures</h1>
+            <h1 class="amharic-content">ንዑስ ቅርንጫፎች እና አወቃቀሮች</h1>
+            
+            <p class="english-content">
+                Explore the organizational structure and sub-branches of the Hadiya Zone  Prosperity Party. 
+                Our comprehensive network ensures effective governance and service delivery across all levels.
+            </p>
+            <p class="amharic-content">
+                የሃዲያ ዞን  የብልጽግና ፓርቲ የድርጅታዊ አወቃቀር እና ንዑስ ቅርንጫፎችን ያስሱ። 
+                የእኛ የተሟላ የአውታረመረብ ስርዓት በሁሉም ደረጃዎች ውጤታማ አስተዳደር እና አገልግሎት እንዲሰጥ ያረጋግጣል።
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title english-content">Our Organizational Structure</h2>
+                <h2 class="section-title amharic-content">የእኛ ድርጅታዊ አወቃቀር</h2>
+                <p class="section-subtitle english-content">
+                    A comprehensive overview of our sub-branches and their functions within the regional party structure
+                </p>
+                <p class="section-subtitle amharic-content">
+                    በክልላዊ የፓርቲ አወቃቀር ውስጥ የንዑስ ቅርንጫፎቻችን እና ተግባራቸው ሙሉ እይታ
+                </p>
+            </div>
+
+            <!-- Overview Section -->
+            <div class="overview-section fade-in">
+                <h3 class="section-title english-content">Branch Categories</h3>
+                <h3 class="section-title amharic-content">የቅርንጫፍ ምድቦች</h3>
+                
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <h3 class="english-content">Administrative Zones</h3>
+                        <h3 class="amharic-content">አስተዳደራዊ ዞኖች</h3>
+                        <p class="english-content">
+                            Three major zones responsible for regional governance, development implementation, and public service delivery.
+                        </p>
+                         <p class="english-content">
+                            Hadiya Zone, Kembata Tembaro Zone, Dawro Zone
+                        <p class="amharic-content">
+                            ሶስት ዋና ዞኖች ለክልላዊ አስተዳደር፣ ልማት አፈጻጸም እና የህዝብ አገልግሎት አቅርቦት ተጠያቂ።
+                        </p>
+                        <span class="branch-count english-content">3 Zones</span>
+                        <span class="branch-count amharic-content">3 ዞኖች</span>
+                    </div>
+
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3 class="english-content">Special Woredas</h3>
+                        <h3 class="amharic-content">ልዩ ወረዳዎች</h3>
+                        <p class="english-content">
+                            Autonomous administrative units with unique cultural, geographical, or developmental characteristics.
+                        </p>
+                        <p class="english-content">
+                      Hadiya , Lemo , Gurage, Shone , Kacha Bira, Gombora siltie, ............
+                        </p>
+                        <p class="amharic-content">
+                            ልዩ የባህል፣ የጂኦግራፊያዊ ወይም የልማት ባህሪያት ያላቸው ራስ-ሰር አስተዳደራዊ ክፍሎች።
+                        </p>
+                        <span class="branch-count english-content">13 Special Woredas</span>
+                        <br><br>
+                        <span class="branch-count amharic-content">13 ልዩ ወረዳዎች</span>
+                    </div>
+
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="english-content">Party Wings</h3>
+                        <h3 class="amharic-content">የፓርቲ ክንፎች</h3>
+                        <p class="english-content">
+                            Specialized groups focusing on youth, women, and professional sectors to ensure inclusive participation.
+                        </p>
+                        <p class="english-content">
+                           Youth Wings,& Women Wings
+                        </p>
+                        <p class="amharic-content">
+                            በወጣቶች፣ በሴቶች እና በሙያዊ ዘርፎች ላይ ያተኮሩ ልዩ ቡድኖች ሁሉንም ያካተተ ተሳትፎ እንዲኖር ለማረጋገጥ።
+                        </p>
+                        <span class="branch-count english-content">2Major Wings</span>
+                        <span class="branch-count amharic-content">2 ዋና ክንፎች</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- Branches Grid -->
+            <div class="section-header">
+                <h2 class="section-title english-content">Explore Sub-Branches</h2>
+                <h2 class="section-title amharic-content">ንዑስ ቅርንጫፎችን ያስሱ</h2>
+            </div>
+
+            <div class="branches-grid">
+                <!-- Zones Branch -->
+                <div class="branch-card fade-in">
+                    <div class="branch-image">
+                        <img src="https://hadiyazone.cer.gov.et/wp-content/uploads/2024/07/Hossan-Town-Circle-5-Best-16-8-inches-1024x512.jpg" alt="Administrative Zones">
+                        <div class="branch-type">Administrative</div>
+                    </div>
+                    <div class="branch-content">
+                        <h3 class="branch-title english-content">Administrative Zones</h3>
+                        <h3 class="branch-title amharic-content">አስተዳደራዊ ዞኖች</h3>
+                        <p class="branch-description english-content">
+                            three major zones responsible for implementing regional policies, development programs, 
+                            and providing essential services to communities across Central Ethiopia Region.
+                        </p>
+                        <p class="branch-description amharic-content">
+                             ሶስት ዋና ዞኖች የክልላዊ ፖሊሲዎችን፣ የልማት ፕሮግራሞችን ለመተግበር እና በመሃከላዊ ኢትዮጵያ ክልል 
+                            ለማህበረሰቦች መሰረታዊ አገልግሎቶችን ለማቅረብ ተጠያቂ።
+                        </p>
+                        
+                        <div class="branch-features">
+                            <span class="feature-tag">Gurage Zone</span>
+                            <span class="feature-tag">Hadiya Zone</span>
+                            <span class="feature-tag">Halaba Zone</span>
+                            <span class="feature-tag">Kambata Zone</span>
+                        </div>
+                        
+                        <div class="branch-footer">
+                            <div>
+                                <span class="english-content">Primary Functions:</span>
+                                <span class="amharic-content">ዋና ተግባራት:</span>
+                                <span class="english-content">Governance & Development</span>
+                                <span class="amharic-content">አስተዳደር እና ልማት</span>
+                            </div>
+                            <a href="zones.html" class="branch-link">
+                                <span class="english-content">Explore</span>
+                                <span class="amharic-content">ያስሱ</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Woredas Branch -->
+                <div class="branch-card fade-in">
+                    <div class="branch-image">
+                        <img src="https://hadiyazone.cer.gov.et/wp-content/uploads/2024/07/Hossan-Town-5-16-8-in-1024x512.jpg" alt="Special Woredas">
+                        <div class="branch-type">Autonomous</div>
+                    </div>
+                    <div class="branch-content">
+                        <h3 class="branch-title english-content">Special Woredas</h3>
+                        <h3 class="branch-title amharic-content">ልዩ ወረዳዎች</h3>
+                        <p class="branch-description english-content">
+                            Autonomous administrative units with special status, focusing on preserving unique cultural 
+                            heritage and addressing specific developmental needs within their jurisdictions.
+                        </p>
+                        <p class="branch-description amharic-content">
+                            ልዩ ሁኔታ ያላቸው ራስ-ሰር አስተዳደራዊ ክፍሎች፣ ልዩ ባህላዊ ቅርስን ለመጠበቅ እና በየአውዳቸው ውስጥ 
+                            የተወሰኑ የልማት ፍላጎቶችን ለመፍታት ያተኮሩ።
+                        </p>
+                        
+                        <div class="branch-features">
+                            <span class="feature-tag">Cultural Preservation</span>
+                            <span class="feature-tag">Autonomous Governance</span>
+                            <span class="feature-tag">Special Development</span>
+                        </div>
+                        
+                        <div class="branch-footer">
+                            <div>
+                                <span class="english-content">Primary Functions:</span>
+                                <span class="amharic-content">ዋና ተግባራት:</span>
+                                <span class="english-content">Cultural & Special Dev.</span>
+                                <span class="amharic-content">ባህላዊ እና ልዩ ልማት</span>
+                            </div>
+                            <a href="special-woredas.html" class="branch-link">
+                                <span class="english-content">Explore</span>
+                                <span class="amharic-content">ያስሱ</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wings Branch -->
+                <div class="branch-card fade-in">
+                    <div class="branch-image">
+                        <img src="https://th.bing.com/th/id/R.c765c5fcdd6892efcfb940dab1247141?rik=ZdHjzSEHQb4Drg&riu=http%3a%2f%2fwww.cerprosperity.org.et%2fsites%2fdefault%2ffiles%2finline-images%2fZONE+SECTOR+NEW.png&ehk=VmITfBhIseCQjrAOXcj5DO5my75aZT8nE7TvkMygDHk%3d&risl=&pid=ImgRaw&r=0" alt="Party Wings">
+                        <div class="branch-type">Specialized</div>
+                    </div>
+                    <div class="branch-content">
+                        <h3 class="branch-title english-content">Party Wings</h3>
+                        <h3 class="branch-title amharic-content">የፓርቲ ክንፎች</h3>
+                        <p class="branch-description english-content">
+                            Specialized organizational arms focusing on specific demographic groups and professional 
+                            sectors to ensure inclusive participation and targeted development initiatives.
+                        </p>
+                        <p class="branch-description amharic-content">
+                            በተወሰኑ የህዝብ ቡድኖች እና ሙያዊ ዘርፎች ላይ ያተኮሩ ልዩ የድርጅታዊ ክፍሎች ሁሉንም 
+                            ያካተተ ተሳትፎ እና የታሰቡ የልማት ተቋማት እንዲኖሩ ለማረጋገጥ።
+                        </p>
+                        
+                        <div class="branch-features">
+                            <span class="feature-tag">Youth Wing</span>
+                            <span class="feature-tag">Women's Wing</span>
+                            <span class="feature-tag">Professional Wing</span>
+                        </div>
+                        
+                        <div class="branch-footer">
+                            <div>
+                                <span class="english-content">Primary Functions:</span>
+                                <span class="amharic-content">ዋና ተግባራት:</span>
+                                <span class="english-content">Inclusion & Advocacy</span>
+                                <span class="amharic-content">ማካተት እና አገልግሎት</span>
+                            </div>
+                            <a href="wings.html" class="branch-link">
+                                <span class="english-content">Explore</span>
+                                <span class="amharic-content">ያስሱ</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- Contact Information -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Contact Information</h3>
+                        <h3 class="amharic-content">የአግኙን መረጃ</h3>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="english-content">Hossana, Hadiya Zone, Central Ethiopia Region</span>
+                                    <span class="amharic-content">ሆሳና፣ ሃዲያ ዞን፣ መሃከላዊ ኢትዮጵያ ክልል</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+251939060376">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+251 939 060376</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:info@cerprosperity.gov.et">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@cerprosperity.gov.et</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-clock"></i>
+                                    <span class="english-content">Mon-Fri: 8:30 AM - 5:30 PM</span>
+                                    <span class="amharic-content">ሰኞ-አርብ: 8:30 ጥዋት - 5:30 ከሰዓት</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Quick Links</h3>
+                        <h3 class="amharic-content">ፈጣን አገናኞች</h3>
+                        <ul class="footer-links">
+                            <li><a href="hadiya_prosperity.html"><i class="fas fa-home"></i> <span class="english-content">Home</span><span class="amharic-content">መግቢያ</span></a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> <span class="english-content">About Us</span><span class="amharic-content">ስለ እኛ</span></a></li>
+                            <li><a href="sub-branches.html"><i class="fas fa-sitemap"></i> <span class="english-content">Sub-Branches</span><span class="amharic-content">ንዑስ ቅርንጫፎች</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span class="english-content">Contact Us</span><span class="amharic-content">አግኙን</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sub-Branches -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Sub-Branches</h3>
+                        <h3 class="amharic-content">ንዑስ ቅርንጫፎች</h3>
+                        <ul class="footer-links">
+                            <li><a href="zones.html"><i class="fas fa-map"></i> <span class="english-content">Administrative Zones</span><span class="amharic-content">አስተዳደራዊ ዞኖች</span></a></li>
+                            <li><a href="special-woredas.html"><i class="fas fa-landmark"></i> <span class="english-content">Special Woredas</span><span class="amharic-content">ልዩ ወረዳዎች</span></a></li>
+                            <li><a href="wings.html"><i class="fas fa-users"></i> <span class="english-content">Party Wings</span><span class="amharic-content">የፓርቲ ክንፎች</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Connect With Us</h3>
+                        <h3 class="amharic-content">ከእኛ ጋር ይገናኙ</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://www.facebook.com/CentralEthiopiaRegionprosperitypartyBranchoffice"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a></li>
+                            <li><a href="https://t.me/CentralERProsperity"><i class="fab fa-telegram"></i> <span>Telegram</span></a></li>
+                            <li><a href="https://x.com/central94872?t=PyH4QvYNmJyPb4xLPJhGzQ&s=08"><i class="fab fa-twitter"></i> <span>Twitter</span></a></li>
+                            <li><a href="file:///C:/Users/yohannes/Desktop/prosperity-hadiya-zone/hadiya_prosperity.html"><i class="fab fa-youtube"></i> <span>YouTube</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+               <div class="developer-info">
+                    <p class="english-content language-content"><i class="fas fa-code"></i> <strong>Developed BY:</strong> Wachemo University Computer Science Students</p>
+                    <p class="amharic-content language-content"><i class="fas fa-code"></i> <strong>የተዘጋጀው በ:</strong> ዋቸሞ ዩኒቨርሲቲ ኮምፒዩተር ሳይንስ ተማሪዎች</p>
+                    <p class="english-content language-content"><i class="fas fa-users"></i> <strong>Names:</strong> Simachew Getnet, Yohannes Ashango, Mulugeta Emiru</p>
+                    <p class="amharic-content language-content"><i class="fas fa-users"></i> <strong>ስሞች:</strong> ስማቸው ጌትነት, ዮሐንስ አሻንጎ, ሙሉጌታ እምሩ</p>
+                    
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="english-content">© 2026 Central Ethiopia Region Prosperity Party - Hadiya Zone Branch Office. All rights reserved.</p>
+                <p class="amharic-content">© 2026 መሃከላዊ ኢትዮጵያ ክልል የብልጽግና ፓርቲ - ሃዲያ ዞን ቅርንጫፍ ቢሮ. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+                <p>
+                    <a href="#" class="english-content">Privacy Policy</a> | 
+                    <a href="#" class="english-content">Terms of Service</a> |
+                    <a href="#" class="amharic-content">የግላዊነት ፖሊሲ</a> | 
+                    <a href="#" class="amharic-content">የአገልግሎት ውሎች</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Language Switching
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Switch language
+                if (lang === 'am') {
+                    document.body.classList.add('amharic');
+                } else {
+                    document.body.classList.remove('amharic');
+                }
+                
+                // Save preference
+                localStorage.setItem('preferredLang', lang);
+            });
+        });
+
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
+
+        // Fade-in Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // Load preferred language
+        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        if (savedLang === 'am') {
+            document.body.classList.add('amharic');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === 'am') {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Card hover effects
+        document.querySelectorAll('.branch-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Feature tag interaction
+        document.querySelectorAll('.feature-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Initialize animations on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 100);
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>

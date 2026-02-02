@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest News - Central Ethiopia Region Prosperity Party</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f23;
+            --primary-dark: #0f4d1a;
+            --secondary-color: #f9a825;
+            --secondary-dark: #e69100;
+            --accent-color: #d32f2f;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --gray-light: #e9ecef;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Ethiopic', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+
+        .amharic {
+            font-family: 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+            /* direction: rtl; */
+        }
+
+        /* ===== LANGUAGE HANDLING ===== */
+        .english-content {
+            display: block;
+        }
+
+        .amharic-content {
+            display: none;
+        }
+
+        body.amharic .english-content {
+            display: none;
+        }
+
+        body.amharic .amharic-content {
+            display: block;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1003;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .contact-info span:hover {
+            color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(249, 168, 37, 0.2);
+        }
+
+        /* ===== MAIN HEADER ===== */
+        .main-header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1002;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            gap: 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 0 0 auto;
+            min-width: 300px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--white);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            flex: 1;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            color: var(--primary-color);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .nav-container {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+            gap: 2px;
+            direction: ltr;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border-radius: var(--border-radius);
+            white-space: nowrap;
+            display: ltr;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 220px;
+            box-shadow: var(--shadow-lg);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            display: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gray-light);
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover,
+        .dropdown-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            padding-left: 25px;
+        }
+
+        .dropdown-link:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* ===== NEWS HERO ===== */
+        .news-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.9) 100%);
+            z-index: 1;
+        }
+
+        .news-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .news-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 1s ease;
+        }
+
+        .news-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .section {
+            padding: 100px 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== NEWS ARTICLE ===== */
+        .news-article {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .news-article:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .news-title {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .news-meta-detail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .news-meta-detail span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .news-image-container {
+            margin: 30px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .news-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .news-image:hover {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: var(--text-light);
+            margin-top: 10px;
+            font-size: 0.95rem;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+
+        .news-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .news-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .news-content h3 {
+            color: var(--accent-color);
+            margin: 30px 0 20px;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 15px;
+        }
+
+        /* ===== SHARE NEWS ===== */
+        .share-news {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--light-color) 0%, #f0f7f0 100%);
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+
+        .share-news h4 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .share-btn.facebook {
+            background: #1877f2;
+            color: white;
+        }
+
+        .share-btn.twitter {
+            background: #1da1f2;
+            color: white;
+        }
+
+        .share-btn.telegram {
+            background: #0088cc;
+            color: white;
+        }
+
+        .share-btn.email {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0.9;
+        }
+
+        /* ===== NEWS NAVIGATION ===== */
+        .news-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            padding-top: 20px;
+            border-top: 2px solid var(--gray-light);
+        }
+
+        /* ===== RELATED NEWS ===== */
+        .related-news {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f0f7f0 0%, #e3f2e3 100%);
+            border-radius: var(--border-radius-lg);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .related-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .related-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .related-card .date {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .related-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 60px;
+        }
+
+        .page-btn {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            border: 2px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            color: var(--text-dark);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1c2833 100%);
+            color: var(--white);
+            padding-top: 60px;
+            margin-top: 100px;
+        }
+
+        .footer-main {
+            padding-bottom: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .developer-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .developer-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(26, 95, 35, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 95, 35, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-dark);
+            box-shadow: 0 8px 20px rgba(249, 168, 37, 0.4);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .news-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-menu {
+                gap: 1px;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .news-hero {
+                padding: 140px 0 80px;
+            }
+            
+            .news-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .news-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                flex: 1;
+                min-width: auto;
+            }
+            
+            .nav-container {
+                flex: 1 0 100%;
+                order: 3;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--white);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                box-shadow: var(--shadow-lg);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid var(--gray-light);
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background: var(--light-color);
+                box-shadow: none;
+            }
+            
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .news-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .language-switcher {
+                justify-content: center;
+            }
+            
+            .news-hero {
+                padding: 120px 0 60px;
+                background-attachment: scroll;
+            }
+            
+            .news-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .news-hero p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .news-article {
+                padding: 25px;
+            }
+            
+            .news-image {
+                height: 300px;
+            }
+            
+            .news-navigation {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .share-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .news-hero {
+                padding: 100px 0 40px;
+            }
+            
+            .news-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .news-title {
+                font-size: 1.5rem;
+            }
+            
+            .news-meta-detail {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .news-image {
+                height: 250px;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Hossana, Ethiopia</span>
+                <span><i class="fas fa-phone"></i> +251939060376</span>
+                <span><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</span>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+                <button class="lang-btn" data-lang="am">
+                    <i class="fas fa-globe"></i> አማርኛ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Section -->
+                <div class="logo-section">
+                    <a href="hadiya_prosperity.html" class="logo-container">
+                        <div class="logo-img">
+                            <img src="c:\Users\yohannes\Pictures\Hadiya_Zone.jpg" alt="Hadiya Zone Logo">
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="english-content">HADIYA ZONE PROSPERITY PARTY BRANCH OFFICE</h1>
+                            <h1 class="amharic-content">ሃዲያ ዞን  የብልጽግና ፓርቲ ብሮ</h1>
+                            <p class="english-content">Official Government Website</p>
+                            <p class="amharic-content">የመንግስት ኦፊሴላዊ ድረ-ገጽ</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="nav-container">
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item">
+                            <a href="hadiya_prosperity.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span class="english-content">Home</span>
+                                <span class="amharic-content">መግቢያ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="english-content">About</span>
+                                <span class="amharic-content">ስለ እኛ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">
+                                <i class="fas fa-newspaper"></i>
+                                <span class="english-content">News</span>
+                                <span class="amharic-content">ዜና</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="latest-news.html" class="dropdown-link active">
+                                    <i class="fas fa-bullhorn"></i>
+                                    <span class="english-content">Latest News</span>
+                                    <span class="amharic-content">የቅርብ ዜና</span>
+                                </a>
+                                <a href="press-release.html" class="dropdown-link">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span class="english-content">Press Release</span>
+                                    <span class="amharic-content">ፕሬስ ሪሊዝ</span>
+                                </a>
+                                <a href="announcements.html" class="dropdown-link">
+                                    <i class="fas fa-bell"></i>
+                                    <span class="english-content">Announcements</span>
+                                    <span class="amharic-content">ማስታወቂያ</span>
+                                </a>
+                                <a href="vacancy.html" class="dropdown-link">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span class="english-content">Vacancy</span>
+                                    <span class="amharic-content">ባዊ ክፍት ቦታ</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sub-branches.html" class="nav-link">
+                                <i class="fas fa-sitemap"></i>
+                                <span class="english-content">Branches</span>
+                                <span class="amharic-content">ቅርንጫፎች</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="resources.html" class="nav-link">
+                                <i class="fas fa-book"></i>
+                                <span class="english-content">Resources</span>
+                                <span class="amharic-content">ሀብቶች</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">
+                                <i class="fas fa-envelope"></i>
+                                <span class="english-content">Contact</span>
+                                <span class="amharic-content">አግኙን</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- News Hero Section -->
+    <section class="news-hero">
+        <div class="container">
+            <h1 class="english-content">Latest News & Updates</h1>
+            <h1 class="amharic-content">የቅርብ ዜና እና ዝመናዎች</h1>
+            
+            <p class="english-content">
+                Stay informed about the latest developments, announcements, and activities from the Central Ethiopia Region Prosperity Party.
+            </p>
+            <p class="amharic-content">
+                የመሃከላዊ ኢትዮጵያ ክልል የብልጽግና ፓርቲ ከመስጠቱ በሚታወቁት የቅርብ ዜናዎች፣ ማስታወቂያዎች እና እንቅስቃሴዎች ዝመና ያግኙ።
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section>
+        <div>
+            <!-- Share News Section -->
+                <div class="share-news">
+                    <h4 class="english-content">Share This News</h4>
+                    <h4 class="amharic-content">ይህን ዜና ያካፍሉ</h4>
+                    <div class="share-buttons">
+                        <a href="https://www.facebook.com/CentralEthiopiaRegionprosperitypartyBranchoffice" class="share-btn facebook"><i class="fab fa-facebook-f"></i> <span class="english-content">Facebook</span><span class="amharic-content">ፌስቡክ</span></a>
+                        <a href="https://x.com/central94872?t=PyH4QvYNmJyPb4xLPJhGzQ&s=08" class="share-btn twitter"><i class="fab fa-twitter"></i> <span class="english-content">Twitter</span><span class="amharic-content">ትዊተር</span></a>
+                        <a href="https://t.me/CentralERProsperity" class="share-btn telegram"><i class="fab fa-telegram"></i> <span class="english-content">Telegram</span><span class="amharic-content">ቴሌግራም</span></a>
+                    </div>
+                </div>
+
+            <div>
+                <div class="section-header">
+                    <h2 class="section-title english-content">Related News</h2>
+                    <h2 class="section-title amharic-content">ተዛማጅ ዜናዎች</h2>
+                    <p class="section-subtitle english-content">Explore more news related to economic development and regional progress</p>
+                    <p class="section-subtitle amharic-content">ከኢኮኖሚ ልማት እና ከክልል እድገት ጋር የተዛመዱ ተጨማሪ ዜናዎችን ያስሱ</p>
+                </div>
+
+                <div class="related-grid">
+                    <div class="related-card fade-in">
+                        <div class="date">March 15, 2026</div>
+                        <h4 class="english-content">New Investment Policy for Central Ethiopia Region</h4>
+                        <h4 class="amharic-content">ለመሃከላዊ ኢትዮጵያ ክልል አዲስ የኢንቨስትመንት ፖሊሲ</h4>
+                        <p class="english-content">The regional government announces new investment incentives to attract businesses...</p>
+                        <p class="amharic-content">ክልላዊ መንግስት ንግድ ድርጅቶችን ለመሳብ አዲስ የኢንቨስትመንት ማበረታቻዎችን አውጇል...</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+
+                    <div class="related-card fade-in">
+                        <div class="date">March 10, 2026</div>
+                        <h4 class="english-content">Infrastructure Development in Hadiya Zone</h4>
+                        <h4 class="amharic-content">በሃዲያ ዞን የመሠረተ ልማት ልማት</h4>
+                        <p class="english-content">Major road and bridge construction projects completed ahead of schedule...</p>
+                        <p class="amharic-content">ዋና የመንገድ እና የግንብ ግንባታ ፕሮጀክቶች ከታቀደው ቀደም ብለው ተጠናቀቁ...</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+
+                    <div class="related-card fade-in">
+                        <div class="date">March 5, 2026</div>
+                        <h4 class="english-content">Agricultural Modernization Initiative</h4>
+                        <h4 class="amharic-content">የግብርና ዘመናዊነት ተነሳሽነት</h4>
+                        <p class="english-content">New technology adoption program to boost agricultural productivity...</p>
+                        <p class="amharic-content">የግብርና ምርታማነትን ለማሳደግ አዲስ የቴክኖሎጂ አቀባበል ፕሮግራም...</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- Contact Information -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Contact Information</h3>
+                        <h3 class="amharic-content">የአግኙን መረጃ</h3>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="english-content">Hossana, Hadiya Zone, Central Ethiopia Region</span>
+                                    <span class="amharic-content">ሆሳና፣ ሃዲያ ዞን፣ መሃከላዊ ኢትዮጵያ ክልል</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+251939060376">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+251 939 060376</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:info@cerprosperity.gov.et">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@cerprosperity.gov.et</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-clock"></i>
+                                    <span class="english-content">Mon-Fri: 8:30 AM - 5:30 PM</span>
+                                    <span class="amharic-content">ሰኞ-አርብ: 8:30 ጥዋት - 5:30 ከሰዓት</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Quick Links</h3>
+                        <h3 class="amharic-content">ፈጣን አገናኞች</h3>
+                        <ul class="footer-links">
+                            <li><a href="hadiya_prosperity.html"><i class="fas fa-home"></i> <span class="english-content">Home</span><span class="amharic-content">መግቢያ</span></a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> <span class="english-content">About Us</span><span class="amharic-content">ስለ እኛ</span></a></li>
+                            <li><a href="latest-news.html"><i class="fas fa-newspaper"></i> <span class="english-content">Latest News</span><span class="amharic-content">የቅርብ ዜና</span></a></li>
+                            <li><a href="announcements.html"><i class="fas fa-bell"></i> <span class="english-content">Announcements</span><span class="amharic-content">ማስታወቂያ</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span class="english-content">Contact Us</span><span class="amharic-content">አግኙን</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Resources -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Resources</h3>
+                        <h3 class="amharic-content">ሀብቶች</h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> <span class="english-content">Annual Reports</span><span class="amharic-content">ዓመታዊ ሪፖርቶች</span></a></li>
+                            <li><a href="#"><i class="fas fa-book"></i> <span class="english-content">Publications</span><span class="amharic-content">ህትመቶች</span></a></li>
+                            <li><a href="#"><i class="fas fa-download"></i> <span class="english-content">Download Forms</span><span class="amharic-content">ፎርሞችን ያውርዱ</span></a></li>
+                            <li><a href="#"><i class="fas fa-video"></i> <span class="english-content">Media Gallery</span><span class="amharic-content">መልእክት ጋለሪ</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Connect With Us</h3>
+                        <h3 class="amharic-content">ከእኛ ጋር ይገናኙ</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://www.facebook.com/CentralEthiopiaRegionprosperitypartyBranchoffice"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a></li>
+                            <li><a href="https://t.me/CentralERProsperity"><i class="fab fa-telegram"></i> <span>Telegram</span></a></li>
+                            <li><a href="https://x.com/central94872?t=PyH4QvYNmJyPb4xLPJhGzQ&s=08"><i class="fab fa-twitter"></i> <span>Twitter</span></a></li>
+                            <li><a href=""><i class="fab fa-youtube"></i> <span>YouTube</span></a></li>
+                            <!-- <li><a href="#"><i class="fas fa-rss"></i> <span class="english-content">RSS Feed</span><span class="amharic-content">አር ኤስ ኤስ ምግብ</span></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Developer Information -->
+                 <div class="developer-info">
+                    <p class="english-content language-content"><i class="fas fa-code"></i> <strong>Developed BY:</strong> Wachemo University Computer Science Students</p>
+                    <p class="amharic-content language-content"><i class="fas fa-code"></i> <strong>የተዘጋጀው በ:</strong> ዋቸሞ ዩኒቨርሲቲ ኮምፒዩተር ሳይንስ ተማሪዎች</p>
+                    <p class="english-content language-content"><i class="fas fa-users"></i> <strong>Names:</strong> Simachew Getnet, Yohannes Ashango, Mulugeta Emiru</p>
+                    <p class="amharic-content language-content"><i class="fas fa-users"></i> <strong>ስሞች:</strong> ስማቸው ጌትነት, ዮሐንስ አሻንጎ, ሙሉጌታ እምሩ</p>
+                    
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="english-content">© 2024 Central Ethiopia Region Prosperity Party - Hadiya Zone Branch Office. All rights reserved.</p>
+                <p class="amharic-content">© 2024 መሃከላዊ ኢትዮጵያ ክልል የብልጽግና ፓርቲ - ሃዲያ ዞን ቅርንጫፍ ቢሮ. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+                <p>
+                    <a href="#" class="english-content">Privacy Policy</a> | 
+                    <a href="#" class="english-content">Terms of Service</a> |
+                    <a href="#" class="amharic-content">የግላዊነት ፖሊሲ</a> | 
+                    <a href="#" class="amharic-content">የአገልግሎት ውሎች</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Language Switching
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Switch language
+                if (lang === 'am') {
+                    document.body.classList.add('amharic');
+                } else {
+                    document.body.classList.remove('amharic');
+                }
+                
+                // Save preference
+                localStorage.setItem('preferredLang', lang);
+            });
+        });
+
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
+
+        // News Filter
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Filter news cards
+                document.querySelectorAll('.news-article').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-categories').includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Fade-in Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // Load preferred language
+        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        if (savedLang === 'am') {
+            document.body.classList.add('amharic');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === 'am') {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Image lazy loading
+        const images = document.querySelectorAll('img');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => {
+            if (!img.src) {
+                img.dataset.src = img.getAttribute('data-src') || img.src;
+                imageObserver.observe(img);
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Share buttons functionality
+        document.querySelectorAll('.share-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = window.location.href;
+                const title = document.querySelector('.news-title').textContent;
+                
+                if (this.classList.contains('facebook')) {
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                } else if (this.classList.contains('twitter')) {
+                    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank');
+                } else if (this.classList.contains('telegram')) {
+                    window.open(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`, '_blank');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

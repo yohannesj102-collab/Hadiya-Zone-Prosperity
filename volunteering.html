@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteering - Central Ethiopia Region Prosperity Party</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f23;
+            --secondary-color: #f9a825;
+            --accent-color: #d32f2f;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Ethiopic', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+
+        .amharic {
+            font-family: 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+            direction: rtl;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #0f4d1a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: #e69100;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        .header-top {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-info-top {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info-top span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .header-main {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            overflow: hidden;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .navbar {
+            background: var(--dark-color);
+        }
+
+        .nav-container {
+            position: relative;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 20px 25px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-color);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            display: none;
+            z-index: 1000;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+            padding-left: 30px;
+        }
+
+        .dropdown-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== VOLUNTEERING HERO SECTION ===== */
+        .volunteering-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://www.cerprosperity.org.et/sites/default/files/inline-images/logo%20background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .volunteering-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 95, 35, 0.8) 0%, rgba(44, 62, 80, 0.8) 100%);
+        }
+
+        .volunteering-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .volunteering-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .volunteering-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .volunteering-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .volunteering-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            min-width: 200px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item i {
+            margin-bottom: 15px;
+            opacity: 0.9;
+            font-size: 2.5rem;
+        }
+
+        .stat-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .stat-item p {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* ===== VOLUNTEER OPPORTUNITIES SECTION ===== */
+        .volunteer-opportunities {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .opportunities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .opportunity-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .opportunity-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .opportunity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .opportunity-card:hover .opportunity-image img {
+            transform: scale(1.05);
+        }
+
+        .opportunity-content {
+            padding: 25px;
+        }
+
+        .opportunity-tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .opportunity-duration {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .opportunity-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            min-height: 60px;
+        }
+
+        .opportunity-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .opportunity-requirements {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(26, 95, 35, 0.05);
+            border-radius: var(--border-radius);
+        }
+
+        .opportunity-requirements h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .opportunity-requirements ul {
+            list-style-position: inside;
+            color: var(--text-light);
+        }
+
+        .opportunity-requirements li {
+            margin-bottom: 5px;
+        }
+
+        /* ===== MAP SECTION ===== */
+        .location-section {
+            background: linear-gradient(135deg, #1a5f23 0%, #2c3e50 100%);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== VOLUNTEER BENEFITS ===== */
+        .volunteer-benefits {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: #f8f9fa;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* ===== REGISTRATION SECTION ===== */
+        .registration-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .registration-form {
+            max-width: 600px;
+            margin: 40px auto 0;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(26, 95, 35, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials-section {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .author-info span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark-color);
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .footer-main {
+            padding: 60px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section {
+            padding: 20px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.3rem;
+        }
+
+        .contact-info-footer p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            font-size: 0.95rem;
+        }
+
+        .contact-info-footer i {
+            margin-top: 3px;
+            color: var(--secondary-color);
+            min-width: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        .footer-links a i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .related-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .related-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            padding: 5px 0;
+            display: block;
+        }
+
+        .related-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .footer-bottom a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .developer-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .developer-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .developer-info i {
+            color: var(--secondary-color);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .opportunities-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .volunteering-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .opportunities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark-color);
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background: rgba(0, 0, 0, 0.2);
+                box-shadow: none;
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: none;
+            }
+            
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .volunteering-hero {
+                padding: 70px 0;
+            }
+            
+            .volunteering-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .volunteering-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .volunteering-stats {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                min-width: 150px;
+                padding: 20px 15px;
+            }
+            
+            .stat-item p {
+                font-size: 2rem;
+            }
+            
+            .volunteer-opportunities,
+            .location-section,
+            .volunteer-benefits,
+            .registration-section,
+            .testimonials-section {
+                padding: 30px;
+            }
+            
+            .registration-form {
+                padding: 30px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .volunteering-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .contact-info-top {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .volunteering-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .related-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* ===== LANGUAGE CONTENT ===== */
+        .english-content {
+            display: block;
+        }
+
+        .amharic-content {
+            display: none;
+        }
+
+        body.amharic .english-content {
+            display: none;
+        }
+
+        body.amharic .amharic-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="container">
+            <div class="contact-info-top">
+                <span><i class="fas fa-map-marker-alt"></i> Hossana, Ethiopia</span>
+                <span><i class="fas fa-phone"></i> +251939060376</span>
+                <span><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</span>
+                <span><i class="fas fa-box"></i> <span class="english-content">P.O. Box: 332</span><span class="amharic-content">ፖ.ሳ.ቁ: 332</span></span>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="am">አማርኛ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Main -->
+    <header class="header-main">
+        <div class="container">
+            <div class="header-content">
+                <a href="hadiya_prosperity.html" class="logo">
+                    <div class="logo-img">
+                        <img src="c:\Users\yohannes\Pictures\Hadiya_Zone.jpg" height="100px" width="100px" alt="">
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="english-content">Central Ethiopia Region Prosperity Party Branch Office</h1>
+                        <h1 class="amharic-content">የማዕከላዊ ኢትዮጵያ ክልል ብልፅግና ፓርቲ ቅርጫፍ ጽ/ቤት</h1>
+                        <p class="english-content">Official Government Website</p>
+                        <p class="amharic-content">የመንግስት ኦፊሴላዊ ድረ-ገጽ</p>
+                    </div>
+                </a>
+                <div class="header-contact">
+                    <div><i class="fas fa-clock"></i> <span class="english-content">Mon-Fri: 8:30 AM - 5:30 PM</span><span class="amharic-content">ሰኞ-ሐሙስ: 8:30 ጥዋት - 5:30 ከሰዓት</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="hadiya_prosperity.html" class="nav-link"><i class="fas fa-home"></i> <span class="english-content">Home</span><span class="amharic-content">መግቢያ</span></a></li>
+                
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> <span class="english-content">About Us</span><span class="amharic-content">ስለ እኛ</span> <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="government-leaders.html" class="dropdown-link"><i class="fas fa-users"></i> <span class="english-content">Government Higher Leaders</span><span class="amharic-content">የመንግስት ከፍተኛ አመራሮች</span></a>
+                        <a href="party-message.html" class="dropdown-link"><i class="fas fa-envelope"></i> <span class="english-content">Party Message</span><span class="amharic-content">የፓርቲ መልዕክት</span></a>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link"><i class="fas fa-newspaper"></i> <span class="english-content">News</span><span class="amharic-content">ዜና</span> <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="latest-news.html" class="dropdown-link"><i class="fas fa-bullhorn"></i> <span class="english-content">Latest News</span><span class="amharic-content">የቅርብ ዜና</span></a>
+                        <a href="press-release.html" class="dropdown-link"><i class="fas fa-file-alt"></i> <span class="english-content">Press Release</span><span class="amharic-content">ፕሬስ ሪሊዝ</span></a>
+                        <a href="announcements.html" class="dropdown-link"><i class="fas fa-bell"></i> <span class="english-content">Announcements</span><span class="amharic-content">ማስታወቂያ</span></a>
+                        <a href="vacancy.html" class="dropdown-link"><i class="fas fa-briefcase"></i> <span class="english-content">Vacancy</span><span class="amharic-content">ባዊ ክፍት ቦታ</span></a>
+                        <a href="tender.html" class="dropdown-link"><i class="fas fa-file-contract"></i> <span class="english-content">Tender</span><span class="amharic-content">ጨረታ</span></a>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="explore.html" class="nav-link active"><i class="fas fa-compass"></i> <span class="english-content">Explore</span><span class="amharic-content">ያስሱ</span> <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="tourism.html" class="dropdown-link"><i class="fas fa-mountain"></i> <span class="english-content">Tourism</span><span class="amharic-content">ቱሪዝም</span></a>
+                        <a href="community-events.html" class="dropdown-link"><i class="fas fa-calendar-alt"></i> <span class="english-content">Community Events</span><span class="amharic-content">የማህበረሰብ ዝግጅቶች</span></a>
+                        <a href="volunteering.html" class="dropdown-link active"><i class="fas fa-hands-helping"></i> <span class="english-content">Volunteering</span><span class="amharic-content">በፈቃድ ሥራ</span></a>
+                        <a href="social-gathering.html" class="dropdown-link"><i class="fas fa-users"></i> <span class="english-content">Social Gathering</span><span class="amharic-content">ማህበራዊ ስብሰባ</span></a>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link"><i class="fas fa-book"></i> <span class="english-content">Resources</span><span class="amharic-content">ሀብቶች</span> <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="manifesto.html" class="dropdown-link"><i class="fas fa-file-signature"></i> <span class="english-content">Manifesto</span><span class="amharic-content">ማኒፌስቶ</span></a>
+                        <a href="program.html" class="dropdown-link"><i class="fas fa-project-diagram"></i> <span class="english-content">Program</span><span class="amharic-content">ፕሮግራም</span></a>
+                        <a href="rules-principles.html" class="dropdown-link"><i class="fas fa-gavel"></i> <span class="english-content">Rules & Principles</span><span class="amharic-content">ደንቦች እና መርሆዎች</span></a>
+                        <a href="training-manuals.html" class="dropdown-link"><i class="fas fa-user-graduate"></i> <span class="english-content">Training Manuals</span><span class="amharic-content">የስልጠና መመሪያዎች</span></a>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link"><i class="fas fa-address-book"></i> <span class="english-content">Contact Us</span><span class="amharic-content">አግኙን</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Volunteering Hero Section -->
+    <section class="volunteering-hero section">
+        <div class="container volunteering-hero-content">
+            <div class="volunteering-icon">
+                <i class="fas fa-hands-helping"></i>
+            </div>
+            <h1 class="english-content">Volunteer with Us</h1>
+            <h1 class="amharic-content">በፈቃድ ከኛ ጋር ይሠሩ</h1>
+            
+            <p class="english-content">
+                Join our community of dedicated volunteers working towards building a prosperous Central Ethiopia Region. 
+                Your skills, time, and passion can make a real difference in our community development initiatives, 
+                environmental conservation projects, and social welfare programs.
+            </p>
+            <p class="amharic-content">
+                ብልፅግና ያለው ማዕከላዊ ኢትዮጵያ ክልል ለመገንባት እየሠሩ ባሉ በፈቃድ ሠራተኞች ማህበረሰባችን ውስጥ ይሁኑ። 
+                ችሎታዎችዎ፣ ጊዜዎ እና ትኩረትዎ በማህበረሰባችን የልማት ተነሳሽነቶች፣ በአካባቢ ጥበቃ ፕሮጀክቶች 
+                እና በማህበራዊ ደህንነት ፕሮግራሞች ውስጥ እውነተኛ ለውጥ ሊያምጡ ይችላሉ።
+            </p>
+            
+            <!-- <div class="volunteering-stats">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <h3 class="english-content">Active Volunteers</h3>
+                    <h3 class="amharic-content">ንቁ በፈቃድ ሠራተኞች</h3>
+                    <p>2,500+</p>
+                </div> -->
+                <!-- <div class="stat-item">
+                    <i class="fas fa-tree"></i>
+                    <h3 class="english-content">Trees Planted</h3>
+                    <h3 class="amharic-content">የተተከሉ ዛፎች</h3>
+                    <p>500K+</p>
+                </div> -->
+                <!-- <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <h3 class="english-content">Volunteer Hours</h3>
+                    <h3 class="amharic-content">የበፈቃድ ሰዓታት</h3>
+                    <p>50K+</p>
+                </div> -->
+                <!-- <div class="stat-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3 class="english-content">Projects Completed</h3>
+                    <h3 class="amharic-content">የተጠናቀቁ ፕሮጀክቶች</h3>
+                    <p>150+</p>
+                </div> -->
+            <!-- </div> -->
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Volunteer Opportunities Section -->
+        <section class="volunteer-opportunities fade-in">
+            <h2 class="section-title english-content">Volunteer Opportunities</h2>
+            <h2 class="section-title amharic-content">የበፈቃድ ሥራ እድሎች</h2>
+            
+            <div class="opportunities-grid">
+                <!-- Green Legacy Volunteer -->
+                <div class="opportunity-card">
+                    <div class="opportunity-image">
+                        <img src="https://www.cerprosperity.org.et/sites/default/files/inline-images/green%20legacy.png" alt="Green Legacy Initiative">
+                    </div>
+                    <div class="opportunity-content">
+                        <span class="opportunity-tag english-content">Environmental</span>
+                        <span class="opportunity-tag amharic-content">የአካባቢ</span>
+                        <span class="opportunity-duration english-content">Seasonal</span>
+                        <span class="opportunity-duration amharic-content">ወቅታዊ</span>
+                        <h3 class="english-content">Green Legacy Tree Planting Volunteer</h3>
+                        <h3 class="amharic-content">አረንጓዴ ቅርስ የዛፍ ተክል በፈቃድ ሠራተኛ</h3>
+                        <p class="opportunity-description english-content">
+                            Join our environmental conservation efforts by volunteering in the Green Legacy tree planting initiative. 
+                            Help us plant and nurture seedlings, educate communities about environmental protection, 
+                            and participate in maintaining newly planted areas across Central Ethiopia Region.
+                        </p>
+                        <p class="opportunity-description amharic-content">
+                            በአረንጓዴ ቅርስ የዛፍ ተክል ተነሳሽነት በፈቃድ በመስራት የኛን የአካባቢ ጥበቃ ሙከራዎች ውስጥ ይሳተፉ። 
+                            ቅጠሎችን ለመትከል እና ለመንከባከብ፣ ማህበረሰቦችን ስለ አካባቢ ጥበቃ ለማስተማር፣ 
+                            እና በማዕከላዊ ኢትዮጵያ ክልል በተተከሉ አዳዲስ ቦታዎች ላይ ለመተናገር እንድንረዳን ይርዱን።
+                        </p>
+                        
+                        <div class="opportunity-requirements">
+                            <h4 class="english-content">Requirements:</h4>
+                            <h4 class="amharic-content">ምንድን ያስፈልጋል:</h4>
+                            <ul class="english-content">
+                                <li>Interest in environmental conservation</li>
+                                <li>Ability to work outdoors</li>
+                                <li>Commitment to attend training sessions</li>
+                                <li>Teamwork and communication skills</li>
+                            </ul>
+                            <ul class="amharic-content">
+                                <li>በአካባቢ ጥበቃ ፍላጎት</li>
+                                <li>በውጪ ለመስራት የሚያስችል ችሎታ</li>
+                                <li>ለስልጠና ክፍሎች መገኘት የሚያስችል ቁርጠኝነት</li>
+                                <li>የቡድን ሥራ እና የመገናኛ ችሎታ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Community Education Volunteer -->
+                <div class="opportunity-card">
+                    <div class="opportunity-image">
+                        <img src="https://www.cerprosperity.org.et/sites/default/files/inline-images/green1_dot72k.jpg" alt="Community Education">
+                    </div>
+                    <div class="opportunity-content">
+                        <span class="opportunity-tag english-content">Education</span>
+                        <span class="opportunity-tag amharic-content">ትምህርት</span>
+                        <span class="opportunity-duration english-content">Ongoing</span>
+                        <span class="opportunity-duration amharic-content">ቀጣይነት ያለው</span>
+                        <h3 class="english-content">Community Education Volunteer</h3>
+                        <h3 class="amharic-content">የማህበረሰብ ትምህርት በፈቃድ ሠራተኛ</h3>
+                        <p class="opportunity-description english-content">
+                            Help us educate communities about important topics including health awareness, 
+                            environmental protection, civic education, and agricultural best practices. 
+                            Volunteers will work with local communities to conduct workshops, training sessions, 
+                            and awareness campaigns in various villages across the region.
+                        </p>
+                        <p class="opportunity-description amharic-content">
+                            ማህበረሰቦችን ስለ ጤና ንቃት፣ አካባቢ ጥበቃ፣ የከተማ ትምህርት እና የሀረር ምርታማነት 
+                            መልካም ልምዶች በመማር ለመርዳት እንድንረዳን ይርዱን። በፈቃድ ሠራተኞች ከአካባቢያዊ ማህበረሰቦች 
+                            ጋር በመስራት አውደ ማጥናቶችን፣ የስልጠና ክፍሎችን እና የንቃት ዘመቻዎችን በክልሉ ውስጥ 
+                            በተለያዩ መንደሮች ውስጥ ያካሂዳሉ።
+                        </p>
+                        
+                        <div class="opportunity-requirements">
+                            <h4 class="english-content">Requirements:</h4>
+                            <h4 class="amharic-content">ምንድን ያስፈልጋል:</h4>
+                            <ul class="english-content">
+                                <li>Teaching or training experience</li>
+                                <li>Good communication skills</li>
+                                <li>Patience and cultural sensitivity</li>
+                                <li>Knowledge of local languages</li>
+                            </ul>
+                            <ul class="amharic-content">
+                                <li>የመማር ወይም የስልጠና ልምድ</li>
+                                <li>ጥሩ የመገናኛ ችሎታ</li>
+                                <li>ትዕግስት እና የባህል ስሜት</li>
+                                <li>የአካባቢ ቋንቋዎች እውቀት</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Health Campaign Volunteer -->
+                <div class="opportunity-card">
+                    <div class="opportunity-image">
+                        <img src="https://www.cerprosperity.org.et/sites/default/files/inline-images/Kambata.jpg" alt="Health Campaign">
+                    </div>
+                    <div class="opportunity-content">
+                        <span class="opportunity-tag english-content">Healthcare</span>
+                        <span class="opportunity-tag amharic-content">ጤና እንክብካቤ</span>
+                        <span class="opportunity-duration english-content">Project-based</span>
+                        <span class="opportunity-duration amharic-content">በፕሮጀክት</span>
+                        <h3 class="english-content">Health Awareness Campaign Volunteer</h3>
+                        <h3 class="amharic-content">የጤና ንቃት ዘመቻ በፈቃድ ሠራተኛ</h3>
+                        <p class="opportunity-description english-content">
+                            Participate in our health awareness campaigns focusing on disease prevention, 
+                            hygiene promotion, nutrition education, and maternal health. Volunteers will 
+                            assist in organizing health camps, conducting awareness sessions, and distributing 
+                            health information materials in rural communities.
+                        </p>
+                        <p class="opportunity-description amharic-content">
+                            በህመም መከላከል፣ ጤነኛ ማስተዋወቅ፣ የምግብ ትምህርት እና የእናቶች ጤና ላይ በሚያተኩሩ 
+                            የጤና ንቃት ዘመቻዎቻችን ውስጥ ይሳተፉ። በፈቃድ ሠራተኞች የጤና ካምፖችን በማደራጀት፣ 
+                            የንቃት ክፍሎችን በመያዝ እና የጤና መረጃ ቁሳቁሶችን በገጠር ማህበረሰቦች ውስጥ በማከፋፈል ይረዳሉ።
+                        </p>
+                        
+                        <div class="opportunity-requirements">
+                            <h4 class="english-content">Requirements:</h4>
+                            <h4 class="amharic-content">ምንድን ያስፈልጋል:</h4>
+                            <ul class="english-content">
+                                <li>Basic health knowledge</li>
+                                <li>Ability to travel to rural areas</li>
+                                <li>Good interpersonal skills</li>
+                                <li>Commitment to public health</li>
+                            </ul>
+                            <ul class="amharic-content">
+                                <li>መሰረታዊ የጤና እውቀት</li>
+                                <li>ወደ ገጠር አካባቢዎች ለመጓዝ የሚያስችል ችሎታ</li>
+                                <li>ጥሩ የግንኙነት ችሎታ</li>
+                                <li>ለህዝብ ጤና የሚያስችል ቁርጠኝነት</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section with Google Map -->
+        <section class="location-section fade-in">
+            <h2 class="section-title english-content">Our Location</h2>
+            <h2 class="section-title amharic-content">ቦታችን</h2>
+            
+            <p class="english-content" style="text-align: center; margin-bottom: 20px;">
+                Visit our headquarters in Hossana to learn more about volunteering opportunities or 
+                participate in our volunteer orientation sessions.
+            </p>
+            <p class="amharic-content" style="text-align: center; margin-bottom: 20px;">
+                ስለ በፈቃድ ሥራ እድሎች የበለጠ ለመረዳት ወይም በበፈቃድ ሠራተኞች አውደ ማጥናት ላይ 
+                ለመሳተፍ ዋና መሥሪያ ቤታችንን በሆሳዕና ይጎብኙ።
+            </p>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.947750892986!2d38.462020974823864!3d8.98077329105429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164d5d2fb7e4b36b%3A0xa3a9fe0c2589f4a9!2sCentral%20Ethiopia%20Region%20Prosperity%20Party%20Branch%20Office!5e0!3m2!1sen!2set!4v1696789012345!5m2!1sen!2set" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="contact.html" class="btn btn-secondary">
+                    <i class="fas fa-directions"></i>
+                    <span class="english-content">Get Directions</span>
+                    <span class="amharic-content">አቅጣጫ ያግኙ</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Volunteer Benefits Section -->
+        <section class="volunteer-benefits fade-in">
+            <h2 class="section-title english-content">Benefits of Volunteering</h2>
+            <h2 class="section-title amharic-content">የበፈቃድ ሥራ ጥቅሞች</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="english-content">Skill Development</h4>
+                    <h4 class="amharic-content">የችሎታ ልማት</h4>
+                    <p class="english-content">Gain valuable experience and develop new skills</p>
+                    <p class="amharic-content">እውቅና ያለው ልምድ ያግኙ እና አዲስ ችሎታዎችን ያዳብሩ</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h4 class="english-content">Networking</h4>
+                    <h4 class="amharic-content">የኔትወርኪንግ</h4>
+                    <p class="english-content">Connect with professionals and community leaders</p>
+                    <p class="amharic-content">ከፕሮፌሽናሎች እና ከማህበረሰብ አመራሮች ጋር ይገናኙ</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4 class="english-content">Certification</h4>
+                    <h4 class="amharic-content">ማረጋገጫ</h4>
+                    <p class="english-content">Receive official volunteer certificates</p>
+                    <p class="amharic-content">ኦፊሴላዊ የበፈቃድ ሠራተኞች ማረጋገጫዎችን ይቀበሉ</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="english-content">Community Impact</h4>
+                    <h4 class="amharic-content">የማህበረሰብ ተጽዕኖ</h4>
+                    <p class="english-content">Make a tangible difference in your community</p>
+                    <p class="amharic-content">በማህበረሰብዎ ውስጥ ተጨባጭ ለውጥ ያምጡ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Registration Section -->
+        <section class="registration-section fade-in">
+            <h2 class="section-title english-content">Become a Volunteer</h2>
+            <h2 class="section-title amharic-content">በፈቃድ ሠራተኛ ይሁኑ</h2>
+            
+            <div class="registration-form">
+                <form id="volunteerRegistrationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName" class="english-content">Full Name</label>
+                            <label for="fullName" class="amharic-content">ሙሉ ስም</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="english-content">Email Address</label>
+                            <label for="email" class="amharic-content">የኢሜይል አድራሻ</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" class="english-content">Phone Number</label>
+                            <label for="phone" class="amharic-content">ስልክ ቁጥር</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="age" class="english-content">Age</label>
+                            <label for="age" class="amharic-content">እድሜ</label>
+                            <input type="number" id="age" name="age" min="18" max="70" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="occupation" class="english-content">Occupation/Profession</label>
+                        <label for="occupation" class="amharic-content">ሙያ/ተቋም</label>
+                        <input type="text" id="occupation" name="occupation" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interests" class="english-content">Volunteer Interests</label>
+                        <label for="interests" class="amharic-content">የበፈቃድ ሥራ ፍላጎቶች</label>
+                        <select id="interests" name="interests" multiple required>
+                            <option value="environmental">Environmental Conservation</option>
+                            <option value="education">Community Education</option>
+                            <option value="healthcare">Health Awareness</option>
+                            <option value="agriculture">Agricultural Support</option>
+                            <option value="youth">Youth Programs</option>
+                            <option value="elderly">Elderly Care</option>
+                            <option value="cleanup">Community Cleanup</option>
+                            <option value="cultural">Cultural Activities</option>
+                        </select>
+                        <small class="english-content">Hold Ctrl/Cmd to select multiple options</small>
+                        <small class="amharic-content">ብዙ አማራጮችን ለመምረጥ Ctrl/Cmd ይጫኑ</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="availability" class="english-content">Availability</label>
+                        <label for="availability" class="amharic-content">መገኘት</label>
+                        <select id="availability" name="availability" required>
+                            <option value="weekends">Weekends Only</option>
+                            <option value="weekdays">Weekdays Only</option>
+                            <option value="both">Both Weekdays & Weekends</option>
+                            <option value="flexible">Flexible Schedule</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience" class="english-content">Previous Volunteer Experience</label>
+                        <label for="experience" class="amharic-content">የቀድሞ በፈቃድ ሥራ ልምድ</label>
+                        <textarea id="experience" name="experience" rows="4" placeholder="Briefly describe any previous volunteer experience..."></textarea>
+                    </div>
+                    
+                    <div class="form-group" style="text-align: center; margin-top: 30px;">
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fas fa-user-plus"></i>
+                            <span class="english-content">Register as Volunteer</span>
+                            <span class="amharic-content">በፈቃድ ሠራተኛ ይመዝገቡ</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Volunteer Testimonials Section -->
+        <section class="testimonials-section fade-in">
+            <h2 class="section-title english-content">Volunteer Testimonials</h2>
+            <h2 class="section-title amharic-content">የበፈቃድ ሠራተኞች አስተያየት</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text english-content">
+                        "Volunteering with the Central Ethiopia Prosperity Party has been an incredibly rewarding experience. 
+                        I've not only contributed to my community but also developed valuable skills that have helped me 
+                        in my professional career."
+                    </p>
+                    <p class="testimonial-text amharic-content">
+                        "በማዕከላዊ ኢትዮጵያ ብልፅግና ፓርቲ በፈቃድ ሥራ መስራት ከፍተኛ አስፈላጊ ልምድ ነበር። 
+                        በማህበረሰቤ ላይ እንድረዳ ብቻ ሳይሆን በሙያዊ ሥራዬ ላይ የሚረዱኝ እውቅና ያላቸው ችሎታዎችንም አዳብሬያለሁ።"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">YA</div>
+                        <div class="author-info">
+                            <h4 class="english-content">Yohannes Ashango</h4>
+                            <h4 class="amharic-content">ዮሃንስ አስሃንጎ</h4>
+                            <span class="english-content">computer Science</span>
+                            <span class="amharic-content">ኮምፕትር ሳየንስ</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text english-content">
+                        "Being part of the Green Legacy initiative has connected me with amazing people who share 
+                        the same passion for environmental conservation. The training we received was exceptional 
+                        and the impact we're making is visible throughout our community."
+                    </p>
+                    <p class="testimonial-text amharic-content">
+                        "በአረንጓዴ ቅርስ ተነሳሽነት ውስጥ መሆን በአካባቢ ጥበቃ ተመሳሳይ ፍላጎት ያላቸው 
+                        አስደናቂ ሰዎች እንድገናኝ አድርጓል። የተሰጠን ስልጠና ልዩ ነበር እናም በማህበረሰባችን 
+                        ውስጥ የምናደርገው ተጽዕኖ የሚታይ ነው።"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SG</div>
+                        <div class="author-info">
+                            <h4 class="english-content">simachew getnet</h4>
+                            <h4 class="amharic-content">ስማችው ገትነት</h4>
+                            <span class="english-content">computer student</span>
+                            <span class="amharic-content">ኮምፕትር ስቱደንት</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text english-content">
+                        "Through volunteering in community health campaigns, I've gained practical experience 
+                        that complements my medical studies. The gratitude from community members when we 
+                        provide health education is the most rewarding part of this experience."
+                    </p>
+                    <p class="testimonial-text amharic-content">
+                        "በማህበረሰብ ጤና ዘመቻዎች በፈቃድ ሥራ በመስራት ከህክምና ትምህርቴ ጋር የሚጣጣም 
+                        ተግባራዊ ልምድ አግኝቻለሁ። የጤና ትምህርት ስንሰጥ ከማህበረሰብ አባላት የሚገኘው 
+                        አመሰግናት ይህንን ልምድ በጣም አስፈላጊ ያደረገው ክፍል ነው።"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ME</div>
+                        <div class="author-info">
+                            <h4 class="english-content">Muluget Emiru</h4>
+                            <h4 class="amharic-content">ሙሉገታ እሚሩ</h4>
+                            <span class="english-content">computer science </span>
+                            <span class="amharic-content">ኮምፑተር ሳየንስ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h3 class="english-content">Contact Us</h3>
+                        <h3 class="amharic-content">አግኙን</h3>
+                        <div class="contact-info-footer">
+                            <p><i class="fas fa-map-marker-alt"></i> 
+                                <span class="english-content">Hossana, Ethiopia</span>
+                                <span class="amharic-content">ሆሳዕና፣ ኢትዮጵያ</span>
+                            </p>
+                            <p><i class="fas fa-phone"></i> +251939060376</p>
+                            <p><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</p>
+                            <p><i class="fas fa-box"></i> 
+                                <span class="english-content">P.O. Box: 332</span>
+                                <span class="amharic-content">ፖ.ሳ.ቁ: 332</span>
+                            </p>
+                            <p><i class="fas fa-clock"></i> 
+                                <span class="english-content">Mon-Fri: 8:30 AM - 5:30 PM</span>
+                                <span class="amharic-content">ሰኞ-ሐሙስ: 8:30 ጥዋት - 5:30 ከሰዓት</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="english-content">Quick Links</h3>
+                        <h3 class="amharic-content">ፈጣን አገናኞች</h3>
+                        <ul class="footer-links">
+                            <li><a href="hadiya_prosperity.html"><i class="fas fa-home"></i> <span class="english-content">Home</span><span class="amharic-content">መግቢያ</span></a></li>
+                            <li><a href="community-events.html"><i class="fas fa-calendar-alt"></i> <span class="english-content">Community Events</span><span class="amharic-content">የማህበረሰብ ዝግጅቶች</span></a></li>
+                            <li><a href="volunteering.html"><i class="fas fa-hands-helping"></i> <span class="english-content">Volunteering</span><span class="amharic-content">በፈቃድ ሥራ</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span class="english-content">Contact Us</span><span class="amharic-content">አግኙን</span></a></li>
+                        </ul>
+                    </div>
+<!--                     
+                    <div class="footer-section">
+                        <h3 class="english-content">Related Links</h3>
+                        <h3 class="amharic-content">የተዛመዱ አገናኞች</h3>
+                        <div class="related-links">
+                            <a href="https://prosperityparty.et" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="english-content">Prosperity Party</span>
+                                <span class="amharic-content">ብልፅግና ፓርቲ</span>
+                            </a>
+                            <a href="https://www.fdre.gov.et" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="english-content">FDRE National Referral Mechanism</span> -->
+                                <!-- <span class="amharic-content">የፌዴሬ ብሔራዊ ማመላከቻ ስልት</span>
+                            </a>
+                            <a href="https://www.ccie.gov.et" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="english-content">FDRE Council of Constitutional Inquiry</span>
+                                <span class="amharic-content">የፌዴሬ ሕገ መንግሥታዊ መርማሪ ምክር ቤት</span>
+                            </a>
+                            <a href="https://www.centralethiopiaedu.gov.et" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="english-content">Central Ethiopia Education Bureau</span> -->
+                                <!-- <span class="amharic-content">ማዕከላዊ ኢትዮጵያ ትምህርት ቢሮ</span>
+                            </a>
+                            <a href="https://www.wachemo.edu.et" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 
+                                <span class="english-content">Wachemo University</span>
+                                <span class="amharic-content">ዋቸሞ ዩኒቨርሲቲ</span>
+                            </a>
+                        </div> -->
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3 class="english-content">Volunteer Updates</h3>
+                        <h3 class="amharic-content">የበፈቃድ ሥራ ዝመናዎች</h3>
+                        <div style="margin-bottom: 20px;">
+                            <p class="english-content">Subscribe for volunteer opportunities:</p>
+                            <p class="amharic-content">ለበፈቃድ ሥራ እድሎች ይመዝገቡ፡</p>
+                            <div style="display: flex; margin-top: 15px;">
+                                <input type="email" placeholder="Email address" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: var(--border-radius) 0 0 var(--border-radius); border-right: none;">
+                                <button class="btn" style="border-radius: 0 var(--border-radius) var(--border-radius) 0; padding: 12px 20px;">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="english-content">Follow our volunteer programs:</p>
+                            <p class="amharic-content">የበፈቃድ ሥራ ፕሮግራሞቻችንን ይከተሉ፡</p>
+                            <div style="display: flex; gap: 15px; margin-top: 15px;">
+                                <a href="https://www.facebook.com/CentralEthiopiaRegionprosperitypartyBranchoffice" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                                <a href="https://t.me/CentralERProsperity" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-telegram"></i></a>
+                                <a href="https://x.com/central94872?t=PyH4QvYNmJyPb4xLPJhGzQ&s=08" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                                <a href="#" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="developer-info">
+                    <p class="english-content"><i class="fas fa-code"></i> <strong>Developed BY:</strong> Wachemo University Computer Science Students</p>
+                    <p class="amharic-content"><i class="fas fa-code"></i> <strong>የተዘጋጀው በ:</strong> ዋቸሞ ዩኒቨርሲቲ ኮምፒዩተር ሳይንስ ተማሪዎች</p>
+                    <p class="english-content"><i class="fas fa-users"></i> <strong>Names:</strong> Simachew Getnet, Yohannes Ashango, Mulugeta Emiru</p>
+                    <p class="amharic-content"><i class="fas fa-users"></i> <strong>ስሞች:</strong> ስማቸው ጌትነት, ዮሐንስ አሻንጎ, ሙሉጌታ እምሩ</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="english-content">&copy; 2026 Central Ethiopia Region Prosperity Party Branch Office. All rights reserved.</p>
+                    <p class="amharic-content">&copy; 2026 የማዕከላዊ ኢትዮጵያ ክልል ብልፅግና ፓርቲ ቅርጫፍ ጽ/ቤት. ሁሉም መብቶች የተጠበቁ ናቸው.</p>
+                    
+                    <!-- <div class="copyright">
+                        <p class="english-content">This website is developed and maintained by the Central Ethiopia Region Prosperity Party Branch Office.</p>
+                        <p class="amharic-content">ይህ ድረ-ገጽ በማዕከላዊ ኢትዮጵያ ክልል ብልፅግና ፓርቲ ቅርንጫፍ ጽ/ቤት የተዘጋጀ እና የሚያስተዳድር ነው።</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+            this.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : 
+                '<i class="fas fa-bars"></i>';
+        });
+
+        // Language Switcher
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // Update active button
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update body class
+                if (lang === 'am') {
+                    document.body.classList.add('amharic');
+                } else {
+                    document.body.classList.remove('amharic');
+                }
+                
+                // Update Amharic content visibility
+                const amharicElements = document.querySelectorAll('.amharic-content');
+                const englishElements = document.querySelectorAll('.english-content');
+                
+                if (lang === 'am') {
+                    amharicElements.forEach(el => el.style.display = 'block');
+                    englishElements.forEach(el => el.style.display = 'none');
+                } else {
+                    amharicElements.forEach(el => el.style.display = 'none');
+                    englishElements.forEach(el => el.style.display = 'block');
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Volunteer Registration Form Handling
+        const volunteerForm = document.getElementById('volunteerRegistrationForm');
+        if (volunteerForm) {
+            volunteerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = {
+                    name: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    age: document.getElementById('age').value,
+                    occupation: document.getElementById('occupation').value,
+                    interests: Array.from(document.getElementById('interests').selectedOptions).map(option => option.value),
+                    availability: document.getElementById('availability').value,
+                    experience: document.getElementById('experience').value
+                };
+                
+                // Validation
+                if (!formData.name || !formData.email || !formData.phone || !formData.age || !formData.occupation || formData.interests.length === 0 || !formData.availability) {
+                    const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                    if (currentLang === 'en') {
+                        alert('Please fill in all required fields.');
+                    } else {
+                        alert('እባክዎ ሁሉንም አስፈላጊ መስኮች ይሙሉ።');
+                    }
+                    return;
+                }
+                
+                if (formData.age < 18 || formData.age > 70) {
+                    const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                    if (currentLang === 'en') {
+                        alert('Volunteers must be between 18 and 70 years old.');
+                    } else {
+                        alert('በፈቃድ ሠራተኞች ከ18 እስከ 70 ዓመት መሆን አለባቸው።');
+                    }
+                    return;
+                }
+                
+                // Success message
+                const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                if (currentLang === 'en') {
+                    alert('Thank you for your volunteer application! We will contact you within 3-5 business days.');
+                } else {
+                    alert('ለበፈቃድ ሥራ ማመልከቻዎ እናመሰግናለን! በ3-5 የሥራ ቀናት ውስጥ እናግኝዎታለን።');
+                }
+                
+                // Reset form
+                volunteerForm.reset();
+                
+                // Log data (in real app, send to server)
+                console.log('Volunteer registration submitted:', formData);
+            });
+        }
+
+        // Current Year for Copyright
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElements = document.querySelectorAll('.current-year');
+            const currentYear = new Date().getFullYear();
+            yearElements.forEach(el => {
+                el.textContent = currentYear;
+            });
+        });
+
+        // Opportunity card hover effect
+        const opportunityCards = document.querySelectorAll('.opportunity-card');
+        opportunityCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Newsletter subscription
+        const newsletterButton = document.querySelector('.footer-section .btn');
+        const newsletterInput = document.querySelector('.footer-section input[type="email"]');
+        
+        if (newsletterButton && newsletterInput) {
+            newsletterButton.addEventListener('click', function() {
+                const email = newsletterInput.value;
+                if (email && validateEmail(email)) {
+                    const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                    if (currentLang === 'en') {
+                        alert('Thank you for subscribing to volunteer updates!');
+                    } else {
+                        alert('ለበፈቃድ ሥራ ዝመናዎች ለመመዝገብዎ እናመሰግናለን!');
+                    }
+                    newsletterInput.value = '';
+                } else {
+                    const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                    if (currentLang === 'en') {
+                        alert('Please enter a valid email address.');
+                    } else {
+                        alert('እባክዎ ትክክለኛ የኢሜይል አድራሻ ያስገቡ።');
+                    }
+                }
+            });
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Update copyright year
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyrightElements = document.querySelectorAll('.footer-bottom p');
+            copyrightElements.forEach(el => {
+                if (el.textContent.includes('2024')) {
+                    el.textContent = el.textContent.replace('2024', '2025');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

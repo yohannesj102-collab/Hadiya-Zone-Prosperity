@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Hadiya Zone Prosperity Office</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f23;
+            --primary-dark: #0f4d1a;
+            --secondary-color: #f9a825;
+            --secondary-dark: #e69100;
+            --accent-color: #d32f2f;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --gray-light: #e9ecef;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Ethiopic', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .amharic {
+            font-family: 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+            /* direction: rtl; */
+        }
+
+        /* ===== PROFESSIONAL TOP BAR ===== */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1003;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .contact-info span:hover {
+            color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .contact-info i {
+            font-size: 0.9em;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(249, 168, 37, 0.2);
+        }
+
+        /* ===== MAIN HEADER WITH NAVIGATION ===== */
+        .main-header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1002;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            gap: 30px;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 0 0 auto;
+            min-width: 300px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--white);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            flex: 1;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            color: var(--primary-color);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* Navigation Menu */
+        .nav-container {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+            gap: 2px;
+              direction: ltr;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border-radius: var(--border-radius);
+            white-space: nowrap;
+              direction: ltr;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-link i {
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* ===== CONTACT HERO SECTION ===== */
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://www.cerprosperity.org.et/sites/default/files/inline-images/logo%20background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 95, 35, 0.8) 0%, rgba(44, 62, 80, 0.8) 100%);
+        }
+
+        .contact-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .contact-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 5px;
+        }
+
+        /* ===== CONTACT GRID SECTION ===== */
+        .contact-grid-section {
+            margin-bottom: 60px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-icon-large {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            margin: 0 auto 25px;
+        }
+
+        .contact-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-details {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-detail-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 5px;
+            min-width: 25px;
+        }
+
+        .contact-detail-item div {
+            flex: 1;
+        }
+
+        .contact-detail-item h4 {
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .contact-detail-item span {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* ===== CONTACT FORM SECTION ===== */
+        .contact-form-section {
+            background: linear-gradient(135deg, #1a5f23 0%, #2c3e50 100%);
+            color: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 60px;
+            margin-bottom: 60px;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 40px auto 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            border-radius: var(--border-radius-lg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: var(--white);
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(249, 168, 37, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ===== SOCIAL MEDIA SECTION ===== */
+        .social-section {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow);
+            padding: 60px;
+            margin-bottom: 60px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .social-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius-lg);
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .social-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .social-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .social-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(26, 95, 35, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 95, 35, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-dark);
+            box-shadow: 0 8px 20px rgba(249, 168, 37, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== LANGUAGE HANDLING ===== */
+        .english-content {
+            display: block;
+        }
+
+        .amharic-content {
+            display: none;
+        }
+
+        body.amharic .english-content {
+            display: none;
+        }
+
+        body.amharic .amharic-content {
+            display: block;
+        }
+
+        .language-content {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1c2833 100%);
+            color: var(--white);
+            padding-top: 60px;
+        }
+
+        .footer-main {
+            padding-bottom: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .contact-info-footer p {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-info-footer i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .developer-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .developer-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .contact-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-menu {
+                gap: 1px;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contact-hero {
+                padding: 70px 0;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                flex: 1;
+                min-width: auto;
+            }
+            
+            .nav-container {
+                flex: 1 0 100%;
+                order: 3;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--white);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                box-shadow: var(--shadow-lg);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid var(--gray-light);
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .contact-form-section,
+            .social-section {
+                padding: 30px;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .language-switcher {
+                justify-content: center;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-card {
+                padding: 25px 20px;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Contact Info & Language Switcher -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Hossana, Ethiopia</span>
+                <span><i class="fas fa-phone"></i> +251939060376</span>
+                <span><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</span>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+                <button class="lang-btn" data-lang="am">
+                    <i class="fas fa-globe"></i> አማርኛ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header with Logo and Navigation -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Section -->
+                <div class="logo-section">
+                    <a href="hadiya_prosperity.html" class="logo-container">
+                        <div class="logo-img">
+                            <img src="c:\Users\yohannes\Pictures\Hadiya_Zone.jpg" alt="Hadiya Zone Logo">
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="english-content language-content">HADIYA ZONE PROSPERITY PARTY BRANCH OFFICE</h1>
+                            <h1 class="amharic-content language-content">ሃዲያ ዞን  የብልጽግና ፓርቲ ብሮ</h1>
+                            <p class="english-content language-content">Official Government Website</p>
+                            <p class="amharic-content language-content">የመንግስት ኦፊሴላዊ ድረ-ገጽ</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="nav-container">
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item">
+                            <a href="hadiya_prosperity.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span class="english-content language-content">Home</span>
+                                <span class="amharic-content language-content">መግቢያ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="english-content language-content">About</span>
+                                <span class="amharic-content language-content">ስለ እኛ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">
+                                <i class="fas fa-newspaper"></i>
+                                <span class="english-content language-content">News</span>
+                                <span class="amharic-content language-content">ዜና</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sub-branches.html" class="nav-link">
+                                <i class="fas fa-sitemap"></i>
+                                <span class="english-content language-content">Branches</span>
+                                <span class="amharic-content language-content">ቅርንጫፎች</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="resources.html" class="nav-link">
+                                <i class="fas fa-book"></i>
+                                <span class="english-content language-content">Resources</span>
+                                <span class="amharic-content language-content">ሀብቶች</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link active">
+                                <i class="fas fa-envelope"></i>
+                                <span class="english-content language-content">Contact</span>
+                                <span class="amharic-content language-content">ያግኙን</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container contact-hero-content">
+            <div class="contact-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h1 class="english-content language-content">Get in Touch With Us</h1>
+            <h1 class="amharic-content language-content">ከኛ ጋር ያገናኙን</h1>
+            
+            <p class="english-content language-content">
+                We're here to help and answer any questions you might have about the Hadiya Zone 
+                Prosperity Party Branch Office. Our team is ready to assist you with information, services, 
+                and support for all your needs.
+            </p>
+            <p class="amharic-content language-content">
+                ሃዲያ ዞን ብልፅግና ፓርቲ ቅርንጫፍ ጽ/ቤት ከተመለከተ ማንኛውም ጥያቄ እንድናግዝዎ እና 
+                እንድንመልስልዎ እዚህ አለን። ቡድናችን ለሁሉም ፍላጎቶችዎ መረጃ፣ አገልግሎቶች እና ድጋፍ 
+                ለመስጠት ዝግጁ ነው።
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Contact Grid Section -->
+        <section class="contact-grid-section fade-in">
+            <div class="section-title">
+                <h2 class="english-content language-content">Contact Information</h2>
+                <h2 class="amharic-content language-content">የመገኛ መረጃ</h2>
+                <p class="english-content language-content">Reach out to us through our various contact channels</p>
+                <p class="amharic-content language-content">በተለያዩ የመገናኛ ሰርጦቻችን ያግኙን</p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Office Address Card -->
+                <div class="contact-card">
+                    <div class="contact-icon-large">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="english-content language-content">Office Address</h3>
+                    <h3 class="amharic-content language-content">የጽ/ቤት አድራሻ</h3>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <i class="fas fa-building"></i>
+                            <div>
+                                <h4 class="english-content language-content">Main Office</h4>
+                                <h4 class="amharic-content language-content">ዋና ጽ/ቤት</h4>
+                                <span class="english-content language-content">Hossana, Hadiya Zone</span>
+                                <span class="amharic-content language-content">ሆሳዕና፣ ሃዲያ ዞን</span>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fas fa-road"></i>
+                            <div>
+                                <h4 class="english-content language-content">Street Address</h4>
+                                <h4 class="amharic-content language-content">የመንገድ አድራሻ</h4>
+                                <span class="english-content language-content">Near Hossana City Administration</span>
+                                <span class="amharic-content language-content">ከሆሳዕና ከተማ አስተዳደር አጠገብ</span>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fas fa-box"></i>
+                            <div>
+                                <h4 class="english-content language-content">Postal Address</h4>
+                                <h4 class="amharic-content language-content">የፖስታ አድራሻ</h4>
+                                <span class="english-content language-content">P.O. Box: 332, Hossana, Ethiopia</span>
+                                <span class="amharic-content language-content">ፖ.ሳ.ቁ: 332, ሆሳዕና, ኢትዮጵያ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Details Card -->
+                
+                        
+                        </div>
+                    </div>
+                </div>
+                
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section fade-in">
+            <div class="section-title">
+                <h2 class="english-content language-content">Send Us a Message</h2>
+                <h2 class="amharic-content language-content">መልዕክት ይላኩልን</h2>
+                <p class="english-content language-content">Fill out the form below and we'll get back to you shortly</p>
+                <p class="amharic-content language-content">ከታች ያለውን ቅጽ ይሙሉ እና በቅርቡ እንመለስልዎታለን</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="english-content language-content">First Name</label>
+                            <label for="firstName" class="amharic-content language-content">የመጀመሪያ ስም</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName" class="english-content language-content">Last Name</label>
+                            <label for="lastName" class="amharic-content language-content">የአያት ስም</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="english-content language-content">Email Address</label>
+                            <label for="email" class="amharic-content language-content">የኢሜይል አድራሻ</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="english-content language-content">Phone Number</label>
+                            <label for="phone" class="amharic-content language-content">ስልክ ቁጥር</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="english-content language-content">Subject</label>
+                        <label for="subject" class="amharic-content language-content">ርዕስ</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="information">Request Information</option>
+                            <option value="service">Service Request</option>
+                            <option value="feedback">Feedback & Suggestions</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="media">Media Inquiry</option>
+                            <option value="complaint">Complaint</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="english-content language-content">Your Message</label>
+                        <label for="message" class="amharic-content language-content">መልዕክትዎ</label>
+                        <textarea id="message" name="message" required placeholder="Please provide details about your inquiry..."></textarea>
+                    </div>
+                    
+                    <div class="form-group" style="text-align: center; margin-top: 30px;">
+                        <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 16px;">
+                            <i class="fas fa-paper-plane"></i>
+                            <span class="english-content language-content">Send Message</span>
+                            <span class="amharic-content language-content">መልዕክት ይላኩ</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section class="social-section fade-in">
+            <div class="section-title">
+                <h2 class="english-content language-content">Connect With Us on Social Media</h2>
+                <h2 class="amharic-content language-content">በማህበራዊ ሚዲያ ከኛ ጋር ይገናኙ</h2>
+                <p class="english-content language-content">Follow us for updates, news, and community engagement</p>
+                <p class="amharic-content language-content">ለዝማኔዎች፣ ዜና እና የማህበረሰብ ተሳትፎ ይከተሉን</p>
+            </div>
+            
+            <div class="social-grid">
+                <div class="social-card">
+                    <div class="social-icon">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <h4 class="english-content language-content">Facebook</h4>
+                    <h4 class="amharic-content language-content">ፌስቡክ</h4>
+                    <p class="english-content language-content">Follow us for updates, news, and community engagement</p>
+                    <p class="amharic-content language-content">ለዝማኔዎች፣ ዜና እና የማህበረሰብ ተሳትፎ ይከተሉን</p>
+                    <a href="https://www.facebook.com/CentralEthiopiaRegionprosperitypartyBranchoffice" 
+                       target="_blank" 
+                       class="social-link">
+                        <i class="fab fa-facebook"></i>
+                        <span class="english-content language-content">Follow Us</span>
+                        <span class="amharic-content language-content">ይከተሉን</span>
+                    </a>
+                </div>
+                
+                <div class="social-card">
+                    <div class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <h4 class="english-content language-content">Twitter / X</h4>
+                    <h4 class="amharic-content language-content">ትዊተር / X</h4>
+                    <p class="english-content language-content">Follow for real-time updates, announcements, and discussions</p>
+                    <p class="amharic-content language-content">ለቀጥታ ዝማኔዎች፣ ማስታወቂያዎች እና ውይይቶች ይከተሉ</p>
+                    <a href="https://x.com/central94872?t=PyH4QvYNmJyPb4xLPJhGzQ&s=08" 
+                       target="_blank" 
+                       class="social-link">
+                        <i class="fab fa-twitter"></i>
+                        <span class="english-content language-content">Follow Us</span>
+                        <span class="amharic-content language-content">ይከተሉን</span>
+                    </a>
+                </div>
+                
+                <div class="social-card">
+                    <div class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h4 class="english-content language-content">YouTube</h4>
+                    <h4 class="amharic-content language-content">ዩቱብ</h4>
+                    <p class="english-content language-content">Watch our videos, speeches, and event recordings</p>
+                    <p class="amharic-content language-content">ቪዲዮቻችንን፣ ንግግሮች እና የዝግጅት ቀረጻዎችን ይመልከቱ</p>
+                    <a href="https://youtu.be/31PATodXf20?si=I5ZKltV2OayDr2Ca" 
+                       target="_blank" 
+                       class="social-link">
+                        <i class="fab fa-youtube"></i>
+                        <span class="english-content language-content">Subscribe</span>
+                        <span class="amharic-content language-content">ይመዝገቡ</span>
+                    </a>
+                </div>
+                
+                <div class="social-card">
+                    <div class="social-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h4 class="english-content language-content">Telegram</h4>
+                    <h4 class="amharic-content language-content">ቴሌግራም</h4>
+                    <p class="english-content language-content">Join our channel for instant updates and notifications</p>
+                    <p class="amharic-content language-content">ለቅጽበታዊ ዝማኔዎች እና ማሳወቂያዎች ሰርጣችን ይቀላቀሉ</p>
+                    <a href="https://t.me/CentralERProsperity" 
+                       target="_blank" 
+                       class="social-link">
+                        <i class="fab fa-telegram"></i>
+                        <span class="english-content language-content">Join Channel</span>
+                        <span class="amharic-content language-content">ወደ ሰርጡ ይቀላቀሉ</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- Contact Info -->
+                    <div class="footer-section">
+                        <h3 class="english-content language-content">Contact Us</h3>
+                        <h3 class="amharic-content language-content">ያግኙን</h3>
+                        <div class="contact-info-footer">
+                            <p><i class="fas fa-map-marker-alt"></i> <span class="english-content language-content">Hossana, Ethiopia</span><span class="amharic-content language-content">ሆሳዕና, ኢትዮጵያ</span></p>
+                            <p><i class="fas fa-phone"></i> +251939060376</p>
+                            <p><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</p>
+                            <p><i class="fas fa-box"></i> <span class="english-content language-content">P.O. Box: 332</span><span class="amharic-content language-content">ፖ.ሳ.ቁ: 332</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="english-content language-content">Quick Links</h3>
+                        <h3 class="amharic-content language-content">ፈጣን አገናኞች</h3>
+                        <ul class="footer-links">
+                            <li><a href="resources.html"><i class="fas fa-download"></i> <span class="english-content language-content">Download Resources</span><span class="amharic-content language-content">ሀብቶችን አውርድ</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span class="english-content language-content">Contact Form</span><span class="amharic-content language-content">የመገኛ ቅጽ</span></a></li>
+                            <li><a href="news.html"><i class="fas fa-newspaper"></i> <span class="english-content language-content">Latest News</span><span class="amharic-content language-content">የቅርብ ዜና</span></a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> <span class="english-content language-content">About Us</span><span class="amharic-content language-content">ስለ እኛ</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Social & Hours -->
+                    <div class="footer-section">
+                        <h3 class="english-content language-content">Working Hours</h3>
+                        <h3 class="amharic-content language-content">የሥራ ሰዓት</h3>
+                        <div class="contact-info-footer">
+                            <p><i class="fas fa-clock"></i> <span class="english-content language-content">Mon-Fri: 8:30 AM - 5:30 PM</span></p>
+                            <p><i class="fas fa-clock"></i> <span class="amharic-content language-content">ሰኞ-ሐሙስ: 8:30 ጥዋት - 5:30 ከሰዓት</span></p>
+                            <!-- <p><i class="fas fa-calendar-alt"></i> <span class="english-content language-content">Sat-Sun: Closed</span></p>
+                            <p><i class="fas fa-calendar-alt"></i> <span class="amharic-content language-content">ቅዳሜ-እሁድ: ዝግ</span></p> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Developer Info -->
+                <div class="developer-info">
+                    <p class="english-content language-content"><i class="fas fa-code"></i> <strong>Developed BY:</strong> Wachemo University Computer Science Students</p>
+                    <p class="amharic-content language-content"><i class="fas fa-code"></i> <strong>የተዘጋጀው በ:</strong> ዋቸሞ ዩኒቨርሲቲ ኮምፒዩተር ሳይንስ ተማሪዎች</p>
+                    <p class="english-content language-content"><i class="fas fa-users"></i> <strong>Names:</strong> Simachew Getnet, Yohannes Ashango, Mulugeta Emiru</p>
+                    <p class="amharic-content language-content"><i class="fas fa-users"></i> <strong>ስሞች:</strong> ስማቸው ጌትነት, ዮሐንስ አሻንጎ, ሙሉጌታ እምሩ</p>
+                    <p class="english-content language-content"><i class="fas fa-envelope"></i> <strong>Contact Developers:</strong> developers@wachemo.edu.et</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="english-content language-content">&copy; <span id="currentYear">2026</span> Hadiya Zone Prosperity Party Branch Office. All rights reserved.</p>
+                <p class="amharic-content language-content">&copy; <span id="currentYearAm">2026</span> ሃዲያ ዞን የብልጽግና ፓርቲ ብሮ. ሁሉም መብቶች የተጠበቁ ናቸው.</p>
+                <p class="english-content language-content" style="margin-top: 10px;">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== LANGUAGE SWITCHING =====
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const body = document.body;
+            
+            function switchLanguage(lang) {
+                // Update active button
+                langButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Switch language
+                if (lang === 'am') {
+                    body.classList.add('amharic');
+                    localStorage.setItem('preferredLanguage', 'am');
+                } else {
+                    body.classList.remove('amharic');
+                    localStorage.setItem('preferredLanguage', 'en');
+                }
+            }
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+            
+            // Load saved language preference
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang === 'am') {
+                switchLanguage('am');
+            } else {
+                switchLanguage('en');
+            }
+            
+            // ===== MOBILE NAVIGATION =====
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    this.querySelector('i').classList.toggle('fa-bars');
+                    this.querySelector('i').classList.toggle('fa-times');
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-container') && window.innerWidth <= 992) {
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (mobileToggle) {
+                        mobileToggle.querySelector('i').classList.add('fa-bars');
+                        mobileToggle.querySelector('i').classList.remove('fa-times');
+                    }
+                }
+            });
+            
+            // ===== SMOOTH SCROLLING =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 992 && navMenu) {
+                            navMenu.classList.remove('active');
+                            if (mobileToggle) {
+                                mobileToggle.querySelector('i').classList.add('fa-bars');
+                                mobileToggle.querySelector('i').classList.remove('fa-times');
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // ===== FADE IN ANIMATIONS =====
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => observer.observe(el));
+            
+            // ===== CURRENT YEAR =====
+            const currentYear = new Date().getFullYear();
+            document.getElementById('currentYear').textContent = currentYear;
+            document.getElementById('currentYearAm').textContent = currentYear;
+            
+            // ===== ACTIVE NAV LINK =====
+            const currentPage = window.location.pathname.split('/').pop() || 'contact.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // ===== WINDOW RESIZE HANDLER =====
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992 && navMenu) {
+                    navMenu.classList.remove('active');
+                    if (mobileToggle) {
+                        mobileToggle.querySelector('i').classList.add('fa-bars');
+                        mobileToggle.querySelector('i').classList.remove('fa-times');
+                    }
+                }
+            });
+            
+            // ===== CONTACT FORM HANDLING =====
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value
+                    };
+                    
+                    // Validation
+                    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.subject || !formData.message) {
+                        const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                        if (currentLang === 'en') {
+                            alert('Please fill in all required fields.');
+                        } else {
+                            alert('እባክዎ ሁሉንም አስፈላጊ መስኮች ይሙሉ።');
+                        }
+                        return;
+                    }
+                    
+                    if (!validateEmail(formData.email)) {
+                        const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                        if (currentLang === 'en') {
+                            alert('Please enter a valid email address.');
+                        } else {
+                            alert('እባክዎ ትክክለኛ የኢሜይል አድራሻ ያስገቡ።');
+                        }
+                        return;
+                    }
+                    
+                    // Success message
+                    const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
+                    if (currentLang === 'en') {
+                        alert('Thank you for your message! We will respond within 24 hours.');
+                    } else {
+                        alert('ለመልዕክትዎ እናመሰግናለን! በ24 ሰዓት ውስጥ እንመልሳለን።');
+                    }
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Log data (in real app, send to server)
+                    console.log('Contact form submitted:', formData);
+                });
+            }
+            
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+            
+            // ===== CONTACT CARD HOVER EFFECTS =====
+            const contactCards = document.querySelectorAll('.contact-card');
+            contactCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // ===== SOCIAL CARD ANIMATIONS =====
+            const socialCards = document.querySelectorAll('.social-card');
+            socialCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>

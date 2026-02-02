@@ -1,0 +1,2662 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Vacancies - Central Ethiopia Region Prosperity Party</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f23;
+            --primary-dark: #0f4d1a;
+            --secondary-color: #f9a825;
+            --secondary-dark: #e69100;
+            --accent-color: #d32f2f;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --gray-light: #e9ecef;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Ethiopic', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+
+        .amharic {
+            font-family: 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+            /* direction: rtl; */
+        }
+
+        /* ===== LANGUAGE HANDLING ===== */
+        .english-content {
+            display: block;
+        }
+
+        .amharic-content {
+            display: none;
+        }
+
+        body.amharic .english-content {
+            display: none;
+        }
+
+        body.amharic .amharic-content {
+            display: block;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1003;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .contact-info span:hover {
+            color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(249, 168, 37, 0.2);
+        }
+
+        /* ===== MAIN HEADER ===== */
+        .main-header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1002;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            gap: 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 0 0 auto;
+            min-width: 300px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--white);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            flex: 1;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            color: var(--primary-color);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .nav-container {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+            gap: 2px;
+            direction: ltr;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border-radius: var(--border-radius);
+            white-space: nowrap;
+            direction: ltr;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 220px;
+            box-shadow: var(--shadow-lg);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            display: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gray-light);
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover,
+        .dropdown-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            padding-left: 25px;
+        }
+
+        .dropdown-link:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* ===== VACANCY HERO ===== */
+        .vacancy-hero {
+            background: 
+                linear-gradient(rgba(26, 95, 35, 0.85), rgba(26, 95, 35, 0.95)),
+                url('https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vacancy-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+
+        .vacancy-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .vacancy-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 1s ease;
+        }
+
+        .vacancy-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .vacancy-search {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .vacancy-search input {
+            width: 100%;
+            padding: 18px 50px 18px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .vacancy-search input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 95, 35, 0.3);
+        }
+
+        .vacancy-search button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vacancy-search button:hover {
+            background: var(--secondary-dark);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .section {
+            padding: 100px 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== VACANCY STATS ===== */
+        .vacancy-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 40px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ===== VACANCY FILTER ===== */
+        .vacancy-filter {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.98)),
+                url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?q=80&w=2076&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 20px;
+            border: 2px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            background: var(--white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* ===== VACANCY GRID ===== */
+        .vacancy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .vacancy-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid var(--gray-light);
+        }
+
+        .vacancy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .vacancy-card.featured {
+            border: 2px solid var(--secondary-color);
+        }
+
+        .vacancy-card.featured::before {
+            content: 'FEATURED';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .vacancy-header {
+            background: 
+                linear-gradient(rgba(26, 95, 35, 0.9), rgba(26, 95, 35, 0.95)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 25px;
+            color: var(--white);
+        }
+
+        .vacancy-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 10px;
+            line-height: 1.4;
+            transition: var(--transition);
+        }
+
+        .vacancy-card:hover .vacancy-title {
+            color: var(--secondary-color);
+        }
+
+        .vacancy-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .vacancy-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .vacancy-content {
+            padding: 25px;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .vacancy-details {
+            margin: 20px 0;
+        }
+
+        .detail-item {
+            margin-bottom: 20px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .requirements-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requirements-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .requirements-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .deadline-info {
+            background: 
+                linear-gradient(135deg, #f8f9fa, #e9ecef),
+                url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?q=80&w=2076&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 25px 0;
+            text-align: center;
+            border: 2px dashed var(--accent-color);
+        }
+
+        .deadline-label {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .vacancy-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== CATEGORIES SECTION ===== */
+        .categories-section {
+            background: 
+                linear-gradient(rgba(240, 247, 240, 0.95), rgba(240, 247, 240, 0.95)),
+                url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: var(--border-radius-lg);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            backdrop-filter: blur(10px);
+        }
+
+        .category-card:hover {
+            background: var(--white);
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .category-count {
+            background: var(--accent-color);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* ===== APPLICATION PROCESS ===== */
+        .application-process {
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                url('https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 60px;
+            border-radius: var(--border-radius-lg);
+            margin: 40px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            position: relative;
+            border: 2px solid transparent;
+            backdrop-filter: blur(10px);
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            background: var(--white);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 8px rgba(26, 95, 35, 0.3);
+        }
+
+        .process-step h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .process-step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 60px;
+        }
+
+        .page-btn {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            border: 2px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            color: var(--text-dark);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: 
+                linear-gradient(135deg, var(--dark-color) 0%, #1c2833 100%),
+                url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2029&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding-top: 60px;
+            margin-top: 100px;
+        }
+
+        .footer-main {
+            padding-bottom: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .developer-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .developer-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(26, 95, 35, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 95, 35, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-dark);
+            box-shadow: 0 8px 20px rgba(249, 168, 37, 0.4);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .vacancy-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-menu {
+                gap: 1px;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .vacancy-hero {
+                padding: 140px 0 80px;
+            }
+            
+            .vacancy-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .vacancy-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                flex: 1;
+                min-width: auto;
+            }
+            
+            .nav-container {
+                flex: 1 0 100%;
+                order: 3;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--white);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                box-shadow: var(--shadow-lg);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid var(--gray-light);
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background: var(--light-color);
+                box-shadow: none;
+            }
+            
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .vacancy-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .language-switcher {
+                justify-content: center;
+            }
+            
+            .vacancy-hero {
+                padding: 120px 0 60px;
+                background-attachment: scroll;
+            }
+            
+            .vacancy-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .vacancy-hero p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .vacancy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-options {
+                justify-content: center;
+            }
+            
+            .filter-select {
+                min-width: 100%;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .application-process {
+                padding: 30px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .vacancy-hero {
+                padding: 100px 0 40px;
+            }
+            
+            .vacancy-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .vacancy-search input {
+                padding: 15px 45px 15px 20px;
+                font-size: 1rem;
+            }
+            
+            .filter-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .filter-options {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                justify-content: flex-start;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vacancy-stats {
+                padding: 20px;
+            }
+            
+            .stat-card {
+                padding: 20px 15px;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Vacancies Frontend Styles */
+.vacancies-section {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.vacancies-controls {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.search-box {
+    position: relative;
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 45px 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.filter-select {
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    min-width: 200px;
+}
+
+.vacancies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.vacancy-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid #3498db;
+}
+
+.vacancy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.vacancy-card.fulltime { border-top-color: #2ecc71; }
+.vacancy-card.parttime { border-top-color: #3498db; }
+.vacancy-card.contract { border-top-color: #9b59b6; }
+.vacancy-card.temporary { border-top-color: #f39c12; }
+.vacancy-card.internship { border-top-color: #1abc9c; }
+.vacancy-card.volunteer { border-top-color: #e74c3c; }
+
+.vacancy-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.vacancy-type {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+}
+
+.vacancy-type.fulltime { background: #2ecc71; }
+.vacancy-type.parttime { background: #3498db; }
+.vacancy-type.contract { background: #9b59b6; }
+.vacancy-type.temporary { background: #f39c12; }
+.vacancy-type.internship { background: #1abc9c; }
+.vacancy-type.volunteer { background: #e74c3c; }
+
+.vacancy-deadline {
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.days-left {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.vacancy-body {
+    padding: 20px;
+}
+
+.vacancy-title {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.vacancy-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+.meta-item i {
+    color: #3498db;
+}
+
+.vacancy-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.vacancy-requirements {
+    margin-bottom: 20px;
+}
+
+.vacancy-requirements h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.vacancy-requirements ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.vacancy-requirements li {
+    padding: 5px 0;
+    padding-left: 20px;
+    position: relative;
+    color: #666;
+    font-size: 14px;
+}
+
+.vacancy-requirements li:before {
+    content: "•";
+    color: #3498db;
+    font-size: 18px;
+    position: absolute;
+    left: 0;
+    top: 4px;
+}
+
+.more-items {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.vacancy-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.post-date {
+    font-size: 14px;
+    color: #888;
+}
+
+.apply-btn {
+    background: #1e5799;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+}
+
+.apply-btn:hover {
+    background: #16467e;
+}
+
+.loading-vacancies {
+    text-align: center;
+    padding: 60px;
+    color: #666;
+    font-size: 18px;
+    grid-column: 1 / -1;
+}
+
+.loading-vacancies i {
+    margin-right: 10px;
+}
+
+.no-vacancies {
+    text-align: center;
+    padding: 80px 20px;
+    color: #888;
+    display: none;
+}
+
+.no-vacancies i {
+    font-size: 64px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.no-vacancies h3 {
+    color: #999;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+/* Vacancy Detail Modal */
+.vacancy-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1001;
+    animation: modalSlideIn 0.3s;
+}
+
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1002;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-header {
+    padding: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-type {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.modal-type.fulltime { background: #2ecc71; }
+.modal-type.parttime { background: #3498db; }
+.modal-type.contract { background: #9b59b6; }
+.modal-type.temporary { background: #f39c12; }
+.modal-type.internship { background: #1abc9c; }
+.modal-type.volunteer { background: #e74c3c; }
+
+.modal-header h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #666;
+}
+
+.modal-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-meta i {
+    color: #3498db;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.deadline-alert {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-content {
+    color: #555;
+    line-height: 1.6;
+}
+
+.section-content.how-to-apply {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    border-left: 4px solid #1e5799;
+}
+
+.requirements-list,
+.responsibilities-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.requirements-list li,
+.responsibilities-list li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+}
+
+.requirements-list li:before,
+.responsibilities-list li:before {
+    content: "✓";
+    color: #2ecc71;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: 8px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.post-info {
+    color: #666;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.modal-actions .btn-primary,
+.modal-actions .btn-secondary {
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-actions .btn-primary {
+    background: #1e5799;
+    color: white;
+}
+
+.modal-actions .btn-primary:hover {
+    background: #16467e;
+}
+
+.modal-actions .btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.modal-actions .btn-secondary:hover {
+    background: #5a6268;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .vacancies-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-box {
+        max-width: 100%;
+    }
+    
+    .filter-select {
+        width: 100%;
+    }
+    
+    .vacancies-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .vacancy-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .vacancy-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .apply-btn {
+        justify-content: center;
+    }
+    
+    .modal-content {
+        margin: 10px;
+    }
+    
+    .modal-header {
+        padding: 20px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Hossana, Ethiopia</span>
+                <span><i class="fas fa-phone"></i> +251939060376</span>
+                <span><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</span>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+                <button class="lang-btn" data-lang="am">
+                    <i class="fas fa-globe"></i> አማርኛ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Section -->
+                <div class="logo-section">
+                    <a href="hadiya_prosperity.html" class="logo-container">
+                        <div class="logo-img">
+                            <img src="c:\Users\yohannes\Pictures\Hadiya_Zone.jpg" width="300px" alt="">
+                            <!-- <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; padding: 5px; font-size: 0.8rem;">
+                                <div>HADIYA ZONE<br>PROSPERITY<br>PARTY</div>
+                            </div> -->
+                        </div>
+                        <div class="logo-text">
+                            
+                            <h1 class="english-content">HADIYA ZONE PROSPERITY PARTY BRANCH OFFICE</h1>
+                            <h1 class="amharic-content">የማዕከላዊ ኢትዮጵያ ብልፅግና ፓርቲ ቅርጫፍ ጽ/ቤት</h1>
+                            <p class="english-content">Official Government Website</p>
+                            <p class="amharic-content">የመንግስት ኦፊሴላዊ ድረ-ገጽ</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="nav-container">
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item">
+                            <a href="hadiya_prosperity.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span class="english-content">Home</span>
+                                <span class="amharic-content">መግቢያ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="english-content">About</span>
+                                <span class="amharic-content">ስለ እኛ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">
+                                <i class="fas fa-newspaper"></i>
+                                <span class="english-content">News</span>
+                                <span class="amharic-content">ዜና</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vacancy.html" class="nav-link active">
+                                <i class="fas fa-briefcase"></i>
+                                <span class="english-content">Vacancy</span>
+                                <span class="amharic-content">ባዊ ክፍት ቦታ</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                           
+                        </li>
+                        <li class="nav-item">
+                            <a href="sub-branches.html" class="nav-link">
+                                <i class="fas fa-sitemap"></i>
+                                <span class="english-content">Branches</span>
+                                <span class="amharic-content">ቅርንጫፎች</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="resources.html" class="nav-link">
+                                <i class="fas fa-book"></i>
+                                <span class="english-content">Resources</span>
+                                <span class="amharic-content">ሀብቶች</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">
+                                <i class="fas fa-envelope"></i>
+                                <span class="english-content">Contact</span>
+                                <span class="amharic-content">አግኙን</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Vacancy Hero Section -->
+    <section class="vacancy-hero">
+        <div class="container">
+            <h1 class="english-content">Job Vacancies & Opportunities</h1>
+            <h1 class="amharic-content">የስራ ክፍት ቦታዎች እና እድሎች</h1>
+            
+            <p class="english-content">
+                Explore exciting career opportunities with the Hadiya Zone Prosperity Party Branch Office. 
+                Join our dedicated team and contribute to regional development and community service.
+            </p>
+            <p class="amharic-content">
+                ከሃዲያ ዞን ክልል ብልፅግና ፓርቲ ቅርጫፍ ጽ/ቤት ጋር የሚገኙ የሥራ እድሎችን ያስሱ።
+                በተለየ ቡድናችን ይቀላቀሉ እና ለክልላዊ ልማት እና ለማህበረሰብ አገልግሎት ያስተዋውቁ።
+            </p>
+            
+            <div class="vacancy-search">
+                <input type="text" placeholder="Search for job vacancies, positions..." class="english-content">
+                <input type="text" placeholder="የስራ ክፍት ቦታዎችን፣ የስራ መደቦችን ይፈልጉ..." class="amharic-content">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Vacancy Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title english-content">Current Job Openings</h2>
+                <h2 class="section-title amharic-content">የአሁኑ የስራ ክፍት ቦታዎች</h2>
+                <p class="section-subtitle english-content">
+                    Find the perfect opportunity that matches your skills and career aspirations
+                </p>
+                <p class="section-subtitle amharic-content">
+                    ከችሎታዎት እና ከሙያዊ አላማዎችዎ ጋር የሚጣጣም ፍጹም እድል ያግኙ
+                </p>
+            </div>
+
+            <!-- Vacancy Statistics -->
+            <div class="vacancy-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="stat-number">6</div>
+                    <div class="stat-label english-content">Open Positions</div>
+                    <div class="stat-label amharic-content">ክፍት ቦታዎች</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label english-content">Total Openings</div>
+                    <div class="stat-label amharic-content">ጠቅላላ ክፍት ቦታዎች</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="stat-number">4</div>
+                    <div class="stat-label english-content">Locations</div>
+                    <div class="stat-label amharic-content">ቦታዎች</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number">15</div>
+                    <div class="stat-label english-content">Days Average</div>
+                    <div class="stat-label amharic-content">አማካኝ ቀናት</div>
+                </div>
+            </div>
+
+            <!-- Vacancy Filter -->
+            <div class="vacancy-filter">
+                <div class="filter-header">
+                    <div class="filter-title">
+                        <i class="fas fa-filter"></i>
+                        <span class="english-content">Filter Vacancies</span>
+                        <span class="amharic-content">የስራ ክፍት ቦታዎችን ያጣሩ</span>
+                    </div>
+                    <div class="filter-options">
+                        <select class="filter-select" id="categoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="administration">Administration</option>
+                            <option value="finance">Finance</option>
+                            <option value="organization">Organization</option>
+                            <option value="technical">Technical</option>
+                            <option value="support">Support Staff</option>
+                        </select>
+                        
+                        <select class="filter-select" id="locationFilter">
+                            <option value="all">All Locations</option>
+                            <option value="hossana">Hossana</option>
+                            <option value="zones">Zones</option>
+                            <option value="woredas">Woredas</option>
+                        </select>
+                        
+                        <select class="filter-select" id="typeFilter">
+                            <option value="all">Employment Type</option>
+                            <option value="fulltime">Full-time</option>
+                            <option value="parttime">Part-time</option>
+                            <option value="contract">Contract</option>
+                        </select>
+                    </div>
+
+    </section>
+
+  
+            
+<!-- Add this where you want vacancies to display in vacancy.html -->
+<section class="vacancies-section">
+    <div class="container">
+        <h2 class="section-title">Job Vacancies</h2>
+        <p class="section-subtitle">Current job opportunities at Hadiya Zone Prosperity Office</p>
+        
+        <div class="vacancies-controls">
+            <div class="search-box">
+                <input type="text" id="searchVacancies" placeholder="Search job titles..." onkeyup="searchVacanciesFrontend()">
+                <i class="fas fa-search"></i>
+            </div>
+            <select id="typeFilterFrontend" onchange="filterVacanciesFrontend()" class="filter-select">
+                <option value="">All Job Types</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Contract">Contract</option>
+                <option value="Temporary">Temporary</option>
+                <option value="Internship">Internship</option>
+                <option value="Volunteer">Volunteer</option>
+            </select>
+        </div>
+        
+        <div class="vacancies-container" id="vacanciesContainer">
+            <!-- Vacancies will be loaded here dynamically -->
+            <div class="loading-vacancies">
+                <i class="fas fa-spinner fa-spin"></i> Loading vacancies...
+            </div>
+        </div>
+        
+        <div id="noVacanciesMessage" class="no-vacancies" style="display: none;">
+            <i class="fas fa-briefcase"></i>
+            <h3>No vacancies available</h3>
+            <p>Check back later for job opportunities</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- Contact Information -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Contact Information</h3>
+                        <h3 class="amharic-content">የአግኙን መረጃ</h3>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="english-content">Hossana, Central Ethiopia Region</span>
+                                    <span class="amharic-content">ሆሳና፣ መሃከላዊ ኢትዮጵያ ክልል</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+251939060376">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+251 939 060376</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:info@cerprosperity.gov.et">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@cerprosperity.gov.et</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-clock"></i>
+                                    <span class="english-content">Mon-Fri: 8:30 AM - 5:30 PM</span>
+                                    <span class="amharic-content">ሰኞ-አርብ: 8:30 ጥዋት - 5:30 ከሰዓት</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Quick Links</h3>
+                        <h3 class="amharic-content">ፈጣን አገናኞች</h3>
+                        <ul class="footer-links">
+                            <li><a href="hadiya_prosperity.html"><i class="fas fa-home"></i> <span class="english-content">Home</span><span class="amharic-content">መግቢያ</span></a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> <span class="english-content">About Us</span><span class="amharic-content">ስለ እኛ</span></a></li>
+                            <li><a href="vacancy.html"><i class="fas fa-briefcase"></i> <span class="english-content">Current Vacancies</span><span class="amharic-content">የአሁኑ ክፍት ቦታዎች</span></a></li>
+                            <li><a href="application-process.html"><i class="fas fa-file-alt"></i> <span class="english-content">Application Process</span><span class="amharic-content">የማመልከቻ ሂደት</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span class="english-content">Contact Us</span><span class="amharic-content">አግኙን</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Resources -->
+                    
+
+                    <!-- Social Media -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Connect With Us</h3>
+                        <h3 class="amharic-content">ከእኛ ጋር ይገናኙ</h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a></li>
+                            <li><a href="#"><i class="fab fa-telegram"></i> <span>Telegram</span></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> <span>Twitter</span></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i> <span>YouTube</span></a></li>
+                            <!-- <li><a href="#"><i class="fas fa-rss"></i> <span class="english-content">Job Alerts</span><span class="amharic-content">የስራ ማስታወቂያዎች</span></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Developer Information -->
+               <div class="developer-info">
+                    <p class="english-content language-content"><i class="fas fa-code"></i> <strong>Developed BY:</strong> Wachemo University Computer Science Students</p>
+                    <p class="amharic-content language-content"><i class="fas fa-code"></i> <strong>የተዘጋጀው በ:</strong> ዋቸሞ ዩኒቨርሲቲ ኮምፒዩተር ሳይንስ ተማሪዎች</p>
+                    <p class="english-content language-content"><i class="fas fa-users"></i> <strong>Names:</strong> Simachew Getnet, Yohannes Ashango, Mulugeta Emiru</p>
+                    <p class="amharic-content language-content"><i class="fas fa-users"></i> <strong>ስሞች:</strong> ስማቸው ጌትነት, ዮሐንስ አሻንጎ, ሙሉጌታ እምሩ</p>
+                    <!-- <p class="english-content language-content"><i class="fas fa-envelope"></i> <strong>Contact Developers:</strong> developers@wachemo.edu.et</p> -->
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="english-content">© 2026 Hadiya Zone Prosperity Party Branch Office. All rights reserved.</p>
+                <p class="amharic-content">© 2026 ሃዲያ ዞን ብልፅግና ፓርቲ ቅርጫፍ ጽ/ቤት. ሁሉም መብቶች የተጠበቁ ናቸው።</p>
+                <p>
+                    <a href="#" class="english-content">Privacy Policy</a> | 
+                    <a href="#" class="english-content">Terms of Service</a> |
+                    <a href="#" class="amharic-content">የግላዊነት ፖሊሲ</a> | 
+                    <a href="#" class="amharic-content">የአገልግሎት ውሎች</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Language Switching
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Switch language
+                if (lang === 'am') {
+                    document.body.classList.add('amharic');
+                } else {
+                    document.body.classList.remove('amharic');
+                }
+                
+                // Save preference
+                localStorage.setItem('preferredLang', lang);
+            });
+        });
+
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
+
+        // Vacancy Filter
+        document.querySelectorAll('.filter-select').forEach(select => {
+            select.addEventListener('change', function() {
+                const category = document.getElementById('categoryFilter').value;
+                const location = document.getElementById('locationFilter').value;
+                const type = document.getElementById('typeFilter').value;
+                
+                // Filter vacancy cards
+                document.querySelectorAll('.vacancy-card').forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    const cardLocation = card.getAttribute('data-location');
+                    const cardType = card.getAttribute('data-type');
+                    
+                    const matchesCategory = category === 'all' || cardCategory === category;
+                    const matchesLocation = location === 'all' || cardLocation === location;
+                    const matchesType = type === 'all' || cardType === type;
+                    
+                    if (matchesCategory && matchesLocation && matchesType) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Vacancy Search
+        const searchInputs = document.querySelectorAll('.vacancy-search input');
+        const searchButton = document.querySelector('.vacancy-search button');
+
+        function performSearch() {
+            const activeInput = document.body.classList.contains('amharic') ? 
+                searchInputs[1] : searchInputs[0];
+            const searchTerm = activeInput.value.toLowerCase();
+            
+            document.querySelectorAll('.vacancy-card').forEach(card => {
+                const title = card.querySelector('.vacancy-title').textContent.toLowerCase();
+                const summary = card.querySelector('.vacancy-details p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || summary.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        searchButton.addEventListener('click', performSearch);
+        
+        searchInputs.forEach(input => {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+
+        // Fade-in Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // Load preferred language
+        const savedLang = localStorage.getItem('preferredLang') || 'en';
+        if (savedLang === 'am') {
+            document.body.classList.add('amharic');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === 'am') {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Download application form
+        document.querySelectorAll('.apply-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const vacancyId = this.getAttribute('data-vacancy');
+                const vacancyTitles = {
+                    1: "Senior Organizational Development Officer",
+                    2: "Finance and Budget Officer",
+                    3: "Zone Level Organization Coordinator",
+                    4: "IT Support Specialist",
+                    5: "Woreda Level Mobilization Officer",
+                    6: "Administrative Assistant"
+                };
+                
+                const vacancyTitle = vacancyTitles[vacancyId] || "Job Application";
+                
+                const formContent = `
+                    =================================================================
+                    CENTRAL ETHIOPIA REGION PROSPERITY PARTY BRANCH OFFICE
+                    OFFICIAL JOB APPLICATION FORM
+                    =================================================================
+                    
+                    Position Applied For: ${vacancyTitle}
+                    Application Date: ____________________
+                    
+                    -----------------------------------------------------------------
+                    PERSONAL INFORMATION
+                    -----------------------------------------------------------------
+                    
+                    Full Name: ______________________________________________________
+                    
+                    Date of Birth (E.C.): _______________ (G.C.): ___________________
+                    
+                    Gender: □ Male □ Female
+                    
+                    Nationality: ____________________________________________________
+                    
+                    Contact Information:
+                    Phone: _________________________________________________________
+                    Email: _________________________________________________________
+                    Address: _______________________________________________________
+                    
+                    -----------------------------------------------------------------
+                    EDUCATIONAL BACKGROUND
+                    -----------------------------------------------------------------
+                    
+                    Highest Educational Level Completed:
+                    □ Certificate □ Diploma □ Bachelor's □ Master's □ PhD
+                    
+                    Field of Study: _________________________________________________
+                    
+                    Institution: ____________________________________________________
+                    
+                    Year of Graduation: _______________ CGPA/Grade: _______________
+                    
+                    Additional Qualifications (if any):
+                    _______________________________________________________________
+                    _______________________________________________________________
+                    
+                    -----------------------------------------------------------------
+                    WORK EXPERIENCE
+                    -----------------------------------------------------------------
+                    
+                    Current/Most Recent Position:
+                    Organization: ___________________________________________________
+                    Position: ______________________________________________________
+                    Duration: From _______________ To _______________
+                    Responsibilities: ______________________________________________
+                    _______________________________________________________________
+                    
+                    Previous Position:
+                    Organization: ___________________________________________________
+                    Position: ______________________________________________________
+                    Duration: From _______________ To _______________
+                    Responsibilities: ______________________________________________
+                    _______________________________________________________________
+                    
+                    -----------------------------------------------------------------
+                    DECLARATION
+                    -----------------------------------------------------------------
+                    
+                    I hereby declare that all information provided in this application
+                    is true and correct to the best of my knowledge.
+                    
+                    Applicant's Signature: __________________ Date: ________________
+                    
+                    =================================================================
+                `;
+                
+                const blob = new Blob([formContent], { type: 'text/plain' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = `application-form-${vacancyTitle.toLowerCase().replace(/\s+/g, '-')}.txt`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Show confirmation
+                const isEnglish = !document.body.classList.contains('amharic');
+                if (isEnglish) {
+                    alert('Application form downloaded successfully! Please complete all sections and submit before the deadline.');
+                } else {
+                    alert('የማመልከቻ ፎርም በተሳካ ሁኔታ ተወርዷል! እባክዎ ሁሉንም ክፍሎች ይሙሉ እና ከመጨረሻ ቀኑ በፊት ያስገቡ።');
+                }
+            });
+        });
+
+        // View details button functionality
+        document.querySelectorAll('.view-details-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const vacancyId = this.getAttribute('data-vacancy');
+                const vacancyTitles = {
+                    1: "Senior Organizational Development Officer",
+                    2: "Finance and Budget Officer",
+                    3: "Zone Level Organization Coordinator",
+                    4: "IT Support Specialist",
+                    5: "Woreda Level Mobilization Officer",
+                    6: "Administrative Assistant"
+                };
+                
+                const vacancyTitle = vacancyTitles[vacancyId] || "Job Position";
+                const isEnglish = !document.body.classList.contains('amharic');
+                
+                if (isEnglish) {
+                    alert(`Detailed information for "${vacancyTitle}" would open in a new page. For now, please review the summary shown on the card.`);
+                } else {
+                    alert(`"${vacancyTitle}" ዝርዝር መረጃ በአዲስ ገጽ ይከፈታል። ለአሁኑ በካርዱ ላይ የተቀመጠውን ማጠቃለያ ይመልከቱ።`);
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    <div id="vacancy-list"></div>
+    <script src="js/dynamic-content.js"></script>
+    <!-- Add these scripts before closing </body> -->
+<script src="js/storage.js"></script>
+<script>
+    // Function to display vacancies on frontend
+    function displayVacancies() {
+        const container = document.getElementById('vacanciesContainer');
+        const noVacanciesMsg = document.getElementById('noVacanciesMessage');
+        if (!container) return;
+        
+        const vacancies = Storage.getAll(STORAGE_KEYS.VACANCIES);
+        
+        // Filter out expired vacancies
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        const activeVacancies = vacancies.filter(vacancy => {
+            const deadline = new Date(vacancy.deadline);
+            deadline.setHours(0, 0, 0, 0);
+            return deadline >= today;
+        });
+        
+        // Sort by deadline (closest first)
+        activeVacancies.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+        
+        if (activeVacancies.length === 0) {
+            container.style.display = 'none';
+            noVacanciesMsg.style.display = 'block';
+            return;
+        }
+        
+        container.style.display = 'grid';
+        noVacanciesMsg.style.display = 'none';
+        
+        let html = '';
+        
+        activeVacancies.forEach(vacancy => {
+            const postDate = new Date(vacancy.postDate).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+            
+            const deadline = new Date(vacancy.deadline);
+            const deadlineFormatted = deadline.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            const daysLeft = Math.ceil((deadline - today) / (1000 * 60 * 60 * 24));
+            const descriptionPreview = vacancy.description.length > 150 ? 
+                vacancy.description.substring(0, 150) + '...' : vacancy.description;
+            
+            // Take first 5 requirements for preview
+            const requirementsPreview = vacancy.requirements.slice(0, 5).map(req => 
+                `<li>${req}</li>`
+            ).join('');
+            
+            html += `
+                <div class="vacancy-card" data-type="${vacancy.type}" data-title="${vacancy.title.toLowerCase()}">
+                    <div class="vacancy-header">
+                        <div class="vacancy-type ${vacancy.type.toLowerCase().replace('-', '')}">${vacancy.type}</div>
+                        <div class="vacancy-deadline">
+                            <i class="far fa-clock"></i> Apply by: ${deadlineFormatted}
+                            <span class="days-left">(${daysLeft} day${daysLeft !== 1 ? 's' : ''} left)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="vacancy-body">
+                        <h3 class="vacancy-title">${vacancy.title}</h3>
+                        
+                        <div class="vacancy-meta">
+                            ${vacancy.department ? `<div class="meta-item"><i class="fas fa-building"></i> ${vacancy.department}</div>` : ''}
+                            ${vacancy.location ? `<div class="meta-item"><i class="fas fa-map-marker-alt"></i> ${vacancy.location}</div>` : ''}
+                            ${vacancy.salary ? `<div class="meta-item"><i class="fas fa-money-bill-wave"></i> ${vacancy.salary}</div>` : ''}
+                            ${vacancy.positions ? `<div class="meta-item"><i class="fas fa-users"></i> ${vacancy.positions} position${vacancy.positions > 1 ? 's' : ''}</div>` : ''}
+                        </div>
+                        
+                        <div class="vacancy-description">
+                            <p>${descriptionPreview}</p>
+                        </div>
+                        
+                        <div class="vacancy-requirements">
+                            <h4>Key Requirements:</h4>
+                            <ul>${requirementsPreview}</ul>
+                            ${vacancy.requirements.length > 5 ? '<div class="more-items">+ ' + (vacancy.requirements.length - 5) + ' more requirements</div>' : ''}
+                        </div>
+                        
+                        <div class="vacancy-footer">
+                            <div class="post-date">Posted: ${postDate}</div>
+                            <button class="apply-btn" onclick="openVacancyDetail(${vacancy.id})">
+                                View Details & Apply <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+    }
+    
+    // Function to open vacancy detail (you can expand this for modal or detail page)
+    function openVacancyDetail(id) {
+        const vacancy = Storage.getById(STORAGE_KEYS.VACANCIES, id);
+        if (vacancy) {
+            // Create and show modal
+            showVacancyModal(vacancy);
+        }
+    }
+    
+    // Show vacancy detail modal
+    function showVacancyModal(vacancy) {
+        // Format requirements list
+        const requirementsList = vacancy.requirements.map(req => `<li>${req}</li>`).join('');
+        
+        // Format responsibilities list (if exists)
+        const responsibilitiesList = vacancy.responsibilities && vacancy.responsibilities.length > 0 ? 
+            vacancy.responsibilities.map(resp => `<li>${resp}</li>`).join('') : '<li>Not specified</li>';
+        
+        const deadline = new Date(vacancy.deadline);
+        const deadlineFormatted = deadline.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        const modalHTML = `
+            <div class="vacancy-modal" id="vacancyModal">
+                <div class="modal-overlay" onclick="closeVacancyModal()"></div>
+                <div class="modal-content">
+                    <button class="modal-close" onclick="closeVacancyModal()">&times;</button>
+                    
+                    <div class="modal-header">
+                        <div class="modal-type ${vacancy.type.toLowerCase().replace('-', '')}">${vacancy.type}</div>
+                        <h2>${vacancy.title}</h2>
+                        <div class="modal-meta">
+                            ${vacancy.department ? `<span><i class="fas fa-building"></i> ${vacancy.department}</span>` : ''}
+                            ${vacancy.location ? `<span><i class="fas fa-map-marker-alt"></i> ${vacancy.location}</span>` : ''}
+                            ${vacancy.salary ? `<span><i class="fas fa-money-bill-wave"></i> ${vacancy.salary}</span>` : ''}
+                        </div>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div class="deadline-alert">
+                            <i class="fas fa-exclamation-circle"></i>
+                            Application Deadline: <strong>${deadlineFormatted}</strong>
+                        </div>
+                        
+                        <div class="section">
+                            <h3><i class="fas fa-file-alt"></i> Job Description</h3>
+                            <div class="section-content">${vacancy.description.replace(/\n/g, '<br>')}</div>
+                        </div>
+                        
+                        <div class="section">
+                            <h3><i class="fas fa-tasks"></i> Requirements</h3>
+                            <ul class="requirements-list">${requirementsList}</ul>
+                        </div>
+                        
+                        ${vacancy.responsibilities && vacancy.responsibilities.length > 0 ? `
+                        <div class="section">
+                            <h3><i class="fas fa-list-check"></i> Key Responsibilities</h3>
+                            <ul class="responsibilities-list">${responsibilitiesList}</ul>
+                        </div>
+                        ` : ''}
+                        
+                        ${vacancy.howToApply ? `
+                        <div class="section">
+                            <h3><i class="fas fa-clipboard-check"></i> How to Apply</h3>
+                            <div class="section-content how-to-apply">${vacancy.howToApply.replace(/\n/g, '<br>')}</div>
+                        </div>
+                        ` : ''}
+                        
+                        <div class="modal-footer">
+                            <div class="post-info">
+                                <strong>Posted:</strong> ${new Date(vacancy.postDate).toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })}
+                            </div>
+                            <div class="modal-actions">
+                                <button class="btn-secondary" onclick="closeVacancyModal()">Close</button>
+                                <button class="btn-primary" onclick="applyForVacancy(${vacancy.id})">
+                                    <i class="fas fa-paper-plane"></i> Apply Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Add modal to page
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Close vacancy modal
+    function closeVacancyModal() {
+        const modal = document.getElementById('vacancyModal');
+        if (modal) {
+            modal.remove();
+        }
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Apply for vacancy (placeholder function)
+    function applyForVacancy(id) {
+        const vacancy = Storage.getById(STORAGE_KEYS.VACANCIES, id);
+        if (vacancy) {
+            alert(`To apply for "${vacancy.title}", please follow the application instructions provided.`);
+            // You could redirect to an application form or email
+        }
+    }
+    
+    // Search vacancies on frontend
+    function searchVacanciesFrontend() {
+        const searchTerm = document.getElementById('searchVacancies').value.toLowerCase();
+        const cards = document.querySelectorAll('.vacancy-card');
+        let visibleCount = 0;
+        
+        cards.forEach(card => {
+            const title = card.getAttribute('data-title');
+            const jobTitle = card.querySelector('.vacancy-title').textContent.toLowerCase();
+            
+            if (jobTitle.includes(searchTerm) || title.includes(searchTerm)) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Show no results message
+        const noVacanciesMsg = document.getElementById('noVacanciesMessage');
+        const container = document.getElementById('vacanciesContainer');
+        
+        if (visibleCount === 0 && searchTerm) {
+            container.style.display = 'none';
+            noVacanciesMsg.innerHTML = `
+                <i class="fas fa-search"></i>
+                <h3>No vacancies found for "${searchTerm}"</h3>
+                <p>Try a different search term</p>
+            `;
+            noVacanciesMsg.style.display = 'block';
+        } else if (visibleCount > 0) {
+            container.style.display = 'grid';
+            noVacanciesMsg.style.display = 'none';
+        }
+    }
+    
+    // Filter vacancies on frontend
+    function filterVacanciesFrontend() {
+        const typeFilter = document.getElementById('typeFilterFrontend').value;
+        const cards = document.querySelectorAll('.vacancy-card');
+        let visibleCount = 0;
+        
+        cards.forEach(card => {
+            const type = card.getAttribute('data-type');
+            
+            if (!typeFilter || type === typeFilter) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Show no results message
+        const noVacanciesMsg = document.getElementById('noVacanciesMessage');
+        const container = document.getElementById('vacanciesContainer');
+        
+        if (visibleCount === 0 && typeFilter) {
+            container.style.display = 'none';
+            noVacanciesMsg.innerHTML = `
+                <i class="fas fa-filter"></i>
+                <h3>No ${typeFilter} vacancies available</h3>
+                <p>Try selecting a different job type</p>
+            `;
+            noVacanciesMsg.style.display = 'block';
+        } else if (visibleCount > 0) {
+            container.style.display = 'grid';
+            noVacanciesMsg.style.display = 'none';
+        }
+    }
+    
+    // Load vacancies when page loads
+    document.addEventListener('DOMContentLoaded', displayVacancies);
+</script>
+</body>
+</html>

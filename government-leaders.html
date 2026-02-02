@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Higher Leaders - Central Ethiopia Prosperity Party</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f23;
+            --secondary-color: #f9a825;
+            --accent-color: #d32f2f;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Ethiopic', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--light-color);
+        }
+
+        .amharic {
+            font-family: 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+            direction: rtl;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #0f4d1a;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: #e69100;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 25px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== HEADER STYLES ===== */
+        .header-top {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info-top {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info-top span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 4px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .header-main {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .header-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .header-contact div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ===== NAVIGATION STYLES ===== */
+        .navbar {
+            background: var(--dark-color);
+        }
+
+        .nav-container {
+            position: relative;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 18px 25px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-color);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            display: none;
+            z-index: 1000;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover {
+            background: var(--light-color);
+            color: var(--primary-color);
+            padding-left: 30px;
+        }
+
+        .dropdown-link:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== LEADERS PAGE SPECIFIC STYLES ===== */
+        .page-header {
+            background: linear-gradient(rgba(26, 95, 35, 0.85), rgba(26, 95, 35, 0.85)), 
+                        url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(249, 168, 37, 0.2), rgba(26, 95, 35, 0.3));
+            z-index: 1;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.8;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .leader-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .leader-img {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .leader-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .leader-card:hover .leader-img img {
+            transform: scale(1.05);
+        }
+
+        .leader-info {
+            padding: 25px;
+        }
+
+        .leader-name {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .leader-position {
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .leader-department {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .leader-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .leader-contact i {
+            color: var(--primary-color);
+            margin-right: 8px;
+            width: 20px;
+        }
+
+        .leadership-structure {
+            background: #f0f7f0;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin: 50px 0;
+        }
+
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .structure-item {
+            text-align: center;
+            padding: 25px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .structure-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark-color);
+            color: var(--white);
+        }
+
+        .footer-main {
+            padding: 60px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        .developer-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-header p {
+                font-size: 1.1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .leaders-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark-color);
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background: rgba(0, 0, 0, 0.2);
+                box-shadow: none;
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: none;
+            }
+            
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .page-header {
+                padding: 100px 0 60px;
+                background-attachment: scroll;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .contact-info-top {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .leaders-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .structure-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 40px 0;
+            }
+            
+            .page-header {
+                padding: 80px 0 40px;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .leader-img {
+                height: 250px;
+            }
+            
+            .leadership-structure {
+                padding: 25px;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* ===== LANGUAGE CONTENT ===== */
+        .english-content {
+            display: block;
+        }
+
+        .amharic-content {
+            display: none;
+        }
+
+        body.amharic .english-content {
+            display: none;
+        }
+
+        body.amharic .amharic-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="container">
+            <div class="contact-info-top">
+                <span><i class="fas fa-map-marker-alt"></i> Hossana, Ethiopia</span>
+                <span><i class="fas fa-phone"></i> +251939060376</span>
+                <span><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</span>
+                <span><i class="fas fa-box"></i> P.O. Box: 332</span>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="am">አማርኛ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Main -->
+    <header class="header-main">
+        <div class="container">
+            <div class="header-content">
+                <a href="hadiya_prosperity.html" class="logo">
+                    <div class="logo-img">
+                             <img src="c:\Users\yohannes\Pictures\Hadiya_Zone.jpg" height="100px" width="100px" alt="">
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="english-content">Central Ethiopia Region Prosperity Party Branch Office</h1>
+                        <h1 class="amharic-content">የማዕከላዊ ኢትዮጵያ ክልል ብልፅግና ፓርቲ ቅርጫፍ ጽ/ቤት</h1>
+                        <p class="english-content">Official Government Website</p>
+                        <p class="amharic-content">የመንግስት ኦፊሴላዊ ድረ-ገጽ</p>
+                    </div>
+                </a>
+                <div class="header-contact">
+                    <div><i class="fas fa-clock"></i> <span class="english-content">Mon-Fri: 8:30 AM - 5:30 PM</span><span class="amharic-content">ሰኞ-ሐሙስ: 8:30 ጥዋት - 5:30 ከሰዓት</span></div>
+                    <!-- <div><i class="fas fa-phone-volume"></i> <span class="english-content">Emergency: +251116611111</span><span class="amharic-content">አደጋ: +251116611111</span></div> -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="hadiya_prosperity.html" class="nav-link"><i class="fas fa-home"></i> <span class="english-content">Home</span><span class="amharic-content">መግቢያ</span></a></li>
+                
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> <span class="english-content">About Us</span><span class="amharic-content">ስለ እኛ</span> <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="government-leaders.html" class="dropdown-link active"><i class="fas fa-users"></i> <span class="english-content">Government Higher Leaders</span><span class="amharic-content">የመንግስት ከፍተኛ አመራሮች</span></a>
+                        <a href="party-message.html" class="dropdown-link"><i class="fas fa-envelope"></i> <span class="english-content">Party Message</span><span class="amharic-content">የፓርቲ መልዕክት</span></a>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link"><i class="fas fa-newspaper"></i> <span class="english-content">News</span><span class="amharic-content">ዜና</span> <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="latest-news.html" class="dropdown-link"><i class="fas fa-bullhorn"></i> <span class="english-content">Latest News</span><span class="amharic-content">የቅርብ ዜና</span></a>
+                        <a href="press-release.html" class="dropdown-link"><i class="fas fa-file-alt"></i> <span class="english-content">Press Release</span><span class="amharic-content">ፕሬስ ሪሊዝ</span></a>
+                        <a href="announcements.html" class="dropdown-link"><i class="fas fa-bell"></i> <span class="english-content">Announcements</span><span class="amharic-content">ማስታወቂያ</span></a>
+                        <a href="vacancy.html" class="dropdown-link"><i class="fas fa-briefcase"></i> <span class="english-content">Vacancy</span><span class="amharic-content">ባዊ ክፍት ቦታ</span></a>
+                        <a href="tender.html" class="dropdown-link"><i class="fas fa-file-contract"></i> <span class="english-content">Tender</span><span class="amharic-content">ጨረታ</span></a>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="sub-branches.html" class="nav-link"><i class="fas fa-sitemap"></i> <span class="english-content">Sub-Branches</span><span class="amharic-content">ንዑስ ቅርንጫፎች</span> <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="zones.html" class="dropdown-link"><i class="fas fa-map"></i> <span class="english-content">Zones</span><span class="amharic-content">ዞኖች</span></a>
+                        <a href="special-woredas.html" class="dropdown-link"><i class="fas fa-landmark"></i> <span class="english-content">Special Woredas</span><span class="amharic-content">ልዩ ወረዳዎች</span></a>
+                        <a href="wings.html" class="dropdown-link"><i class="fas fa-users"></i> <span class="english-content">Wings</span><span class="amharic-content">ክፍሎች</span></a>
+                    </div>
+                </li>
+                
+                <!-- <li class="nav-item">
+                    <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> <span class="english-content">Gallery</span><span class="amharic-content">ጋሌሪ</span></a>
+                </li> -->
+                
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link"><i class="fas fa-book"></i> <span class="english-content">Resources</span><span class="amharic-content">ሀብቶች</span> <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="manifesto.html" class="dropdown-link"><i class="fas fa-file-signature"></i> <span class="english-content">Manifesto</span><span class="amharic-content">ማኒፌስቶ</span></a>
+                        <a href="program.html" class="dropdown-link"><i class="fas fa-project-diagram"></i> <span class="english-content">Program</span><span class="amharic-content">ፕሮግራም</span></a>
+                        <a href="rules-principles.html" class="dropdown-link"><i class="fas fa-gavel"></i> <span class="english-content">Rules & Principle</span><span class="amharic-content">ደንቦች እና መርህ</span></a>
+                        <a href="training-manuals.html" class="dropdown-link"><i class="fas fa-graduation-cap"></i> <span class="english-content">Training Manuals</span><span class="amharic-content">የስልጠና መመሪያዎች</span></a>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="explore.html" class="nav-link"><i class="fas fa-compass"></i> <span class="english-content">Explore</span><span class="amharic-content">አስስ</span> <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="tourism.html" class="dropdown-link"><i class="fas fa-mountain"></i> <span class="english-content">Tourism</span><span class="amharic-content">ቱሪዝም</span></a>
+                        <a href="community-events.html" class="dropdown-link"><i class="fas fa-hands-helping"></i> <span class="english-content">Community Events</span><span class="amharic-content">የማህበረሰብ ዝግጅቶች</span></a>
+                        <a href="volunteering.html" class="dropdown-link"><i class="fas fa-hand-holding-heart"></i> <span class="english-content">Volunteering</span><span class="amharic-content">በገበያ አገልግሎት</span></a>
+                        <a href="social-gathering.html" class="dropdown-link"><i class="fas fa-users"></i> <span class="english-content">Social Gathering</span><span class="amharic-content">ማህበራዊ ስብሰባ</span></a>
+                    </div>
+                </li>
+                
+                <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> <span class="english-content">Contact</span><span class="amharic-content">ያግኙን</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="english-content fade-in">Government Higher Leaders</h1>
+            <h1 class="amharic-content fade-in">የመንግስት ከፍተኛ አመራሮች</h1>
+            <p class="english-content fade-in">Meet the dedicated leadership team driving development and prosperity in Central Ethiopia Region</p>
+            <p class="amharic-content fade-in">ማዕከላዊ ኢትዮጵያ ክልል ልማት እና ብልፅግና እየመሩ ያሉ ተሰጥኦ ያላቸው የአመራር ቡድን ያግኙ</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Introduction -->
+            <div class="intro-text card fade-in">
+                <div class="english-content">
+                    <h2 style="color: var(--primary-color); margin-bottom: 20px;">Leadership Excellence in Central Ethiopia</h2>
+                    <p>The Central Ethiopia Region Prosperity Party Branch Office is guided by a team of experienced and visionary leaders who are committed to driving sustainable development, promoting unity, and ensuring prosperity for all citizens. Our leadership structure combines administrative expertise with political acumen to deliver effective governance and community-centered development.</p>
+                    <p>Each leader brings unique skills and experiences to their role, working collaboratively to implement the Prosperity Party's agenda of economic transformation, social justice, and national unity. Together, they oversee various sectors including education, agriculture, urban development, infrastructure, and social services.</p>
+                </div>
+                <div class="amharic-content">
+                    <h2 style="color: var(--primary-color); margin-bottom: 20px;">በማዕከላዊ ኢትዮጵያ ክልል የአመራር ልሂቅ</h2>
+                    <p>የማዕከላዊ ኢትዮጵያ ክልል ብልፅግና ፓርቲ ቅርንጫፍ ጽ/ቤት በተሞክሮ ያለች እና ራዕይ ያላት የአመራር ቡድን ይመራል፣ እነዚህም ዘላቂ ልማትን ለማስተዋወቅ፣ አንድነትን ለማስተዋወቅ እና ለሁሉም ዜጎች ብልፅግና ለማረጋገጥ ቁርጠኞች ናቸው። የእኛ የአመራር መዋቅር የአስተዳደር ብቃትን ከፖለቲካዊ ግንዛቤ ጋር በማዋሃድ ውጤታማ አስተዳደር እና በማህበረሰብ ላይ ያተኮረ ልማት ለማቅረብ ይሠራል።</p>
+                    <p>እያንዳንዱ አመራር ልዩ ክህሎቶችን እና ተሞክሮዎችን ለተግባራቸው ያምጣል፣ የብልፅግና ፓርቲን የኢኮኖሚ ለውጥ፣ የማህበራዊ ፍትህ እና የብሔራዊ አንድነት አጀንዳ ለመተግበር በጋራ ይሠራሉ። በአንድነት ደግሞ ትምህርት፣ ግብርና፣ የከተማ ልማት፣ መሠረተ ልማት እና የማህበራዊ አገልግሎቶችን ጨምሮ የተለያዩ ዘርፎችን ይቆጣጠራሉ።</p>
+                </div>
+            </div>
+
+            <!-- Leadership Structure Overview -->
+            <div class="leadership-structure fade-in">
+                <h2 class="section-title english-content">Leadership Structure</h2>
+                <h2 class="section-title amharic-content">የአመራር መዋቅር</h2>
+                
+                <div class="structure-grid">
+                    <div class="structure-item">
+                        <div class="structure-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="english-content">Executive Leadership</h3>
+                        <h3 class="amharic-content">አፈጻጸም አመራር</h3>
+                        <p class="english-content">Strategic direction and overall administration of the region</p>
+                        <p class="amharic-content">የክልሉ ስትራቴጂካዊ አቅጣጫ እና አጠቃላይ አስተዳደር</p>
+                    </div>
+                    
+                    <div class="structure-item">
+                        <div class="structure-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="english-content">Sector Coordination</h3>
+                        <h3 class="amharic-content">የዘርፍ አስተባባሪነት</h3>
+                        <p class="english-content">Overseeing development across key sectors</p>
+                        <p class="amharic-content">በመሠረታዊ ዘርፎች ላይ ልማትን መቆጣጠር</p>
+                    </div>
+                    
+                    <div class="structure-item">
+                        <div class="structure-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="english-content">Community Engagement</h3>
+                        <h3 class="amharic-content">የማህበረሰብ ውይይት</h3>
+                        <p class="english-content">Ensuring citizen participation in development</p>
+                        <p class="amharic-content">ዜጎች በልማት ላይ ተሳትፎ እንዲኖራቸው ማረጋገጥ</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaders Grid -->
+            <h2 class="section-title english-content">Our Leadership Team</h2>
+            <h2 class="section-title amharic-content">የእኛ የአመራር ቡድን</h2>
+            
+            <div class="leaders-grid">
+                <!-- Leader 1 -->
+                <div class="leader-card fade-in">
+                    <div class="leader-img">
+                        <img src="http://www.cerprosperity.org.et/sites/default/files/inline-images/Endashaw%20Tasaw_0.jpg" 
+                             alt="ክቡር አቶ እንዳሻው ጣሰው" 
+                             onerror="this.src='https://via.placeholder.com/400x300/1a5f23/ffffff?text=ክቡር+አቶ+እንዳሻው+ጣሰው'">
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name english-content">Hon. Endashaw Tasew</h3>
+                        <h3 class="leader-name amharic-content">ክቡር አቶ እንዳሻው ጣሰው</h3>
+                        <p class="leader-position english-content">Chief Administrator of Central Ethiopia Region</p>
+                        <p class="leader-position amharic-content">የማዕከላዊ ኢትዮጲያ ክልል ርዕሰ-መስተዳድር</p>
+                        <div class="leader-department english-content">
+                            As the Chief Administrator, Hon. Endashaw provides strategic leadership and oversees the overall development agenda of the Central Ethiopia Region.
+                        </div>
+                        <div class="leader-department amharic-content">
+                            እንደ ርዕሰ መስተዳድር፣ ክቡር አቶ እንዳሻው ስትራቴጂካዊ አመራር ይሰጣሉ እና የማዕከላዊ ኢትዮጵያ ክልልን አጠቃላይ የልማት አጀንዳ ይቆጣጠራሉ።
+                        </div>
+                        <div class="leader-contact">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 2 -->
+                <div class="leader-card fade-in">
+                    <div class="leader-img">
+                        <img src="https://www.cerprosperity.org.et/sites/default/files/inline-images/Dr%20Dilamo%20Ottore.png" 
+                             alt="ዶ/ር ዲላሞ ኦቶሬ" 
+                             onerror="this.src='https://via.placeholder.com/400x300/1a5f23/ffffff?text=ዶ/ር+ዲላሞ+ኦቶሬ'">
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name english-content">Dr. Dilamo Ottore</h3>
+                        <h3 class="leader-name amharic-content">ዶ/ር ዲላሞ ኦቶሬ</h3>
+                        <p class="leader-position english-content">Head of Central Ethiopia Prosperity Party Branch Office & Chief Government Representative</p>
+                        <p class="leader-position amharic-content">የማዕከላዊ ኢትዮጲያ ብልፅግና ፓርቲ ቅርጫፍ ጽ/ቤት ኃላፊና የመንግስት ዋና ተጠሪ</p>
+                        <div class="leader-department english-content">
+                            Dr. Dilamo leads the Prosperity Party operations in Central Ethiopia and serves as the principal liaison between the party and government institutions.
+                        </div>
+                        <div class="leader-department amharic-content">
+                            ዶ/ር ዲላሞ በማዕከላዊ ኢትዮጵያ የብልፅግና ፓርቲ ስራዎችን ያስተዳድራሉ እና በፓርቲው እና በመንግስት ተቋማት መካከል ዋና የግንኙነት ሚና ይጫወታሉ።
+                        </div>
+                        <div class="leader-contact">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 3 -->
+                <div class="leader-card fade-in">
+                    <div class="leader-img">
+                        <img src="https://www.cerprosperity.org.et/sites/default/files/inline-images/your%20Excellency%20fate%20sirmolo%201_0.jpg" 
+                             alt="ክብርት ወ/ሮ ፋጤ ስርሞሎ" 
+                             onerror="this.src='https://via.placeholder.com/400x300/1a5f23/ffffff?text=ክብርት+ወ/ሮ+ፋጤ+ስርሞሎ'">
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name english-content">Her Excellency Fate Sirmolo</h3>
+                        <h3 class="leader-name amharic-content">ክብርት ወ/ሮ ፋጤ ስርሞሎ</h3>
+                        <p class="leader-position english-content">Speaker of Central Ethiopia Region People's Representatives Council</p>
+                        <p class="leader-position amharic-content">የማዕከላዊ ኢትዮጵያ ክልል የህዝብ ተወካዮች ምክር ቤት ዋና አፈ ጉባኤ</p>
+                        <div class="leader-department english-content">
+                            As Speaker, Her Excellency presides over legislative proceedings and represents the democratic voice of the people in regional governance.
+                        </div>
+                        <div class="leader-department amharic-content">
+                            እንደ አፈ ጉባኤ፣ ክብርቷ የሕግ አውጪ ሂደቶችን ትመራለች እና በክልላዊ አስተዳደር ውስጥ የሕዝብ ዴሞክራሲያዊ ድምፅ ትወክላለች።
+                        </div>
+                        <div class="leader-contact">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 4 -->
+                <div class="leader-card fade-in">
+                    <div class="leader-img">
+                        <img src="https://www.cerprosperity.org.et/sites/default/files/inline-images/Mr%20Anteneh%20Fekadu%20-EB%20Head-front.jpg" 
+                             alt="አቶ አንተነ ፈቃዱ" 
+                             onerror="this.src='https://via.placeholder.com/400x300/1a5f23/ffffff?text=አቶ+አንተነ+ፈቃዱ'">
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name english-content">Mr. Anteneh Fekadu</h3>
+                        <h3 class="leader-name amharic-content">አቶ አንተነ ፈቃዱ</h3>
+                        <p class="leader-position english-content">Deputy Chief Administrator & Social Cluster Coordinator, Head of Education Bureau</p>
+                        <p class="leader-position amharic-content">በማዕ/ኢት/ ክልል ም/ ርዕሰ መስተዳድር የማህበራዊ ክላስተር አስተባባሪና የክልሉ የትምህርት ቢሮ ኃላፊ</p>
+                        <div class="leader-department english-content">
+                            Coordinates social development initiatives and oversees the education sector, ensuring quality education access across the region.
+                        </div>
+                        <div class="leader-department amharic-content">
+                            የማህበራዊ ልማት ተቋማትን ያስተባብራል እና የትምህርት ዘርፍን ይቆጣጠራል፣ በክልሉ ውስጥ ጥራት ያለው ትምህርት መዳረሻን ያረጋግጣል።
+                        </div>
+                        <div class="leader-contact">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 5 -->
+                <div class="leader-card fade-in">
+                    <div class="leader-img">
+                        <img src="https://www.cerprosperity.org.et/sites/default/files/inline-images/Excellence%20Ouseman%20surur.jpg" 
+                             alt="አቶ ኡስማን ሱሩር" 
+                             onerror="this.src='https://via.placeholder.com/400x300/1a5f23/ffffff?text=አቶ+ኡስማን+ሱሩር'">
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name english-content">Mr. Ouseman Surur</h3>
+                        <h3 class="leader-name amharic-content">አቶ ኡስማን ሱሩር</h3>
+                        <p class="leader-position english-content">Deputy Chief Administrator & Rural Cluster Coordinator, Head of Agriculture Bureau</p>
+                        <p class="leader-position amharic-content">በማዕ/ኢት/ ክልል በምክትል ርዕሰ መስተዳድር ማዕረግ የገጠር ክላስተር አስተባባሪ እና የክልሉ የግብርና ቢሮ ኃላፊ</p>
+                        <div class="leader-department english-content">
+                            Leads rural development initiatives and agricultural transformation programs to ensure food security and rural prosperity.
+                        </div>
+                        <div class="leader-department amharic-content">
+                            የገጠር ልማት ተቋማትን እና የግብርና ለውጥ ፕሮግራሞችን ያስተዳድራል፣ የምግብ ዋስትና እና የገጠር ብልፅግናን ለማረጋገጥ።
+                        </div>
+                        <div class="leader-contact">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 6 -->
+                <div class="leader-card fade-in">
+                    <div class="leader-img">
+                        <img src="https://www.cerprosperity.org.et/sites/default/files/inline-images/Mr%20SINTAYEHU%20Woldmikael.jpg" 
+                             alt="አቶ ስንታየሁ ወልደሚካኤ" 
+                             onerror="this.src='https://via.placeholder.com/400x300/1a5f23/ffffff?text=አቶ+ስንታየሁ+ወልደሚካኤ'">
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name english-content">Mr. Sintayehu Woldmikael</h3>
+                        <h3 class="leader-name amharic-content">አቶ ስንታየሁ ወልደሚካኤ</h3>
+                        <p class="leader-position english-content">Deputy Chief Administrator & Urban-Industry Cluster Coordinator, Head of Urban Development & Construction Bureau</p>
+                        <p class="leader-position amharic-content">በማዕ/ኢት/ ክልል ም/ ርዕሰ መስተዳድር ማዕረግ የከተማና ኢንዱስትሪ ክላስተር አስተባባሪና የክልሉ የከተማ ልማትና ኮንስትራክሽን ቢሮ ኃላፊ</p>
+                        <div class="leader-department english-content">
+                            Oversees urban planning, industrial development, and construction projects to create sustainable urban centers.
+                        </div>
+                        <div class="leader-department amharic-content">
+                            የከተማ እቅድ፣ የኢንዱስትሪ ልማት እና የግንባታ ፕሮጀክቶችን ይቆጣጠራል፣ ዘላቂ የከተማ ማዕከሎችን ለመፍጠር።
+                        </div>
+                        <div class="leader-contact">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 7 -->
+                <div class="leader-card fade-in">
+                    <div class="leader-img">
+                        <img src="https://www.cerprosperity.org.et/sites/default/files/inline-images/Dr%20Mohammed%20Nurye.jpg" 
+                             alt="ዶ/ር መሀመድ ኑሪዬ" 
+                             onerror="this.src='https://via.placeholder.com/400x300/1a5f23/ffffff?text=ዶ/ር+መሀመድ+ኑሪዬ'">
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name english-content">Dr. Mohammed Nurye</h3>
+                        <h3 class="leader-name amharic-content">ዶ/ር መሀመድ ኑሪዬ</h3>
+                        <p class="leader-position english-content">Deputy Chief Administrator & Infrastructure Cluster Coordinator, Head of Transport & Road Development Bureau</p>
+                        <p class="leader-position amharic-content">በማዕ/ኢት/ ክልል ም/ ርዕሰ መስተዳድር ማዕረግ የመሰረተ ልማት ክላስተር አስተባባሪና የክልሉ የትራንስፖርትና መንገድ ልማት ቢሮ ኃላፊ</p>
+                        <div class="leader-department english-content">
+                            Manages transportation networks and road infrastructure development to enhance connectivity and economic growth.
+                        </div>
+                        <div class="leader-department amharic-content">
+                            የትራንስፖርት ኔትወርኮችን እና የመንገድ መሠረተ ልማትን ያስተዳድራል፣ የግንኙነት እና የኢኮኖሚ እድገትን ለማሻሻል።
+                        </div>
+                        <div class="leader-contact">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="leadership-structure fade-in" style="margin-top: 50px;">
+                <h2 class="section-title english-content">Leadership Vision</h2>
+                <h2 class="section-title amharic-content">የአመራር ራዕይ</h2>
+                
+                <div class="structure-grid">
+                    <div class="structure-item">
+                        <div class="structure-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="english-content">Vision 2030</h3>
+                        <h3 class="amharic-content">ራዕይ 2030</h3>
+                        <p class="english-content">Transforming Central Ethiopia into a model region of prosperity and sustainable development</p>
+                        <p class="amharic-content">ማዕከላዊ ኢትዮጵያን ወደ ብልፅግና እና ዘላቂ ልማት ሞዴል ክልል መለወጥ</p>
+                    </div>
+                    
+                    <div class="structure-item">
+                        <div class="structure-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="english-content">Collaborative Governance</h3>
+                        <h3 class="amharic-content">የጋራ አስተዳደር</h3>
+                        <p class="english-content">Working together with communities for inclusive development</p>
+                        <p class="amharic-content">ከማህበረሰቦች ጋር በጋራ ለአጠቃላይ ልማት መስራት</p>
+                    </div>
+                    
+                    <div class="structure-item">
+                        <div class="structure-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="english-content">Sustainable Development</h3>
+                        <h3 class="amharic-content">ዘላቂ ልማት</h3>
+                        <p class="english-content">Balancing economic growth with environmental conservation</p>
+                        <p class="amharic-content">ኢኮኖሚያዊ እድገትን ከአካባቢ ጥበቃ ጋር ማመጣጠን</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <!-- <div class="card fade-in" style="margin-top: 50px; text-align: center;">
+                <h2 style="color: var(--primary-color); margin-bottom: 20px;" class="english-content">Contact Leadership Office</h2>
+                <h2 style="color: var(--primary-color); margin-bottom: 20px;" class="amharic-content">የአመራር ጽ/ቤት ያግኙ</h2>
+                <p class="english-content" style="margin-bottom: 25px;">For official communications or appointments with regional leadership, please contact:</p>
+                <p class="amharic-content" style="margin-bottom: 25px;">ለኦፊሴላዊ ውይይቶች ወይም ከክልላዊ አመራሮች ጋር ለግንኙነት፥ እባክዎ ያግኙ፡</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="mailto:info@cerprosperity.gov.et" class="btn"><i class="fas fa-envelope"></i> <span class="english-content">Email Office</span><span class="amharic-content">ጽ/ቤት ኢሜል</span></a>
+                    <a href="contact.html" class="btn btn-secondary"><i class="fas fa-phone"></i> <span class="english-content">Contact Form</span><span class="amharic-content">የመገኛ ቅጽ</span></a>
+                    <a href="hadiya_prosperity.html" class="btn"><i class="fas fa-home"></i> <span class="english-content">Back to Home</span><span class="amharic-content">ወደ መግቢያ</span></a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- Contact Info -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Contact Us</h3>
+                        <h3 class="amharic-content">ያግኙን</h3>
+                        <div class="contact-info-footer">
+                            <p><i class="fas fa-map-marker-alt"></i> <span class="english-content">Hossana, Ethiopia</span><span class="amharic-content">ሆሳዕና, ኢትዮጵያ</span></p>
+                            <p><i class="fas fa-phone"></i> +251939060376</p>
+                            <p><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</p>
+                            <p><i class="fas fa-box"></i> <span class="english-content">P.O. Box: 332</span><span class="amharic-content">ፖ.ሳ.ቁ: 332</span></p>
+                            <p><i class="fas fa-clock"></i> <span class="english-content">Mon-Fri: 8:30 AM - 5:30 PM</span><span class="amharic-content">ሰኞ-ሐሙስ: 8:30 ጥዋት - 5:30 ከሰዓት</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Links -->
+                    <!-- <div class="footer-section">
+                        <h3 class="english-content">Related Links</h3>
+                        <h3 class="amharic-content">የተዛመዱ አገናኞች</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://prosperityparty.org" target="_blank"><i class="fas fa-external-link-alt"></i> <span class="english-content">Prosperity Party</span><span class="amharic-content">ብልፅግና ፓርቲ</span></a></li>
+                            <li><a href="https://fdre.gov.et" target="_blank"><i class="fas fa-external-link-alt"></i> <span class="english-content">FEDRE National Referral Mechanism</span><span class="amharic-content">ፌድሬ ብሔራዊ ማጣቀሻ ስልት</span></a></li>
+                            <li><a href="https://council.gov.et" target="_blank"><i class="fas fa-external-link-alt"></i> <span class="english-content">Council of Constitutional Inquiry</span><span class="amharic-content">የሕገ መንግስት ጥያቄ ምክር ቤት</span></a></li>
+                            <li><a href="https://education.gov.et" target="_blank"><i class="fas fa-external-link-alt"></i> <span class="english-content">Central Ethiopia Education Bureau</span><span class="amharic-content">ማዕከላዊ ኢትዮጵያ ትምህርት ቢሮ</span></a></li>
+                            <li><a href="https://wachemo.edu.et" target="_blank"><i class="fas fa-external-link-alt"></i> <span class="english-content">Wachemo University</span><span class="amharic-content">ዋቸሞ ዩኒቨርሲቲ</span></a></li>
+                        </ul>
+                    </div> -->
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="english-content">Quick Links</h3>
+                        <h3 class="amharic-content">ፈጣን አገናኞች</h3>
+                        <ul class="footer-links">
+                            <li><a href="party-message.html"><i class="fas fa-envelope"></i> <span class="english-content">Party Message</span><span class="amharic-content">የፓርቲ መልዕክት</span></a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> <span class="english-content">About Us</span><span class="amharic-content">ስለ እኛ</span></a></li>
+                            <li><a href="latest-news.html"><i class="fas fa-newspaper"></i> <span class="english-content">Latest News</span><span class="amharic-content">የቅርብ ዜና</span></a></li>
+                            <!-- <li><a href="gallery.html"><i class="fas fa-images"></i> <span class="english-content">Photo Gallery</span><span class="amharic-content">የፎቶ ጋሌሪ</span></a></li> -->
+                            <li><a href="contact.html"><i class="fas fa-phone"></i> <span class="english-content">Contact Leadership</span><span class="amharic-content">አመራር ያግኙ</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Developer Info -->
+                <div class="developer-info">
+                    <p class="english-content"><i class="fas fa-code"></i> <strong>Developed BY:</strong> Wachemo University Computer Science Students</p>
+                    <p class="amharic-content"><i class="fas fa-code"></i> <strong>የተዘጋጀው በ:</strong> ዋቸሞ ዩኒቨርሲቲ ኮምፒዩተር ሳይንስ ተማሪዎች</p>
+                    <p class="english-content"><i class="fas fa-users"></i> <strong>Names:</strong> Simachew Getnet, Yohannes Ashango, Mulugeta Emiru</p>
+                    <p class="amharic-content"><i class="fas fa-users"></i> <strong>ስሞች:</strong> ስማቸው ጌትነት, ዮሐንስ አሻንጎ, ሙሉጌታ እምሩ</p>
+                    <p class="english-content"><i class="fas fa-envelope"></i> <strong>Contact Developers:</strong> developers@wachemo.edu.et</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="english-content">&copy; 2026 Central Ethiopia Region Prosperity Party Branch Office. All rights reserved. | <a href="#" style="color: var(--secondary-color);">Privacy Policy</a> | <a href="#" style="color: var(--secondary-color);">Terms of Service</a></p>
+                <p class="amharic-content">&copy; 2026 የማዕከላዊ ኢትዮጵያ ክልል ብልፅግና ፓርቲ ቅርጫፍ ጽ/ቤት. ሁሉም መብቶች የተጠበቁ ናቸው. | <a href="#" style="color: var(--secondary-color);">የግላዊነት ፖሊሲ</a> | <a href="#" style="color: var(--secondary-color);">የአገልግሎት ውል</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ===== LANGUAGE SWITCHING =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // Language buttons
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const body = document.body;
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Update active button
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Switch language
+                    if (lang === 'am') {
+                        body.classList.add('amharic');
+                        localStorage.setItem('preferredLanguage', 'am');
+                    } else {
+                        body.classList.remove('amharic');
+                        localStorage.setItem('preferredLanguage', 'en');
+                    }
+                });
+            });
+            
+            // Load saved language preference
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang === 'am') {
+                body.classList.add('amharic');
+                langButtons.forEach(btn => {
+                    if (btn.getAttribute('data-lang') === 'am') {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+            
+            // ===== MOBILE NAVIGATION =====
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            mobileToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                this.querySelector('i').classList.toggle('fa-bars');
+                this.querySelector('i').classList.toggle('fa-times');
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-container') && window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    mobileToggle.querySelector('i').classList.add('fa-bars');
+                    mobileToggle.querySelector('i').classList.remove('fa-times');
+                }
+            });
+            
+            // Handle dropdown on mobile
+            navItems.forEach(item => {
+                if (item.querySelector('.dropdown-menu')) {
+                    item.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            this.classList.toggle('active');
+                        }
+                    });
+                }
+            });
+            
+            // ===== ACTIVE NAV LINK =====
+            const currentPage = window.location.pathname.split('/').pop() || 'government-leaders.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // ===== FADE IN ANIMATION ON SCROLL =====
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeIn 0.6s ease-out forwards';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => observer.observe(el));
+            
+            // ===== CURRENT YEAR IN FOOTER =====
+            document.querySelectorAll('.footer-bottom p').forEach(p => {
+                p.innerHTML = p.innerHTML.replace('2026', new Date().getFullYear());
+            });
+            
+            // ===== IMAGE ERROR HANDLING =====
+            document.querySelectorAll('.leader-img img').forEach(img => {
+                img.addEventListener('error', function() {
+                    const name = this.alt || 'Leader Image';
+                    this.src = `https://via.placeholder.com/400x300/1a5f23/ffffff?text=${encodeURIComponent(name)}`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

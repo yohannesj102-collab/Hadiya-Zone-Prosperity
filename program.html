@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Program - Central Ethiopia Region Prosperity Party</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f23;
+            --primary-dark: #0f4d1a;
+            --secondary-color: #f9a825;
+            --secondary-dark: #e69100;
+            --accent-color: #d32f2f;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --gray-light: #e9ecef;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Ethiopic', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .amharic {
+            font-family: 'Noto Sans Ethiopic', 'Nyala', 'Abyssinica SIL', sans-serif;
+            /* direction: rtl; */
+        }
+
+        /* ===== PROFESSIONAL TOP BAR (SAME AS HOMEPAGE) ===== */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1003;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .contact-info span:hover {
+            color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .contact-info i {
+            font-size: 0.9em;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(249, 168, 37, 0.2);
+        }
+
+        /* ===== MAIN HEADER WITH NAVIGATION (SAME AS HOMEPAGE) ===== */
+        .main-header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1002;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            gap: 30px;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 0 0 auto;
+            min-width: 300px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--white);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            flex: 1;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            color: var(--primary-color);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* Navigation Menu */
+        .nav-container {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+            gap: 2px;
+              direction: ltr;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border-radius: var(--border-radius);
+            white-space: nowrap;
+              direction: ltr;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-link i {
+            font-size: 0.9rem;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow-lg);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            display: none;
+            z-index: 1001;
+            border: 1px solid var(--gray-light);
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .dropdown-link:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            padding-left: 30px;
+        }
+
+        .dropdown-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* ===== PROGRAM CONTENT (KEEPING YOUR ORIGINAL STYLES) ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #0f4d1a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: #e69100;
+        }
+
+        .btn-accent {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-accent:hover {
+            background: #b71c1c;
+        }
+
+        /* Program Hero */
+        .program-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://www.cerprosperity.org.et/sites/default/files/inline-images/logo%20background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            margin-top: 0;
+        }
+
+        .program-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 95, 35, 0.8) 0%, rgba(44, 62, 80, 0.8) 100%);
+        }
+
+        .program-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .program-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .program-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .program-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            min-width: 200px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item i {
+            margin-bottom: 15px;
+            opacity: 0.9;
+            font-size: 2.5rem;
+        }
+
+        .stat-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .stat-item p {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* Program Downloads */
+        .program-downloads {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .download-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .download-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .download-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .download-info {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .download-details {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .detail-value {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Program Components */
+        .program-components {
+            background: linear-gradient(135deg, #1a5f23 0%, #2c3e50 100%);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .component-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .component-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .component-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .component-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Implementation Roadmap */
+        .roadmap-section {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .roadmap {
+            position: relative;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .roadmap::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .roadmap-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .roadmap-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .roadmap-content {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .roadmap-item:nth-child(even) .roadmap-content {
+            border-left: none;
+            border-right: 4px solid var(--secondary-color);
+        }
+
+        .roadmarker {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        .roadmap-year {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Google Map Section */
+        .map-section {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 300px;
+            z-index: 1;
+        }
+
+        .map-overlay h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Interactive Features */
+        .program-features {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin-bottom: 60px;
+        }
+
+        .features-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature-tab {
+            padding: 15px 30px;
+            background: var(--white);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-tab:hover {
+            background: #e8f5e8;
+            border-color: var(--primary-color);
+        }
+
+        .feature-tab.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .feature-content {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            display: none;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .feature-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        /* ===== FOOTER (UPDATED TO MATCH HOMEPAGE) ===== */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1c2833 100%);
+            color: var(--white);
+            padding-top: 60px;
+        }
+
+        .footer-main {
+            padding-bottom: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .contact-info-footer p {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-info-footer i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .developer-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .developer-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== LANGUAGE HANDLING ===== */
+        .english-content {
+            display: block;
+        }
+
+        .amharic-content {
+            display: none;
+        }
+
+        body.amharic .english-content {
+            display: none;
+        }
+
+        body.amharic .amharic-content {
+            display: block;
+        }
+
+        .language-content {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .nav-menu {
+                gap: 1px;
+            }
+            
+            .nav-link {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-content {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                flex: 1;
+                min-width: auto;
+            }
+            
+            .nav-container {
+                flex: 1 0 100%;
+                order: 3;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--white);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                box-shadow: var(--shadow-lg);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-radius: 0;
+                border-bottom: 1px solid var(--gray-light);
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background: var(--light-color);
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: none;
+            }
+            
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .program-hero {
+                padding: 80px 0;
+            }
+            
+            .program-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .program-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .download-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .language-switcher {
+                justify-content: center;
+            }
+            
+            .program-hero {
+                padding: 70px 0;
+            }
+            
+            .program-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .program-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .program-stats {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                min-width: 150px;
+                padding: 20px 15px;
+            }
+            
+            .stat-item p {
+                font-size: 2rem;
+            }
+            
+            .features-tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .feature-tab {
+                text-align: center;
+            }
+            
+            .program-downloads,
+            .program-components,
+            .roadmap-section,
+            .map-section,
+            .program-features {
+                padding: 30px;
+            }
+            
+            .map-overlay {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: 20px;
+                max-width: 100%;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .program-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .program-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Contact Info & Language Switcher (SAME AS HOMEPAGE) -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-map-marker-alt"></i> Hossana, Ethiopia</span>
+                <span><i class="fas fa-phone"></i> +251939060376</span>
+                <span><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</span>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+                <button class="lang-btn" data-lang="am">
+                    <i class="fas fa-globe"></i> አማርኛ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header with Logo and Navigation (SAME AS HOMEPAGE) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Section -->
+                <div class="logo-section">
+                    <a href="hadiya_prosperity.html" class="logo-container">
+                        <div class="logo-img">
+                            <img src="c:\Users\yohannes\Pictures\Hadiya_Zone.jpg" alt="Hadiya Zone Logo">
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="english-content language-content">HADIYA ZONE PROSPERITY PARTY BRANCH OFFICE</h1>
+                            <h1 class="amharic-content language-content">ሃዲያ ዞን  የብልጽግና ፓርቲ ብሮ</h1>
+                            <p class="english-content language-content">Official Government Website</p>
+                            <p class="amharic-content language-content">የመንግስት ኦፊሴላዊ ድረ-ገጽ</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="nav-container">
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item">
+                            <a href="hadiya_prosperity.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span class="english-content language-content">Home</span>
+                                <span class="amharic-content language-content">መግቢያ</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="english-content language-content">About</span>
+                                <span class="amharic-content language-content">ስለ እኛ</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">
+                                <i class="fas fa-newspaper"></i>
+                                <span class="english-content language-content">News</span>
+                                <span class="amharic-content language-content">ዜና</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="sub-branches.html" class="nav-link">
+                                <i class="fas fa-sitemap"></i>
+                                <span class="english-content language-content">Branches</span>
+                                <span class="amharic-content language-content">ቅርንጫፎች</span>
+                            </a>
+                        </li>
+                        
+                        <!-- Resources with Dropdown -->
+                        <li class="nav-item">
+                            <a href="resources.html" class="nav-link active">
+                                <i class="fas fa-book"></i>
+                                <span class="english-content language-content">Resources</span>
+                                <span class="amharic-content language-content">ሀብቶች</span>
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 5px;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                
+                                <a href="program.html" class="dropdown-link active">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span class="english-content language-content">Program</span>
+                                    <span class="amharic-content language-content">ፕሮግራም</span>
+                                </a>
+                                <a href="rules-principles.html" class="dropdown-link">
+                                    <i class="fas fa-gavel"></i>
+                                    <span class="english-content language-content">Rules & Principles</span>
+                                    <span class="amharic-content language-content">ደንቦች እና መርህ</span>
+                                </a>
+                               
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">
+                                <i class="fas fa-envelope"></i>
+                                <span class="english-content language-content">Contact</span>
+                                <span class="amharic-content language-content">ያግኙን</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="vacancy.html" class="nav-link">
+                                <i class="fas fa-briefcase"></i>
+                                <span class="english-content language-content">Vacancy</span>
+                                <span class="amharic-content language-content">ባዊ ክፍት ቦታ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Program Hero Section (YOUR ORIGINAL CONTENT) -->
+    <section class="program-hero section">
+        <div class="container program-hero-content">
+            <div class="program-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <h1 class="english-content">Party Program & Strategic Framework</h1>
+            <h1 class="amharic-content">የፓርቲ ፕሮግራም እና ስትራቴጂክ መርሃግብር</h1>
+            
+            <p class="english-content">
+                Comprehensive development framework outlining Prosperity Party's vision, mission, strategic objectives, 
+                and implementation roadmap for sustainable growth and prosperity in Central Ethiopia Region.
+            </p>
+            <p class="amharic-content">
+                የብልፅግና ፓርቲ ራዕይ፣ ተልዥኮ፣ ስትራቴጂክ ዓላማዎች እና በማዕከላዊ ኢትዮጵያ ክልል የተዘረጋ እድገት እና ብልፅግና ለማምጣት የተዘጋጀ የስትራቴጂ መርሃግብር።
+            </p>
+        </div>
+    </section>
+
+    <!-- Your Original Content Continues Exactly As Is -->
+    <div class="container">
+        <!-- Program Downloads Section -->
+        
+            
+                       
+                 
+                  
+                 
+                     
+                 <br><br>
+        
+
+        <!-- Program Components Section -->
+        <section class="program-components fade-in">
+            <h2 class="section-title english-content">Key Program Components</h2>
+            <h2 class="section-title amharic-content">የፕሮግራም ዋና አካላት</h2>
+            
+            <div class="components-grid">
+                <div class="component-card">
+                    <div class="component-number">1</div>
+                    <h4 class="english-content">Economic Transformation</h4>
+                    <h4 class="amharic-content">ኢኮኖሚያዊ ለውጥ</h4>
+                    <p class="english-content">Industrial development, agriculture modernization, and private sector growth.</p>
+                    <p class="amharic-content">የኢንዱስትሪ እድገት፣ የአገር ማሻሻያ እና የግል ሚና እድገት።</p>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-number">2</div>
+                    <h4 class="english-content">Social Development</h4>
+                    <h4 class="amharic-content">ማህበራዊ እድገት</h4>
+                    <p class="english-content">Education, healthcare, and social protection systems enhancement.</p>
+                    <p class="amharic-content">ትምህርት፣ የጤና አገልግሎት እና ማህበራዊ ጥበቃ ስርዓቶች ማሻሻል።</p>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-number">3</div>
+                    <h4 class="english-content">Good Governance</h4>
+                    <h4 class="amharic-content">ጥሩ አስተዳደር</h4>
+                    <p class="english-content">Institutional reform, transparency, and citizen engagement.</p>
+                    <p class="amharic-content">ተቋማዊ ማሻሻያ፣ ግልጽነት እና የዜጎች ተሳትፎ።</p>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-number">4</div>
+                    <h4 class="english-content">Infrastructure Development</h4>
+                    <h4 class="amharic-content">መሠረተ ልማት</h4>
+                    <p class="english-content">Transport, energy, water, and digital infrastructure expansion.</p>
+                    <p class="amharic-content">መጓጓዣ፣ ኃይል፣ ውሃ እና ዲጂታል መሠረተ ልማት ማስፋፋት።</p>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-number">5</div>
+                    <h4 class="english-content">Environmental Sustainability</h4>
+                    <h4 class="amharic-content">የአካባቢ ዘላቂነት</h4>
+                    <p class="english-content">Climate resilience, natural resource management, and green growth.</p>
+                    <p class="amharic-content">የአየር ንብረት መቋቋም፣ የተፈጥሮ ሀብት አስተዳደር እና አረንጓዴ እድገት።</p>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-number">6</div>
+                    <h4 class="english-content">Peace & Security</h4>
+                    <h4 class="amharic-content">ሰላም እና ደህንነት</h4>
+                    <p class="english-content">Conflict resolution, community security, and social cohesion.</p>
+                    <p class="amharic-content">ክርክር መፍትሄ፣ የማህበረሰብ ደህንነት እና ማህበራዊ ተባባር።</p>
+                </div>
+            </div>
+        </section>
+
+        
+             
+               
+              
+                    
+                   
+                
+                 
+            
+            <div class="feature-content" id="performance-dashboard">
+                <h3 class="english-content">Real-Time Performance Monitoring Dashboard</h3>
+                <h3 class="amharic-content">በቅጽበት የአፈፃፀም ክትትል ዳሽቦርድ</h3>
+                
+                <div class="feature-content-inner">
+                    <p class="english-content">
+                        Track program implementation progress with our interactive dashboard. Monitor key performance indicators (KPIs), 
+                        view progress against targets, and access real-time data visualizations.
+                    </p>
+                    <p class="amharic-content">
+                        የፕሮግራም አፈፃፀም እድገትን ከእኛ ግብረመልስ ዳሽቦርድ ጋር ይከታተሉ። ዋና የአፈፃፀም አመላካቾችን (KPIs) ይከታተሉ፣
+                        ከዒላማዎች ጋር ያለውን እድገት ይመልከቱ እና በቅጽበት የውሂብ ምስሎችን ይድረሱ።
+                    </p>
+                    
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: var(--border-radius); margin: 20px 0;">
+                        <h4 class="english-content" style="color: var(--primary-color); margin-bottom: 15px;">Dashboard Preview:</h4>
+                        <h4 class="amharic-content" style="color: var(--primary-color); margin-bottom: 15px;">የዳሽቦርድ ቅድመ እይታ፡-</h4>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
+                            <div style="background: white; padding: 15px; border-radius: 8px; text-align: center; border-left: 4px solid var(--primary-color);">
+                                <div style="font-size: 2rem; font-weight: bold; color: var(--primary-color);">78%</div>
+                                <div style="font-size: 0.9rem; color: var(--text-light);" class="english-content">Overall Progress</div>
+                                <div style="font-size: 0.9rem; color: var(--text-light);" class="amharic-content">ጠቅላላ እድገት</div>
+                            </div>
+                            <div style="background: white; padding: 15px; border-radius: 8px; text-align: center; border-left: 4px solid var(--secondary-color);">
+                                <div style="font-size: 2rem; font-weight: bold; color: var(--secondary-color);">42</div>
+                                <div style="font-size: 0.9rem; color: var(--text-light);" class="english-content">Active Projects</div>
+                                <div style="font-size: 0.9rem; color: var(--text-light);" class="amharic-content">ንቁ ፕሮጀክቶች</div>
+                            </div>
+                            <div style="background: white; padding: 15px; border-radius: 8px; text-align: center; border-left: 4px solid var(--accent-color);">
+                                <div style="font-size: 2rem; font-weight: bold; color: var(--accent-color);">94%</div>
+                                <div style="font-size: 0.9rem; color: var(--text-light);" class="english-content">Budget Utilization</div>
+                                <div style="font-size: 0.9rem; color: var(--text-light);" class="amharic-content">መጠን አጠቃቀም</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="dashboard.html" class="btn btn-secondary">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span class="english-content">Access Live Dashboard</span>
+                        <span class="amharic-content">በቀጥታ ዳሽቦርድ ይግቡ</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Other feature content would continue similarly -->
+        </section>
+
+        <!-- Google Map Section -->
+        <section class="map-section fade-in">
+            <h2 class="section-title english-content">Program Implementation Locations</h2>
+            <h2 class="section-title amharic-content">የፕሮግራም አፈፃፀም ቦታዎች</h2>
+            
+            <p class="english-content" style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+                Explore the geographical distribution of program activities across Central Ethiopia Region.
+            </p>
+            <p class="amharic-content" style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+                በማዕከላዊ ኢትዮጵያ ክልል ውስጥ የፕሮግራም እንቅስቃሴዎች የሚገኙበትን የመሬት ክፍፍል ይመልከቱ።
+            </p>
+            
+            <div class="map-container">
+                <div class="map-overlay">
+                    <h4 class="english-content">Regional Coverage</h4>
+                    <h4 class="amharic-content">የክልል ሽፋን</h4>
+                    <p class="english-content" style="font-size: 0.9rem; margin-bottom: 10px;">
+                        <i class="fas fa-check-circle" style="color: var(--primary-color);"></i> 
+                        1 Zones covered
+                    </p>
+                    <p class="amharic-content" style="font-size: 0.9rem; margin-bottom: 10px;">
+                        <i class="fas fa-check-circle" style="color: var(--primary-color);"></i> 
+                        1 ዞኖች ተሸፍነዋል
+                    </p>
+                    <p class="english-content" style="font-size: 0.9rem; margin-bottom: 10px;">
+                        <i class="fas fa-check-circle" style="color: var(--primary-color);"></i> 
+                        13 Woredas with active projects
+                    </p>
+                    <p class="amharic-content" style="font-size: 0.9rem; margin-bottom: 10px;">
+                        <i class="fas fa-check-circle" style="color: var(--primary-color);"></i> 
+                        13 ንቁ ፕሮጀክቶች ያላቸው ወረዳዎች
+                    </p>
+                </div>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1588725.4285928176!2d37.5!3d7.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17b132f8d7d9a2c1%3A0x9e8e3c3b3c3b3b3b!2sCentral%20Ethiopia%20Region%2C%20Ethiopia!5e0!3m2!1sen!2set!4v1691234567890!5m2!1sen!2set" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer (UPDATED TO MATCH HOMEPAGE) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- Contact Info -->
+                    <div class="footer-section">
+                        <h3 class="english-content language-content">Contact Us</h3>
+                        <h3 class="amharic-content language-content">ያግኙን</h3>
+                        <div class="contact-info-footer">
+                            <p><i class="fas fa-map-marker-alt"></i> <span class="english-content language-content">Hossana, Ethiopia</span><span class="amharic-content language-content">ሆሳዕና, ኢትዮጵያ</span></p>
+                            <p><i class="fas fa-phone"></i> +251939060376</p>
+                            <p><i class="fas fa-envelope"></i> info@cerprosperity.gov.et</p>
+                            <p><i class="fas fa-box"></i> <span class="english-content language-content">P.O. Box: 332</span><span class="amharic-content language-content">ፖ.ሳ.ቁ: 332</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="english-content language-content">Quick Links</h3>
+                        <h3 class="amharic-content language-content">ፈጣን አገናኞች</h3>
+                        <ul class="footer-links">
+                            <li><a href="resources.html"><i class="fas fa-download"></i> <span class="english-content language-content">Download Resources</span><span class="amharic-content language-content">ሀብቶችን አውርድ</span></a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span class="english-content language-content">Contact Form</span><span class="amharic-content language-content">የመገኛ ቅጽ</span></a></li>
+                            <li><a href="news.html"><i class="fas fa-newspaper"></i> <span class="english-content language-content">Latest News</span><span class="amharic-content language-content">የቅርብ ዜና</span></a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> <span class="english-content language-content">About Us</span><span class="amharic-content language-content">ስለ እኛ</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Social & Hours -->
+                    <div class="footer-section">
+                        <h3 class="english-content language-content">Working Hours</h3>
+                        <h3 class="amharic-content language-content">የሥራ ሰዓት</h3>
+                        <div class="contact-info-footer">
+                            <p><i class="fas fa-clock"></i> <span class="english-content language-content">Mon-Fri: 8:30 AM - 5:30 PM</span></p>
+                            <p><i class="fas fa-clock"></i> <span class="amharic-content language-content">ሰኞ-ሐሙስ: 8:30 ጥዋት - 5:30 ከሰዓት</span></p>
+                            <!-- <p><i class="fas fa-calendar-alt"></i> <span class="english-content language-content">Sat-Sun: Closed</span></p>
+                            <p><i class="fas fa-calendar-alt"></i> <span class="amharic-content language-content">ቅዳሜ-እሁድ: ዝግ</span></p> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Developer Info -->
+                <div class="developer-info">
+                    <p class="english-content language-content"><i class="fas fa-code"></i> <strong>Developed BY:</strong> Wachemo University Computer Science Students</p>
+                    <p class="amharic-content language-content"><i class="fas fa-code"></i> <strong>የተዘጋጀው በ:</strong> ዋቸሞ ዩኒቨርሲቲ ኮምፒዩተር ሳይንስ ተማሪዎች</p>
+                    <p class="english-content language-content"><i class="fas fa-users"></i> <strong>Names:</strong> Simachew Getnet, Yohannes Ashango, Mulugeta Emiru</p>
+                    <p class="amharic-content language-content"><i class="fas fa-users"></i> <strong>ስሞች:</strong> ስማቸው ጌትነት, ዮሐንስ አሻንጎ, ሙሉጌታ እምሩ</p>
+                    <!-- <p class="english-content language-content"><i class="fas fa-envelope"></i> <strong>Contact Developers:</strong> developers@wachemo.edu.et</p> -->
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="english-content language-content">&copy; <span id="currentYear">2026</span> Central Ethiopia Region Prosperity Party Branch Office. All rights reserved.</p>
+                <p class="amharic-content language-content">&copy; <span id="currentYearAm">2026</span> የማዕከላዊ ኢትዮጵያ ክልል ብልፅግና ፓርቲ ቅርጫፍ ጽ/ቤት. ሁሉም መብቶች የተጠበቁ ናቸው.</p>
+                <p class="english-content language-content" style="margin-top: 10px;">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== LANGUAGE SWITCHING =====
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const body = document.body;
+            
+            function switchLanguage(lang) {
+                // Update active button
+                langButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Switch language
+                if (lang === 'am') {
+                    body.classList.add('amharic');
+                    localStorage.setItem('preferredLanguage', 'am');
+                } else {
+                    body.classList.remove('amharic');
+                    localStorage.setItem('preferredLanguage', 'en');
+                }
+            }
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+            
+            // Load saved language preference
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang === 'am') {
+                switchLanguage('am');
+            } else {
+                switchLanguage('en');
+            }
+            
+            // ===== MOBILE NAVIGATION =====
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    this.querySelector('i').classList.toggle('fa-bars');
+                    this.querySelector('i').classList.toggle('fa-times');
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-container') && window.innerWidth <= 992) {
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (mobileToggle) {
+                        mobileToggle.querySelector('i').classList.add('fa-bars');
+                        mobileToggle.querySelector('i').classList.remove('fa-times');
+                    }
+                }
+            });
+            
+            // ===== SMOOTH SCROLLING =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 992 && navMenu) {
+                            navMenu.classList.remove('active');
+                            if (mobileToggle) {
+                                mobileToggle.querySelector('i').classList.add('fa-bars');
+                                mobileToggle.querySelector('i').classList.remove('fa-times');
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // ===== FADE IN ANIMATIONS =====
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => observer.observe(el));
+            
+            // ===== CURRENT YEAR =====
+            const currentYear = new Date().getFullYear();
+            document.getElementById('currentYear').textContent = currentYear;
+            document.getElementById('currentYearAm').textContent = currentYear;
+            
+            // ===== ACTIVE NAV LINK =====
+            const currentPage = window.location.pathname.split('/').pop() || 'program.html';
+            const navLinks = document.querySelectorAll('.nav-link, .dropdown-link');
+            
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // ===== WINDOW RESIZE HANDLER =====
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992 && navMenu) {
+                    navMenu.classList.remove('active');
+                    if (mobileToggle) {
+                        mobileToggle.querySelector('i').classList.add('fa-bars');
+                        mobileToggle.querySelector('i').classList.remove('fa-times');
+                    }
+                }
+            });
+            
+            // ===== FEATURE TABS =====
+            const featureTabs = document.querySelectorAll('.feature-tab');
+            const featureContents = document.querySelectorAll('.feature-content');
+            
+            if (featureTabs.length > 0) {
+                featureTabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        const targetId = this.getAttribute('data-target');
+                        
+                        // Update active tab
+                        featureTabs.forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // Show target content
+                        featureContents.forEach(content => {
+                            content.classList.remove('active');
+                            if (content.id === targetId) {
+                                content.classList.add('active');
+                            }
+                        });
+                    });
+                });
+            }
+            
+            // ===== DROPDOWN MENU FOR MOBILE =====
+            const dropdownLinks = document.querySelectorAll('.nav-link');
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 992 && this.nextElementSibling && this.nextElementSibling.classList.contains('dropdown-menu')) {
+                        e.preventDefault();
+                        const parentItem = this.parentElement;
+                        parentItem.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // ===== DOWNLOAD FILE FUNCTION =====
+            window.downloadFile = function(filename) {
+                alert(`Downloading: ${filename}\n\nThis would initiate the download in a real application.`);
+            };
+        });
+    </script>
+</body>
+</html>
